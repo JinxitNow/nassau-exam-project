@@ -7,7 +7,6 @@
   --color-neutral-light: #E9ECEF;
   --color-black: #000000;
   --color-white: #ffffff;
-
   --color-cta-red: #BC3B2D;   /* CTA main color */
   --color-secondary-teal: #1B323F;
 }
@@ -57,7 +56,7 @@ h1 {
   font-size: 26px;   /* mobile */
   font-weight: 700;
   line-height: 1.3;
-  color: #796535;
+  color: #000000;
   margin-bottom: 16px;
   text-transform: uppercase; /* NEW */
 }
@@ -73,7 +72,7 @@ h2 {
   font-size: 13px;   /* mobile */
   font-weight: 700;
   line-height: 1.3;
-  color: #796535;
+  color: #000000;
   margin-bottom: 14px;
   text-transform: uppercase; /* NEW */
 }
