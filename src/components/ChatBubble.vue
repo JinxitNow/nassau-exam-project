@@ -135,33 +135,34 @@ function toggleBubble() {
   font-size: 14px;
   cursor: pointer;
 }
-/* TAIL BUBBLE (2 circles) */
+/* TAIL BUBBLE (2 circles, spaced + angled outward) */
 .bubble-tail {
   position: absolute;
-  right: 40px;        /* leicht nach links vom Button */
-  bottom: 46px;       /* sitzt direkt unter der Bubble */
+  right: 60px;        /* weiter links = weiter weg vom Button */
+  bottom: 52px;       /* näher an der Bubble */
 
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: var(--color-cta-red);
   border-radius: 50%;
 
-  z-index: 10000;     /* WICHTIG: über der Bubble */
+  z-index: 10000;
 }
 
 .bubble-tail::after {
   content: "";
   position: absolute;
-  right: 4px;
-  bottom: -10px;
+  right: -6px;        /* weiter rechts = diagonal nach außen */
+  bottom: -14px;      /* weiter unten = schöner Abstand */
 
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background: var(--color-cta-red);
   border-radius: 50%;
 
-  z-index: 10000;     /* auch über der Bubble */
+  z-index: 10000;
 }
+
 
 
 
