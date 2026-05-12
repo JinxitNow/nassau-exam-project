@@ -10,8 +10,8 @@ const menuOpen = ref(false)
 
       <!-- Logo -->
       <a href="/" class="logo">
-        <img src="@/assets/logo.webp" alt="Nassau logo" />
-      </a>
+  <img src="/img/logo.webp" alt="Nassau logo" />
+</a>
 
       <!-- Navigation -->
       <nav :class="['nav', { open: menuOpen }]">
