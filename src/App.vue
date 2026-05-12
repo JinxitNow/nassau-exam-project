@@ -6,12 +6,17 @@ import ChatBubble from "@/components/ChatBubble.vue"
 import CookieBanner from "@/components/CookieBanner.vue"
 import NewsBar from "./components/NewsBar.vue"
 import Hero from "./components/Hero.vue"
+import NewsSection from "./components/NewsSection.vue"
+import VideoGallery from "./components/VideoGallery.vue"
 </script>
 
 <template>
   <NewsBar />
   <Header />
 <Hero/>
+<VideoGallery/>
+<NewsSection/>
+
   <!-- Her skifter routeren mellem HomeView, BirthdayCampaignView osv. -->
   <router-view />
 
