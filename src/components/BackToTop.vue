@@ -47,7 +47,17 @@ onUnmounted(() => {
     </svg>
 
     <!-- ARROW -->
-    <div class="arrow">▲</div>
+   <svg class="arrow" viewBox="0 0 24 24">
+  <path
+    d="M12 3 L12 21 M5 10 L12 3 L19 10"
+    stroke="var(--color-cta-red)"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>
+
   </button>
 </template>
 
@@ -92,7 +102,7 @@ onUnmounted(() => {
 
 .indicator {
   fill: none;
-  stroke: #bc3b2d; /* euer CTA-Rot */
+  stroke: var(--color-cta-red); /* euer CTA-Rot */
   stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 283;
@@ -105,12 +115,12 @@ onUnmounted(() => {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
-  font-size: 18px;
-  font-weight: 900;
-  color: #bc3b2d; /* roter Pfeil */
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
   pointer-events: none;
 }
+
 
 /* MOBILE VERSION */
 @media (max-width: 768px) {
@@ -127,7 +137,9 @@ onUnmounted(() => {
   }
 
   .arrow {
-    font-size: 14px;
+    width: 18px;
+    height: 18px;
   }
 }
+
 </style>

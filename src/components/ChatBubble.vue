@@ -18,7 +18,7 @@ function toggleBubble() {
   <div class="chat-wrapper">
     <!-- CHAT BUTTON -->
     <button class="chat-btn" @click="toggleBubble">
-      💬
+      <img src="/icons/chatbubble.svg" class="chat-icon" alt="Chat icon" />
     </button>
 
     <!-- SPEECH BUBBLE -->
@@ -32,6 +32,9 @@ function toggleBubble() {
 
       <button class="close" @click="showBubble = false">×</button>
     </div>
+
+    <!-- TAIL BUBBLE (2 circles) -->
+    <div class="bubble-tail" v-if="showBubble"></div>
   </div>
 </template>
 
@@ -50,12 +53,13 @@ function toggleBubble() {
   border-radius: 50%;
   border: none;
   background: var(--color-cta-red);
-  font-size: 22px;
   cursor: pointer;
 
-  color: var(--color-cta-red);
-  box-shadow: inset 0 0 0 3px var(--color-cta-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  box-shadow: inset 0 0 0 3px var(--color-cta-red);
   transition: 0.2s ease;
 }
 
@@ -63,21 +67,32 @@ function toggleBubble() {
   opacity: 0.8;
 }
 
-/* SPEECH BUBBLE — horizontal, auto width, controlled line breaks */
+/* SVG ICON */
+.chat-icon {
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  display: block;
+
+  /* optische Zentrierung */
+  transform: translateY(1px);
+}
+
+/* SPEECH BUBBLE */
 .bubble {
   position: absolute;
   right: 0;
   bottom: 60px;
 
   background: var(--color-cta-red);
-  color: var(--color-cta-red);
+  color: var(--color-white);
 
   padding: 18px 18px;
   border-radius: 12px;
 
   width: fit-content;
-  min-width: 180px;     /* sorgt dafür, dass "os," oben bleibt */
-  max-width: 240px;     /* verhindert zu breite Bubble */
+  min-width: 180px;
+  max-width: 240px;
 
   display: flex;
   flex-direction: column;
@@ -89,24 +104,20 @@ function toggleBubble() {
   animation: fadeIn 0.3s ease;
 }
 
-/* Text */
 .bubble p {
   margin: 0;
-  color: var(--color-white);
   font-size: 14px;
   font-weight: 400;
   text-align: left;
-}
-
-/* Phone number */
-.phone {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
   color: var(--color-white);
 }
 
-/* Close Button */
+.phone {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* CLOSE BUTTON */
 .close {
   position: absolute;
   top: -8px;
@@ -124,6 +135,35 @@ function toggleBubble() {
   font-size: 14px;
   cursor: pointer;
 }
+/* TAIL BUBBLE (2 circles) */
+.bubble-tail {
+  position: absolute;
+  right: 40px;        /* leicht nach links vom Button */
+  bottom: 46px;       /* sitzt direkt unter der Bubble */
+
+  width: 16px;
+  height: 16px;
+  background: var(--color-cta-red);
+  border-radius: 50%;
+
+  z-index: 10000;     /* WICHTIG: über der Bubble */
+}
+
+.bubble-tail::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: -10px;
+
+  width: 10px;
+  height: 10px;
+  background: var(--color-cta-red);
+  border-radius: 50%;
+
+  z-index: 10000;     /* auch über der Bubble */
+}
+
+
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -135,7 +175,11 @@ function toggleBubble() {
   .chat-btn {
     width: 38px;
     height: 38px;
-    font-size: 16px;
+  }
+
+  .chat-icon {
+    width: 18px;
+    height: 18px;
   }
 
   .bubble {
@@ -147,6 +191,19 @@ function toggleBubble() {
 
   .phone {
     font-size: 18px;
+  }
+
+  .bubble-tail {
+    right: 14px;
+    bottom: 38px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .bubble-tail::after {
+    width: 8px;
+    height: 8px;
+    bottom: -8px;
   }
 }
 
