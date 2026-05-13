@@ -10,7 +10,7 @@ const menuOpen = ref(false)
 
       <!-- Logo -->
       <a href="/" class="logo">
-  <img src="/img/logo.webp" alt="Nassau logo" />
+  <img src="/logo/nassau-logo-w.svg" alt="Nassau logo" />
 </a>
 
       <!-- Navigation -->
@@ -29,11 +29,11 @@ const menuOpen = ref(false)
       <div class="header-actions">
 
         <div class="icon">
-          <img src="/icons/cart.png" alt="Indkøbskurv" />
+          <img src="/icons/shoppingbasket.svg" alt="Indkøbskurv" />
         </div>
 
         <div class="icon icon-flag">
-          <img src="/icons/flag.webp" alt="Sprog" />
+          <img src="/icons/flag-danish.svg" alt="Sprog" />
         </div>
 
       </div>
