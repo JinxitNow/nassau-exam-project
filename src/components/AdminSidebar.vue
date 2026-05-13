@@ -9,35 +9,35 @@ import { RouterLink } from "vue-router";
 
         <li>
           <RouterLink to="/dashboard">
-            <img src="/icons/dashboard.png" alt="Dashboard" class="icon" />
+            <img src="/icons/placeholder.svg" alt="Dashboard" class="icon" />
             Dashboard
           </RouterLink>
         </li>
 
         <li>
           <RouterLink to="/admin-employees">
-            <img src="/icons/members.png" alt="Medarbejdere" class="icon" />
+            <img src="/icons/placeholder.svg" alt="Medarbejdere" class="icon" />
             Medarbejdere
           </RouterLink>
         </li>
 
         <li>
           <RouterLink to="/admin-leads">
-            <img src="/icons/events.png" alt="Kundehenvendelser" class="icon" />
+            <img src="/icons/placeholder.svg" alt="Kundehenvendelser" class="icon" />
             Kundehenvendelser
           </RouterLink>
         </li>
 
         <li>
           <RouterLink to="/statistik">
-            <img src="/icons/statistics.png" alt="Statistik" class="icon" />
+            <img src="/icons/placeholder.svg" alt="Statistik" class="icon" />
             Statistik
           </RouterLink>
         </li>
 
         <li>
           <RouterLink to="/tutorials">
-            <img src="/icons/manual.png" alt="Manual" class="icon" />
+            <img src="/icons/placeholder.svg" alt="Manual" class="icon" />
             Manual & Tutorials
           </RouterLink>
         </li>

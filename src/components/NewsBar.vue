@@ -35,18 +35,20 @@ function closeBar() {
   color: var(--color-white);
 
   padding: 10px 14px;
-
+  padding-right: 40px; /* <<< NEU: Platz für das X */
+  
   display: flex;
   align-items: center;
-  justify-content: center; /* Text zentriert */
+  justify-content: center;
   position: relative;
 }
+
 
 .news-text {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  text-align: center; /* Text wirklich mittig */
+  text-align: center;
   line-height: 1.3;
   color: var(--color-white);
 }
@@ -54,7 +56,7 @@ function closeBar() {
 /* Close button */
 .close-btn {
   position: absolute;
-  right: 14px;
+  right: 8px;           
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
@@ -66,7 +68,9 @@ function closeBar() {
   font-weight: bold;
   cursor: pointer;
   line-height: 1;
+  margin-right: 1.5rem;
 }
+
 
 /* DESKTOP */
 @media (min-width: 768px) {
@@ -75,16 +79,17 @@ function closeBar() {
     margin-right: calc(-1 * 3.8rem);
   }
 
-  .newsbar {
+ .newsbar {
     padding: 14px 20px;
-  }
-
-  .news-text {
-    font-size: 18px;
+    padding-right: 50px; /* <<< NEU */
   }
 
   .close-btn {
+    right: 10px;         
     font-size: 24px;
+     margin-right: 3.8rem;
   }
+
+
 }
 </style>
