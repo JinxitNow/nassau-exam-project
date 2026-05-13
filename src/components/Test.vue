@@ -1,18 +1,6 @@
 /* test areal for Chris/
 
 <script>
-import facebookImg from '../assets/img/facebook.webp?url'
-import instagramImg from '../assets/img/instagram.webp?url'
-
-export default {
-  name: 'FooterComponent',
-  data() {
-    return {
-      facebookImg,
-      instagramImg,
-    }
-  }
-};
 </script>
 
 <template>
@@ -47,8 +35,8 @@ export default {
             <li><a href="https://www.instagram.com/odeonodense/?hl=da">@Odeonodense</a></li>
           </ul>
           <div class="social-icons">
-            <a href="https://www.facebook.com/odeonodense/?locale=da_DK" target="_blank"><img :src="facebookImg" alt="Facebook" class="social-icon-img" /></a>
-            <a href="https://www.instagram.com/odeonodense/?hl=da" target="_blank"><img :src="instagramImg" alt="Instagram" class="social-icon-img" /></a>
+            <a href="https://www.facebook.com/odeonodense/?locale=da_DK" target="_blank"><img src="/icons/icon-facebook.svg" alt="Facebook" class="social-icon-img" /></a>
+            <a href="https://www.instagram.com/odeonodense/?hl=da" target="_blank"><img src="/icons/icon-instagram.svg" alt="Instagram" class="social-icon-img" /></a>
           </div>
         </div>
 
