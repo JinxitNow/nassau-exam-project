@@ -1,21 +1,29 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from "vue"
+import { useRouter } from "vue-router"
 
-const isVisible = ref(true);
+const isVisible = ref(true)
+const router = useRouter()
 
 function closeBar() {
-  isVisible.value = false;
+  isVisible.value = false
+}
+
+function goToBirthday() {
+  router.push("/birthday-campaign")
 }
 </script>
 
 <template>
   <div v-if="isVisible" class="newsbar-wrapper">
-    <div class="newsbar">
+    <!-- Ganze Bar klickbar -->
+    <div class="newsbar" @click="goToBirthday">
       <h2 class="news-text">
         🎉 NASSAU HAR FØDSELSDAG – SE NU PÅ VORES FØDSELSDAGSTILBUD
       </h2>
 
-      <button class="close-btn" @click="closeBar">×</button>
+      <!-- X darf NICHT navigieren -->
+      <button class="close-btn" @click.stop="closeBar">×</button>
     </div>
   </div>
 </template>
@@ -23,7 +31,7 @@ function closeBar() {
 <style scoped>
 /* WRAPPER entfernt globales body-padding */
 .newsbar-wrapper {
-  width: 100vw;              /* volle Bildschirmbreite */
+  width: 100vw;
   margin-left: calc(-1 * var(--body-padding, 1.5rem));
   margin-right: calc(-1 * var(--body-padding, 1.5rem));
 }
@@ -35,14 +43,15 @@ function closeBar() {
   color: var(--color-white);
 
   padding: 10px 14px;
-  padding-right: 40px; /* <<< NEU: Platz für das X */
-  
+  padding-right: 40px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
 
+  cursor: pointer; /* <<< wichtig */
+}
 
 .news-text {
   margin: 0;
@@ -56,12 +65,12 @@ function closeBar() {
 /* Close button */
 .close-btn {
   position: absolute;
-  right: 8px;           
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
 
-  background: #77251D;
+  background: #77251d;
   border: none;
   color: var(--color-cta-red);
   font-size: 20px;
@@ -71,7 +80,6 @@ function closeBar() {
   margin-right: 1.5rem;
 }
 
-
 /* DESKTOP */
 @media (min-width: 768px) {
   .newsbar-wrapper {
@@ -79,17 +87,15 @@ function closeBar() {
     margin-right: calc(-1 * 3.8rem);
   }
 
- .newsbar {
+  .newsbar {
     padding: 14px 20px;
-    padding-right: 50px; /* <<< NEU */
+    padding-right: 50px;
   }
 
   .close-btn {
-    right: 10px;         
+    right: 10px;
     font-size: 24px;
-     margin-right: 3.8rem;
+    margin-right: 3.8rem;
   }
-
-
 }
 </style>

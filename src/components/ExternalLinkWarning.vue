@@ -66,7 +66,7 @@ defineExpose({ openWarning })
 }
 
 .modal {
-  background: #ffffff;
+  background: var(--color-white);
   padding: 1.8rem;
   border-radius: 12px;
   width: 90%;
@@ -109,7 +109,7 @@ button {
 /* NASSAU Rot */
 .confirm {
   background: var(--color-cta-red);
-  color: white;
+  color: var(--color-white);
 }
 
 .confirm:hover {
