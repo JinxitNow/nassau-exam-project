@@ -20,7 +20,7 @@
           <img src="/img/news1.webp" alt="Nyhed 1" class="news-img" />
         </div>
         <p class="news-headline">NASSAU søger Servicekoordinator</p>
-        <a class="news-link" href="#">Læs mere om jobbet her →</a>
+        <a class="news-link" href="https://www.jobindexarkiv.dk/arkiv/vis/r13775193">Læs mere om jobbet her →</a>
       </div>
 
       <!-- CARD 2 -->
