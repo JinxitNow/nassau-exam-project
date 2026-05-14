@@ -4,20 +4,20 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const slides = [
   {
     image: '/img/slideshow1.webp',
-    title: 'EN LØSNING, DER BARE FUNGERER',
-    text: 'Familien Jensen fik udskiftet deres gamle garageport med en ny NASSAU ledhejseport, og oplevelsen har været al forventning. De fremhæver især den stille drift og den høje isolering.',
+    title: 'EN PORSCHEBOX',
+    text: 'Arkitekt Bruno Jakobsen valgte NASSAU Softline og 9000G i forbindelse med hans projekt The Nordic BarnHouse',
   },
 
   {
     image: '/img/slideshow2.webp',
-    title: 'MODERNE DESIGN',
-    text: 'Et moderne udtryk og høj funktionalitet giver både bedre komfort og flottere facade til hjemmet.',
+    title: 'MULIGHED FOR SPECIALFARVER',
+    text: 'Familie Larsen har valgt en .........',
   },
 
   {
     image: '/img/slideshow3.webp',
     title: 'HØJ KVALITET',
-    text: 'Portene er udviklet til at holde i mange år og kræver minimal vedligeholdelse.',
+    text: 'Haderslev Kaserne valgt NASSAU porte, da de er udviklet til at holde i mange år og kræver minimal vedligeholdelse.',
   },
 
   {
@@ -28,10 +28,39 @@ const slides = [
 
   {
     image: '/img/slideshow5.webp',
+    title: 'KVALITET, STABILITET OG HASTIGHED',
+    text: 'Valget faldt på NASSAU 9000 energy ledhejseport, da Falck skulle have nye porte i',
+  },
+
+ {
+    image: '/img/slideshow6.webp',
     title: 'HØJ KVALITET',
     text: 'Portene er udviklet til at holde i mange år og kræver minimal vedligeholdelse.',
-  }
+  },
 
+   {
+    image: '/img/slideshow7.webp',
+    title: 'EN DRØM BLEV TIL VIRKELIGHED',
+    text: 'Valget faldt på NASSAU Woodgrain garageporte med panoramaruder og sprosser, da tidligere racerkører Nicolas Kiesas skulle vælge porte til hans nye garage.',
+  },
+
+    {
+    image: '/img/slideshow8.webp',
+    title: 'UDSIGT & PERFEKT LYSINDFALD',
+    text: 'Miccom DeSign & Creations valgte en 9000G ledhejseporte til deres kontor/værksted',
+  },
+
+ {
+    image: '/img/slideshow9.webp',
+    title: 'FLEKSIBEL TILPASNING',
+    text: 'Familie Jensen er nybyggere og havde brug for en port der kunne passes ind i arkitektens planer og derfor faldt valget på en NASSAU Classic port',
+  },
+
+ {
+    image: '/img/slideshow10.webp',
+    title: 'STABIL KVALITET',
+    text: 'NASSAU Panorama Ledhejseporte i vaskehaller - En port med maksimalt lysindfald',
+  }
 ]
 
 const currentSlide = ref(0)
@@ -124,6 +153,54 @@ onUnmounted(() => {
 
 <style scoped>
 
+
+/* MOBILVISNING*/
+
+@media (max-width: 900px) {
+
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-primary);
+    min-height: 320px;
+    display: flex; /* teksten skal ikke længere stå side om side */
+    align-items: center;
+  }
+
+  /* BILLEDE SOM BAGGRUND */
+  .slide-image-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9; /* mørkt vandmærke-look */
+  }
+
+  /* MØRKT OVERLAY */
+  .slide-image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 43, 67, 0.55);
+  }
+
+  /* TEKST OVENPÅ */
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  }
+
+/*DESKTOPVISNING*/
+
 .slideshow-wrapper {
   width: 100%;
   margin: 60px auto;
@@ -141,10 +218,7 @@ onUnmounted(() => {
 
 .slide-content {
   flex: 3;
-}
-
-.slide-image-wrapper {
-  flex: 7;
+  max-width: 85%;
 }
 
 .slide-content h2 {
@@ -170,10 +244,18 @@ onUnmounted(() => {
 
 /* HØJRE BILLEDE */
 
+.slide-image-wrapper {
+  flex: 7;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
 .slide-image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  border: 4px solid #0094ff;
 }
 
 /* NAVIGATION */
@@ -208,22 +290,23 @@ onUnmounted(() => {
   background-color: #0094ff;
 }
 
-/* RESPONSIVE */
+/* DESKTOP ONLY */
+@media (min-width: 901px) {
 
-@media (max-width: 900px) {
-
-  .slider-container {
-    flex-direction: column;
-  }
-
-  .slide-image-wrapper,
-  .slide-content {
+  .slide-image-wrapper {
+    flex: 7;
     width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
-  .slide-content h2 {
-    font-size: 24px;
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
+
 }
 
 </style>
