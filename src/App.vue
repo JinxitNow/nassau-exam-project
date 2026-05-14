@@ -5,7 +5,6 @@ import Header from "@/components/Header.vue"
 import Footer from "@/components/Footer.vue"
 import BackToTop from "@/components/BackToTop.vue"
 import CookieBanner from "@/components/CookieBanner.vue"
-import NewsBar from "@/components/NewsBar.vue"
 
 // Das neue Component
 import ExternalLinkWarning from "@/components/ExternalLinkWarning.vue"
@@ -34,7 +33,6 @@ onMounted(() => {
     <!-- Das neue Modal -->
     <ExternalLinkWarning ref="warning" />
 
-    <NewsBar />
     <Header />
 
     <!-- Hier erscheinen HomeView, BirthdayCampaignView usw. -->

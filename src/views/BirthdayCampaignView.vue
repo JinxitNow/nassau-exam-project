@@ -9,9 +9,13 @@ function playVideo(event) {
   const baseUrl = iframe.src.split("?")[0]
   iframe.src = `${baseUrl}?autoplay=1&muted=0&controls=1&modestbranding=1&rel=0`
 }
+
+import ChatBubble from "@/components/ChatBubble.vue"
+
 </script>
 
 <template>
+
   <div class="campaign">
 
     <!-- ========================= -->
@@ -21,14 +25,15 @@ function playVideo(event) {
 
       <div class="hero-content">
         <h1>NASSAU FYLDER 56 ÅR 🎉</h1>
-
+        <h2>Dansk kvalitet siden 1970 — bygget på erfaring, innovation og tillid.</h2>
         <p class="hero-text">
-          Siden 1970 har NASSAU leveret danskproducerede porte i høj kvalitet.  
-          I år fejrer vi vores 56-års fødselsdag <br> 
-          – og du er inviteret med!
-        </p>
+        NASSAU fylder 56 år — og det er en milepæl, vi er stolte af.
+        Siden 1970 har vi udviklet og produceret porte i dansk kvalitet, <br> skabt med præcision, erfaring og et stærkt fokus på holdbarhed.
+        Gennem årene har vi udvidet vores sortiment, forbedret <br> vores teknologi og styrket vores service, men vores værdier er de samme: kvalitet, pålidelighed og godt håndværk.
+        <br>I dag står NASSAU som en af branchens mest erfarne producenter<br> — og vi glæder os til at fortsætte rejsen sammen med vores kunder.</p>
 
-        <button class="cta">LÆS MERE OM NASSAU</button>
+       <a href="https://nassau.dk/om-nassau/historien-om-nassau-ledhejseporte/" class="cta">LÆS MERE OM NASSAUS HISTORIE</a>
+
       </div>
 
       <div class="hero-image-wrapper">
@@ -37,6 +42,21 @@ function playVideo(event) {
 
     </section>
 
+<div class="floating-balloons">
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+  <img src="/img/balloon1.svg" class="float-balloon" />
+</div>
+
+
+<ChatBubble/>
     <!-- ========================= -->
     <!-- VIDEO + TEXT SECTION -->
     <!-- ========================= -->
@@ -47,24 +67,27 @@ function playVideo(event) {
         <h2>EN DAG HOS NASSAU</h2>
 
         <p>
-          I anledning af vores fødselsdag bad vi hele NASSAU‑teamet om  
-          at dele et billede af deres arbejdsplads.
+          Hos NASSAU fejrer vi ikke kun vores 56 år — vi fejrer menneskene bag.
+        Hver dag skaber vores medarbejdere værdi gennem deres faglighed, engagement og samarbejde.
+        Derfor bad vi hele NASSAU‑teamet om at dele et øjeblik fra deres arbejdsdag: fra produktionen og logistikken til kontorerne, rådgivningen og servicebilerne.
+        </p>
+        <p>        
+        Det giver et ærligt indblik i den hverdag, hvor kvalitet bliver til virkelighed, og hvor hver port er resultatet af mange menneskers indsats.
+        Vi er stolte af vores historie, men endnu mere stolte af det fællesskab, der driver os fremad.
         </p>
 
-        <p>
-          Fra produktionen til kontoret – vores medarbejdere er kernen  
-          i vores 56 års succes.
-        </p>
+        <p>Tak til alle medarbejdere, kunder og samarbejdspartnere, der har været med på rejsen — og som fortsat er med til at forme fremtiden for NASSAU.
+</p>
+               <a href="https://nassau.dk/referencer/garageport-inspiration/" class="cta small">SE MERE FRA NASSAU</a>
 
-        <button class="cta small">SE TEAMETS BILLEDER</button>
       </div>
 
       <!-- VIDEO RECHTS -->
       <div class="video-wrapper">
 
         <!-- BALLOONS -->
-        <img src="/img/balloon.svg" class="balloon balloon-top-right" alt="Ballon" />
-        <img src="/img/balloon.svg" class="balloon balloon-bottom-left" alt="Ballon" />
+        <img src="/img/balloon1.svg" class="balloon balloon-top-right" alt="Ballon" />
+        <img src="/img/balloon1.svg" class="balloon balloon-bottom-left" alt="Ballon" />
 
         <!-- OVERLAY -->
         <div class="video-overlay" @click="playVideo($event)">
@@ -86,27 +109,35 @@ function playVideo(event) {
     <!-- ========================= -->
     <!-- USP SECTION -->
     <!-- ========================= -->
-    <section class="usp-section">
+ <section class="usp-section">
 
-      <div class="usp">
-        <img src="/icons/placeholder.svg" alt="Icon" class="icon" />
-        <h3>Siden 1970</h3>
-        <p>Kvalitet, erfaring og dansk håndværk i mere end 50 år.</p>
-      </div>
+  <h1 class="usp-title">56 år NASSAU</h1>
 
-      <div class="usp">
-        <img src="/icons/placeholder.svg" alt="Icon" class="icon" />
-        <h3>Hurtig levering</h3>
-        <p>Garageporte leveres på kun 2–3 uger – hver gang.</p>
-      </div>
+  <div class="usp-section-row">
 
-      <div class="usp">
-        <img src="/icons/placeholder.svg" alt="Icon" class="icon" />
-        <h3>Dansk kvalitet</h3>
-        <p>Produceret i Danmark med fokus på holdbarhed og sikkerhed.</p>
-      </div>
+    <div class="usp">
+      <img src="/icons/port-circle.svg" class="icon" />
+      <h3>Siden 1970</h3>
+      <p>Kvalitet, erfaring og dansk håndværk i mere end 50 år.</p>
+    </div>
 
-    </section>
+    <div class="usp">
+      <img src="/icons/truck-circle.svg" class="icon" />
+      <h3>Hurtig levering</h3>
+      <p>Garageporte leveres på kun 2–3 uger – hver gang.</p>
+    </div>
+
+    <div class="usp">
+      <img src="/icons/ribbon-circle.svg" class="icon" />
+      <h3>Dansk kvalitet</h3>
+      <p>Produceret i Danmark med fokus på holdbarhed og sikkerhed.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
 
     <!-- ========================= -->
     <!-- GALLERY SECTION -->
@@ -119,12 +150,12 @@ function playVideo(event) {
       </p>
 
       <div class="gallery-grid">
-        <img src="/icons/placeholder.svg" alt="Gallery" />
-        <img src="/icons/placeholder.svg" alt="Gallery" />
-        <img src="/icons/placeholder.svg" alt="Gallery" />
-        <img src="/icons/placeholder.svg" alt="Gallery" />
-        <img src="/icons/placeholder.svg" alt="Gallery" />
-        <img src="/icons/placeholder.svg" alt="Gallery" />
+        <img src="/img/birthday1.webp" alt="Gallery" />
+        <img src="/img/birthday2.webp" alt="Gallery" />
+        <img src="/img/birthday3.webp" alt="Gallery" />
+        <img src="/img/birthday4.webp" alt="Gallery" />
+        <img src="/img/birthday5.webp" alt="Gallery" />
+        <img src="/img/birthday6.webp" alt="Gallery" />
       </div>
 
     </section>
@@ -133,8 +164,9 @@ function playVideo(event) {
 </template>
 
 <style scoped>
+
 /* ========================= */
-/* MOBILE FIRST */
+/* GLOBAL / MOBILE FIRST */
 /* ========================= */
 
 .cta,
@@ -145,12 +177,14 @@ function playVideo(event) {
   border: none;
 }
 
-
 .campaign {
   padding: 1.5rem;
 }
 
+/* ========================= */
 /* HERO */
+/* ========================= */
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -160,8 +194,11 @@ function playVideo(event) {
 }
 
 .hero h1 {
-    color: var(--color-cta-red);
-    font-size: 42px;
+  color: var(--color-black);
+}
+
+.hero h2 {
+  color: var(--color-cta-red);
 }
 
 .hero-content {
@@ -180,18 +217,18 @@ function playVideo(event) {
   transform: translateX(5%);
 }
 
+/* ========================= */
 /* VIDEO SECTION */
+/* ========================= */
+
 .video-section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
-  /* ⭐ Fester Abstand zwischen Hero und Video */
   margin-top: 48px;
   margin-bottom: 3rem;
 }
 
-/* VIDEO WRAPPER */
 .video-wrapper {
   position: relative;
   width: 100%;
@@ -200,7 +237,6 @@ function playVideo(event) {
   border-radius: 10px;
 }
 
-/* IFRAME */
 .video-frame {
   width: 100%;
   height: 100%;
@@ -208,7 +244,6 @@ function playVideo(event) {
   object-fit: cover;
 }
 
-/* OVERLAY */
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -220,7 +255,6 @@ function playVideo(event) {
   z-index: 3;
 }
 
-/* PLAY BUTTON */
 .play-button {
   width: 70px;
   height: 70px;
@@ -235,14 +269,19 @@ function playVideo(event) {
   position: absolute;
   left: 26px;
   top: 20px;
-  width: 0;
-  height: 0;
   border-left: 26px solid var(--color-primary);
   border-top: 16px solid transparent;
   border-bottom: 16px solid transparent;
 }
 
-/* BALLOONS */
+.video-text p {
+  margin-bottom: 0.8rem;
+}
+
+/* ========================= */
+/* STATIC BALLOONS */
+/* ========================= */
+
 .balloon {
   position: absolute;
   width: 120px;
@@ -264,33 +303,151 @@ function playVideo(event) {
   transform: rotate(-10deg);
 }
 
-/* VIDEO TEXT */
-.video-text h2 {
-  font-size: 20px;
-  margin-bottom: 0.6rem;
-  color: var(--color-cta-red);
+/* ========================= */
+/* FLOATING BALLOONS */
+/* ========================= */
+
+.floating-balloons {
+  position: absolute;
+  bottom: -140px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: visible;
 }
 
-.video-text p {
-  font-size: 14px;
-  margin-bottom: 0.8rem;
+.float-balloon {
+  position: absolute;
+  width: 90px;
+  opacity: 0;
+  animation: balloonFloat 8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.float-balloon:nth-child(1) { left: 55%; animation-delay: 0.2s; transform: scale(1.05); }
+.float-balloon:nth-child(2) { left: 68%; animation-delay: 0.7s; transform: scale(0.95); }
+.float-balloon:nth-child(3) { left: 78%; animation-delay: 0.4s; transform: scale(1.1); }
+.float-balloon:nth-child(4) { left: 88%; animation-delay: 1.1s; transform: scale(0.9); }
+
+@keyframes balloonFloat {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(-950px) translateX(15px); opacity: 0; }
+}
+
+/* ========================= */
+/* USP SECTION */
+/* ========================= */
+
+.usp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.usp-title {
+  font-weight: 700;
+  color: var(--color-cta-red);
+  margin-bottom: 1rem;
+}
+
+.usp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 260px;
+}
+
+.usp .icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1rem;
+}
+
+.usp h3 {
+  margin: 0.5rem 0;
+  color: var(--color-black);
+}
+
+.usp p {
+  line-height: 1.4;
+  color: var(--color-black);
+}
+
+/* ========================= */
+/* GALLERY */
+/* ========================= */
+
+.gallery {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.gallery-sub {
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* GALLERY – TITLE LEFT */
+/* ========================= */
+
+.gallery h2,
+.gallery-sub {
+  text-align: left;
+  margin-left: 0;
+}
+
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (min-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid img {
+    height: 220px;
+  }
 }
 
 /* ========================= */
 /* DESKTOP */
 /* ========================= */
+
 @media (min-width: 768px) {
 
-  /* HERO DESKTOP */
+  /* HERO */
   .hero {
     flex-direction: row;
     align-items: center;
     text-align: left;
-
     width: 100vw;
     margin-left: calc(-1 * var(--body-padding, 3.8rem));
     margin-right: calc(-1 * var(--body-padding, 3.8rem));
     padding-left: var(--body-padding, 3.8rem);
+  }
+
+  .cta {
+    margin-top: 30px;
   }
 
   .hero-content {
@@ -299,7 +456,6 @@ function playVideo(event) {
 
   .hero-image-wrapper {
     flex: 1;
-    display: flex;
     justify-content: flex-end;
   }
 
@@ -308,22 +464,18 @@ function playVideo(event) {
     transform: translateX(0%);
   }
 
-  /* VIDEO DESKTOP */
+  /* VIDEO */
   .video-section {
     flex-direction: row;
     align-items: center;
-
-    /* Desktop Abstand */
     margin-top: 150px;
   }
 
-  /* TEXT LINKS */
   .video-text {
     flex: 1;
-    padding-right: 2rem;
+    padding-right: 4rem;
   }
 
-  /* VIDEO RECHTS */
   .video-wrapper {
     flex: 1;
   }
@@ -342,5 +494,36 @@ function playVideo(event) {
     bottom: -70px;
     left: -70px;
   }
+
+  /* USP */
+  .usp-section {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
+  .usp-section-row {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  .usp {
+    max-width: 280px;
+  }
 }
+
+/* ========================= */
+/* DESKTOP LARGE */
+/* ========================= */
+
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-grid img {
+    height: 260px;
+  }
+}
+
 </style>

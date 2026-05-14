@@ -19,7 +19,7 @@ function goToBirthday() {
     <!-- Ganze Bar klickbar -->
     <div class="newsbar" @click="goToBirthday">
       <h2 class="news-text">
-        🎉 NASSAU HAR FØDSELSDAG – SE NU PÅ VORES FØDSELSDAGSTILBUD
+        🎉 NASSAU HAR FØDSELSDAG – FEJR DAGEN SAMMEN MED OS I DAG
       </h2>
 
       <!-- X darf NICHT navigieren -->
