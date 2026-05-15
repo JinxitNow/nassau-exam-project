@@ -33,7 +33,7 @@ import NewsBar from "../components/NewsBar.vue"
   gap: 3rem;
   margin: 6rem auto;
   padding: 2rem 2;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 @media (max-width: 768px) {
