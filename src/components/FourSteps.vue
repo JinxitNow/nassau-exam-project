@@ -45,13 +45,13 @@
 
 <style scoped>
 .foursteps {
-  padding: 6rem 0;
+  padding: 1rem 0;
 }
 
 .title {
   font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: var(--color-black);
   text-align: left;
 }
