@@ -52,7 +52,7 @@
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  color: #1a1a1a;
+  color: var(--color-black);
   text-align: left;
 }
 
@@ -77,7 +77,7 @@
   top: 0;
   width: 1px;
   height: 100%;
-  background: #dcdcdc;
+  background: var(--color-neutral-dark);
 }
 
 /* Tildel grid-areas */
@@ -95,7 +95,7 @@
 .number {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #0052A5;
+  color: var(--color-primary);
   min-width: 32px;
 }
 
@@ -108,7 +108,7 @@
 .step p {
   font-size: 1rem;
   line-height: 1.55;
-  color: #444;
+  color: var(--color-black);
 }
 
 /* MOBILVISNING */

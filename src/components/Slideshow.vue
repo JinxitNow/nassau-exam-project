@@ -188,18 +188,18 @@ onUnmounted(() => {
   line-height: 1.1;
   margin-bottom: 24px;
   font-weight: 700;
-  color: white;
+  color: var(--color-white);
 }
 
 .slide-content p {
   font-size: 16px;
   line-height: 1.7;
   margin-bottom: 30px;
-  color: white;
+  color: var(--color-white);
 }
 
 .slide-link {
-  color: white;
+  color: var(--color-white);
   font-style: italic;
   text-decoration: underline;
 }
@@ -218,14 +218,14 @@ onUnmounted(() => {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #003b5c;
+  color: var(--color-primary);
 }
 
 .dot {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #003b5c;
+  background-color: var(--color-primary);
   cursor: pointer;
 }
 
