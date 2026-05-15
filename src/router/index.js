@@ -21,6 +21,7 @@ const routes = [
     name: "BirthdayCampaign",
     component: BirthdayCampaignView,
   },
+  
   {
     path: "/dashboard",
     name: "AdminDashboard",

@@ -1,4 +1,10 @@
 <script setup>
+
+const emit = defineEmits(["startQuiz"])
+
+function startQuiz() {
+  emit("startQuiz")
+}
 </script>
 
 <template>
@@ -7,10 +13,14 @@
     <div class="quiz-content">
       <h2>Ved du ikke hvilken port der passer til dig?</h2>
       <p>Svar på 10 korte spørgsmål <br> og find den rigtige port.</p>
-      <button class="quiz-btn">Tag testen nu</button>
+
+      <button class="quiz-btn" @click="startQuiz">
+        Tag testen nu
+      </button>
     </div>
   </section>
 </template>
+
 
 
 <style scoped>

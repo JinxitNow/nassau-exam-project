@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from "vue"
+
 import Hero from "@/components/Hero.vue"
 import Foursteps from '@/components/FourSteps.vue'
 import Quiz from '@/components/Quiz.vue'
+import QuizStart from "@/components/QuizStart.vue"
+
 import Slideshow from "@/components/Slideshow.vue"
 import VideoGallery from "@/components/VideoGallery.vue"
 import NewsSection from "@/components/NewsSection.vue"
@@ -12,7 +16,8 @@ import NewsBar from "../components/NewsBar.vue"
 import MapSection from "@/components/MapSection.vue"
 import EmployeeFilterLogic from "@/components/EmployeeFilterLogic.vue"
 
-import { ref } from "vue"
+// Quiz state
+const showQuiz = ref(false)
 
 // Filter-States (werden an EmployeeFilterLogic weitergegeben)
 const selectedPin = ref(null)
@@ -29,7 +34,10 @@ const selectedJob = ref(null)
     <!-- WRAPPER TIL FOURSTEPS + QUIZ -->
     <div class="steps-quiz-wrapper">
       <Foursteps />
-      <Quiz />
+
+      <!-- ⭐ DETTE ER DET VIGTIGE ⭐ -->
+      <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
+      <QuizStart v-else />
     </div>
 
     <Slideshow />
@@ -38,23 +46,17 @@ const selectedJob = ref(null)
     <!-- ⭐ NEUER BEREICH: MapSection + FilterLogic + LocalExpert -->
     <div class="expert-map-wrapper">
 
-     <div class="expert-map-wrapper">
+      <EmployeeFilterLogic
+        :pin="selectedPin"
+        :zipcode="selectedZip"
+        :job="selectedJob"
+      />
 
-  <!-- TEXT + EMPLOYEE CARDS LINKS -->
-  <EmployeeFilterLogic
-    :pin="selectedPin"
-    :zipcode="selectedZip"
-    :job="selectedJob"
-  />
-
-  <!-- MAP RECHTS -->
-  <MapSection
-    @pin-selected="selectedPin = $event"
-    @zipcode-selected="selectedZip = $event"
-    @job-selected="selectedJob = $event"
-  />
-
-</div>
+      <MapSection
+        @pin-selected="selectedPin = $event"
+        @zipcode-selected="selectedZip = $event"
+        @job-selected="selectedJob = $event"
+      />
 
     </div>
 
@@ -80,7 +82,6 @@ const selectedJob = ref(null)
   }
 }
 
-/* ⭐ Layout für LocalExpert + MapSection */
 .expert-map-wrapper {
   display: flex;
   gap: 3rem;
