@@ -8,17 +8,25 @@ defineProps(["employee"]);
 
       <!-- Text links -->
       <div class="info">
-        <h3 class="name">{{ employee.name }}</h3>
+        <h2 class="name">{{ employee.name }}</h2>
+
+        <!-- Jobtitel: bold + weniger Abstand -->
         <p class="job">{{ employee.job }}</p>
 
-        <p class="label">Afdeling:</p>
-        <p class="value">{{ employee.department || "Servicekontrakter" }}</p>
+        <div class="row">
+          <p class="label">Afdeling:</p>
+          <p class="value">{{ employee.department || "Servicekontrakter" }}</p>
+        </div>
 
-        <p class="label">Telefon:</p>
-        <p class="value">{{ employee.phone }}</p>
+        <div class="row">
+          <p class="label">Telefon:</p>
+          <p class="value">{{ employee.phone }}</p>
+        </div>
 
-        <p class="label">Email:</p>
-        <p class="value">{{ employee.email }}</p>
+        <div class="row">
+          <p class="label">Email:</p>
+          <p class="value">{{ employee.email }}</p>
+        </div>
       </div>
 
       <!-- Bild rechts -->
@@ -39,6 +47,7 @@ defineProps(["employee"]);
   background-color: var(--color-neutral-light);
   border-radius: 8px;
   padding: 16px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,29 +66,30 @@ defineProps(["employee"]);
 }
 
 .name {
-  font-size: 16px;
-  font-weight: 550;
-  color: var(--color-black);
-  margin-bottom: 4px;
+  margin-bottom: 2px; /* enger */
   text-transform: uppercase;
 }
 
+/* Jobtitel: bold + enger Abstand */
 .job {
-  font-size: 12px;
-  color: var(--color-neutral-dark);
-  margin-bottom: 12px;
+  margin-bottom: 10px; /* enger */
+  font-weight: 600;     /* bold */
+}
+
+/* Label + Value in einer Zeile */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
 }
 
 .label {
-  font-size: 10px;
-  font-weight: 550;
-  color: var(--color-neutral-dark);
-  margin-top: 6px;
+  margin: 0;
 }
 
 .value {
-  font-size: 12px;
-  color: var(--color-black);
+  margin: 0;
 }
 
 /* Bildbereich */

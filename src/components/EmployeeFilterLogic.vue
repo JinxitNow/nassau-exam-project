@@ -7,7 +7,7 @@ import LocalExpert from "@/components/LocalExpert.vue";
 const props = defineProps({
   pin: String,
   zipcode: String,
-  job: String
+  job: String   // <- kommt von MapSection (privat / erhverv / service)
 });
 
 // Alle Mitarbeiter aus Firebase
@@ -54,13 +54,13 @@ const filteredEmployees = computed(() => {
     result = result.filter(e => e.pinId === props.pin || e.pinId === "all");
   }
 
-  // 3) Job-Filter
+  // 3) Job-Filter → customerType!
   if (props.job) {
-    result = result.filter(e => e.job === props.job);
+    result = result.filter(e => e.customerType === props.job);
   }
 
-  // 4) Maximal 4 Mitarbeiter
-  return result.slice(0, 4);
+  // 4) NEU: Keine Begrenzung mehr
+  return result;
 });
 </script>
 

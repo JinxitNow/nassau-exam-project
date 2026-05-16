@@ -1,11 +1,11 @@
 <script setup>
-defineProps(["employee"]);
+defineProps(["pin"]);
 </script>
 
 <template>
   <div
     class="pin"
-    :style="{ left: employee.x + '%', top: employee.y + '%' }"
+    :style="{ left: pin.x + '%', top: pin.y + '%' }"
   >
     📍
   </div>

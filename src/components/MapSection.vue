@@ -1,9 +1,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { loadEmployees } from "@/services/firebaseEmployees";
+import { loadPins } from "@/services/firebasePins";
 import EmployeePin from "@/components/EmployeePin.vue";
 
 const employees = ref([]);
+const pins = ref([]);
 
 const zipcode = ref("");
 const selectedJob = ref(null);
@@ -12,8 +14,14 @@ const showJobDropdown = ref(false);
 const emit = defineEmits(["pin-selected", "zipcode-selected", "job-selected"]);
 
 onMounted(() => {
+  // Mitarbeiter laden
   loadEmployees((list) => {
     employees.value = list;
+  });
+
+  // Pins laden
+  loadPins((list) => {
+    pins.value = list;
   });
 });
 
@@ -40,10 +48,11 @@ function chooseJob(job) {
 }
 </script>
 
+
 <template>
   <div class="map-container">
 
-    <!-- FILTERBAR (jetzt am globalen Layout ausgerichtet) -->
+    <!-- FILTERBAR -->
     <div class="filter-bar">
       <div class="zip-wrapper">
         <input
@@ -64,37 +73,17 @@ function chooseJob(job) {
         </button>
 
         <div v-if="showJobDropdown" class="dropdown">
-
-          <p :class="{ active: selectedJob === null }" @click="chooseJob(null)">
-            Alle
-          </p>
-
-          <p :class="{ active: selectedJob === 'privat' }" @click="chooseJob('privat')">
-            Privat salg
-          </p>
-
-          <p :class="{ active: selectedJob === 'erhverv' }" @click="chooseJob('erhverv')">
-            Erhverv salg
-          </p>
-
-          <p :class="{ active: selectedJob === 'service' }" @click="chooseJob('service')">
-            Service
-          </p>
-
+          <p :class="{ active: selectedJob === null }" @click="chooseJob(null)">Alle</p>
+          <p :class="{ active: selectedJob === 'privat' }" @click="chooseJob('privat')">Privat salg</p>
+          <p :class="{ active: selectedJob === 'erhverv' }" @click="chooseJob('erhverv')">Erhverv salg</p>
+          <p :class="{ active: selectedJob === 'service' }" @click="chooseJob('service')">Service</p>
         </div>
       </div>
     </div>
 
     <!-- MAP BOX -->
     <div class="map-box">
-      <img src="/icons/placeholder.svg" class="map-image" />
-
-      <EmployeePin
-        v-for="emp in employees"
-        :key="emp.id"
-        :employee="emp"
-        @click="selectPin(emp.pinId)"
-      />
+      <img src="/img/map.svg" class="map-image" />      
     </div>
 
   </div>
@@ -106,40 +95,53 @@ function chooseJob(job) {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
-/* FILTERBAR — jetzt am globalen Layout ausgerichtet */
+/* FILTERBAR — fixeret til højre */
 .filter-bar {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding-right: var(--global-padding, 2rem); /* nutzt dein globales padding */
-  padding-left: var(--global-padding, 2rem);
+
+  padding: 0;
+  position: relative;
+  z-index: 20;
 }
 
-/* ZIP INPUT */
+/* ZIP INPUT WRAPPER */
 .zip-wrapper {
   display: flex;
   gap: 0.4rem;
   align-items: center;
 }
 
-.zip-input {
-  padding: 8px 12px;
-  border: 1px solid var(--color-neutral-dark);
-  border-radius: 6px;
-  font-size: 12px;
+/* ENS HØJDE TIL ALLE FILTER-ELEMENTER */
+.zip-input,
+.zip-btn,
+.filter-btn {
+  height: 40px;                 /* Ens højde */
+  display: flex;
+  align-items: center;
 }
 
+/* ZIP INPUT */
+.zip-input {
+  padding: 0 12px;              /* kun horizontal padding */
+  border: 1px solid var(--color-neutral-dark);
+  border-radius: 6px;
+}
+
+/* ZIP BUTTON */
 .zip-btn {
   background-color: var(--color-cta-red);
   color: var(--color-white);
   border: none;
-  padding: 8px 12px;
+  padding: 0 14px;              /* kun horizontal padding */
   border-radius: 6px;
   cursor: pointer;
+  justify-content: center;
 }
 
 /* FILTER BUTTON */
@@ -148,41 +150,43 @@ function chooseJob(job) {
 }
 
 .filter-btn {
-  background-color: var(--color-secondary-teal);
+  background-color: var(--color-primary);
   color: var(--color-white);
-  padding: 8px 14px;
+  padding: 0 16px;              /* kun horizontal padding */
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  font-size: 12px;
   text-transform: uppercase;
+  justify-content: center;
 }
 
 .filter-btn.active {
-  background-color: var(--color-cta-red);
+  background-color: var(--color-primary);
 }
 
 /* DROPDOWN */
 .dropdown {
   position: absolute;
-  top: 40px;
+  top: 42px;
   right: 0;
+
   background: var(--color-white);
   border: 1px solid var(--color-neutral-dark);
   border-radius: 6px;
   padding: 8px;
+
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 150px;
-  z-index: 10;
+
+  z-index: 999;
 }
 
 .dropdown p {
   margin: 0;
   padding: 6px;
   cursor: pointer;
-  font-size: 12px;
   border-radius: 4px;
 }
 
@@ -191,29 +195,27 @@ function chooseJob(job) {
 }
 
 .dropdown p.active {
-  background-color: var(--color-secondary-teal);
+  background-color: var(--color-primary);
   color: var(--color-white);
 }
 
-/* MAP BOX */
 .map-box {
-  background: var(--color-neutral-light);
-  border-radius: 50%;
-  width: 380px;
-  height: 380px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 650px;
+  outline: 1px solid var(--color-secondary-teal);
+  margin-left: auto;
+  margin-right: 0;
 
-  /* OUTLINE sichtbar */
-  outline: 2px solid red;
+  position: relative;   /* WICHTIG für absolute Pins */
+  overflow: hidden;
 }
 
-/* MAP IMAGE */
 .map-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;         /* Proportionen bleiben */
+  display: block;       /* kein extra whitespace */
 }
+
+
+
 </style>
