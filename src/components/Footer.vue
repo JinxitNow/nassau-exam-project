@@ -2,85 +2,191 @@
 </script>
 
 <template>
-  <footer class="kontakt">
-    <div class="kolonne">
-      <h2>KONTAKT</h2>
-      <p>NASSAU Door A/S</p>
-      <p>Krogagervej 2</p>
-      <p>5750 Ringe</p>
-      <br>
-      <p>Tlf.nr. 62 62 23 46</p>
-      <p>E-mail: info@nassau.dk</p>
+  <footer class="footer">
+    <div class="row-1">
+      <div class="footer-section kontakt">
+       <h2>KONTAKT</h2>
+       <p>NASSAU Door A/S</p>
+       <p>Krogagervej 2</p>
+       <p>5750 Ringe</p>
+       <br>
+       <p>Tlf.nr. 62 62 23 46</p>
+       <p>E-mail: info@nassau.dk</p>
+      </div>
+    
+
+      <div class="footer-section service">
+        <h2>VAGTCENTRAL/SERVICE/
+         RESERVEDEL</h2>
+        <h1>70 70 23 46</h1> <br>
+        <h2>KUNDESERVICE</h2>
+        <h1>62 62 23 46</h1>
+      </div>
     </div>
 
-    <div class="kolonne">
-      <h2>VAGTCENTRAL/SERVICE/RESERVEDEL</h2>
-      <h1>70 70 23 46</h1>
-      <h2>KUNDESERVICE</h2>
-      <h1>62 62 23 46</h1>
-    </div>
-
-    <div class="SoMe">
+    <div class="footer-section sociale-medier">
       <h2>SOCIALE MEDIER</h2>
-      <img src="/icons/icon-facebook.svg" alt="facebook logo">
-      <img src="/icons/icon-linkedin.svg" alt="linkedin logo">
-      <img src="/icons/icon-youtube.svg" alt="youtube logo">
-      <img src="/icons/icon-instagram.svg" alt="instagram logo">
-      <img src="/icons/icon-houzz.svg" alt="houzz logo">
+      <div class="icons">
+        <a href="https://www.facebook.com/NASSAUDoorDK/"><img src="/icons/icon-facebook.svg" alt="facebook logo"></a>
+        <a href="https://www.linkedin.com/company/nassau-door-as/"><img src="/icons/icon-linkedin.svg" alt="linkedin logo"></a>
+        <a href="https://www.youtube.com/channel/UCJ-bKdYHaI66fJCkhXVUsUQ"><img src="/icons/icon-youtube.svg" alt="youtube logo"></a>
+        <a href="https://www.instagram.com/nassaugarageport/"><img src="/icons/icon-instagram.svg" alt="instagram logo"></a>
+        <a href="https://www.houzz.dk/eksperter/forhandlere-af-garageporte/nassau-door-a-s-pfvwdk-pf~1294416725"><img src="/icons/icon-houzz.svg" alt="houzz logo"></a>
+      </div>
     </div>
     
-    <div class="Nyttige links">
-      <h2>NYTTIGE LINKS</h2>
-      <p>FAQ</p>
-      <p>Jobs hos NASSAU</p>
-      <p>Hvem er NASSAU</p>
+    <div class="row-2">
+      <div class="footer-section nyttige-links">
+        <h2>NYTTIGE LINKS</h2>
+        <ul>
+          <li><a href="https://nassau.dk/kontakt-nassau-door/ofte-stillede-spoergsmaal-porte/">FAQ</a></li>
+          <li><a href="https://nassau.dk/om-nassau/job/">Jobs hos NASSAU</a></li>
+          <li><a href="https://nassau.dk/om-nassau/hvem-er-nassau/">Hvem er NASSAU</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section internal-links">
+        <h2>INTERNAL LINKS</h2>
+        <p>Privacy Policy</p>
+        <p>Salgs- og leveringsbetingelser erhverv</p>
+        <p>Salgs- og leveringsbetingelser privat</p>
+        <p>Generelle vilkår og handelsbetingelser</p>
+      </div>
     </div>
 
-    <div class="Internal links">
-      <h2>INTERNAL LINKS</h2>
-      <p>Privacy Policy</p>
-      <p>Salgs- og leveringsbetingelser erhverv</p>
-      <p>Salgs- og leveringsbetingelser privat</p>
-      <p>Generelle vilkår og handelsbetingelser</p>
+    <div class="footer-bottom">
+    <p>©NASSAU Door A/S, Part of ASSA ABLOY © ASSA ABLOY ｜</p>
+    <p>CVR: 34391513 ｜ <a href="https://portal.nassau.dk/Account/Login?ReturnUrl=%2F">NASSAU-Portal</a></p>
     </div>
-
-    <p>©NASSAU Door A/S, Part of ASSA ABLOY © ASSA ABLOY ｜ CVR: 34391513 ｜ NASSAU-Portal</p>
-
   </footer>
 </template>
 
-<style scoped> 
-/*mobil*/
-.kontakt {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
+<style scoped>
+/* MOBIL FIRST */
+.footer {
+  /* fuld bredde ud over side-container */
   background-color: var(--color-primary);
-  padding: 20px;
+  color: var(--color-white);
   width: 100vw;
-  margin-left: calc(-1 var(--body-padding, 1.5rem));
-  margin-right: calc(-1 * var(--body-padding, 1.5rem));
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  padding: 30px 20px;
 }
 
-.kontakt h1 {
+.row-1,
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* SOCIALE MEDIER og COPYRIGHT står alene */
+.footer-section,
+.footer-bottom {
+  margin-bottom: 30px;
+}
+
+/* sørg for at ALT tekst i footeren bliver hvid,
+   også hvis du har global p { color: black; } */
+.footer h1,
+.footer h2,
+.footer p,
+.footer li,
+.footer a {
   color: var(--color-white);
 }
 
-.kontakt h2 {
-  color: var(--color-white);
+.footer-section {
+  margin-bottom: 24px;
 }
 
-.kontakt p {
-  color: var(--color-white);
+.footer-section h2 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
-.kolonne p {
+
+.footer-section h1 {
+  margin: 4px 0 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-section p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
   margin: 4px 0;
+  font-size: 0.95rem;
 }
+
+.footer-section a {
+  text-decoration: none;
+}
+
+.icons img {
+  width: 38px;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 14px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 /*desktop*/
-@media (min-width: 768px) {
+@media (min-width: 900px) {
+
+  .row-1,
+  .row-2 {
+    display: contents;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 60px 80px 40px;
+    align-items: start;
+  }
+
+  /* STANDARD: alle kolonner får streg */
+  .footer-section {
+    border-right: 2px solid rgba(255,255,255,0.3);
+    padding-right: 20px;
+  }
+
+  /* KONTAKT: ingen streg til højre */
   .kontakt {
-    margin-left: calc(-1 * 3.8rem);
-    margin-right: calc(-1 * 3.8rem);
+    border-right: none;
+    padding-right: 0;
+  }
+
+  /* INTERNAL LINKS: ingen streg (sidste kolonne) */
+  .internal-links {
+    border-right: none;
+  }
+
+  .footer-bottom {
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    text-align: center;
   }
 }
+
 </style>
