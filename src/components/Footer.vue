@@ -138,6 +138,7 @@
 
 .icons img {
   width: 38px;
+  height: 38px;
   margin-right: 8px;
 }
 
@@ -167,7 +168,7 @@
 
   /* STANDARD: alle kolonner får streg */
   .footer-section {
-    border-right: 2px solid rgba(255,255,255,0.3);
+    border-right: 2px solid var(--color-white);
     padding-right: 20px;
   }
 
