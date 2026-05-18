@@ -8,18 +8,16 @@ const employees = ref([]);
 const pins = ref([]);
 
 const zipcode = ref("");
-const selectedJob = ref(null);
+const selectedJob = ref("all");   // Default: Alle
 const showJobDropdown = ref(false);
 
 const emit = defineEmits(["pin-selected", "zipcode-selected", "job-selected"]);
 
 onMounted(() => {
-  // Mitarbeiter laden
   loadEmployees((list) => {
     employees.value = list;
   });
 
-  // Pins laden
   loadPins((list) => {
     pins.value = list;
   });
@@ -47,7 +45,6 @@ function chooseJob(job) {
   showJobDropdown.value = false;
 }
 
-
 const debugCoords = ref(null);
 
 function handleMapClick(event) {
@@ -62,9 +59,7 @@ function handleMapClick(event) {
 
   console.log("Koordinaten:", debugCoords.value);
 }
-
 </script>
-
 
 <template>
   <div class="map-container">
@@ -76,6 +71,7 @@ function handleMapClick(event) {
           v-model="zipcode"
           placeholder="Indtast dit postnummer"
           class="zip-input"
+          @keyup.enter="submitZip"
         />
         <button class="zip-btn" @click="submitZip">✔</button>
       </div>
@@ -86,7 +82,7 @@ function handleMapClick(event) {
           :class="{ active: selectedJob }"
           @click="showJobDropdown = !showJobDropdown"
         >
-          Filtrer
+          Sortering
         </button>
 
         <div v-if="showJobDropdown" class="dropdown">
@@ -100,26 +96,24 @@ function handleMapClick(event) {
 
     <!-- MAP BOX -->
     <div class="map-box" @click="handleMapClick">
-  <img src="/img/map.svg" class="map-image" />
+      <img src="/img/map.svg" class="map-image" />
 
-  <EmployeePin
-    v-for="pin in pins"
-    :key="pin.id"
-    :pin="pin"
-    @click.stop="selectPin(pin.id)"
-  />
+      <EmployeePin
+        v-for="pin in pins"
+        :key="pin.id"
+        :pin="pin"
+        @click.stop="selectPin(pin.id)"
+      />
 
-  <div v-if="debugCoords" class="coord-debug">
-    x: {{ debugCoords.x }}% – y: {{ debugCoords.y }}%
-  </div>
-</div>
-
+      <div v-if="debugCoords" class="coord-debug">
+        x: {{ debugCoords.x }}% – y: {{ debugCoords.y }}%
+      </div>
+    </div>
 
   </div>
 </template>
 
 <style scoped>
-/* OUTER WRAPPER */
 .map-container {
   width: 100%;
   display: flex;
@@ -127,53 +121,46 @@ function handleMapClick(event) {
   gap: 1.5rem;
 }
 
-/* FILTERBAR — fixeret til højre */
 .filter-bar {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-
   padding: 0;
   position: relative;
   z-index: 20;
 }
 
-/* ZIP INPUT WRAPPER */
 .zip-wrapper {
   display: flex;
   gap: 0.4rem;
   align-items: center;
 }
 
-/* ENS HØJDE TIL ALLE FILTER-ELEMENTER */
 .zip-input,
 .zip-btn,
 .filter-btn {
-  height: 40px;                 /* Ens højde */
+  height: 40px;
   display: flex;
   align-items: center;
 }
 
-/* ZIP INPUT */
 .zip-input {
-  padding: 0 12px;              /* kun horizontal padding */
+  padding: 0 12px;
   border: 1px solid var(--color-neutral-dark);
   border-radius: 6px;
 }
 
-/* ZIP BUTTON */
 .zip-btn {
   background-color: var(--color-cta-red);
   color: var(--color-white);
   border: none;
-  padding: 0 14px;              /* kun horizontal padding */
+  padding: 0 14px;
   border-radius: 6px;
   cursor: pointer;
   justify-content: center;
 }
 
-/* FILTER BUTTON */
 .job-filter {
   position: relative;
 }
@@ -181,7 +168,7 @@ function handleMapClick(event) {
 .filter-btn {
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding: 0 16px;              /* kun horizontal padding */
+  padding: 0 16px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -193,22 +180,18 @@ function handleMapClick(event) {
   background-color: var(--color-primary);
 }
 
-/* DROPDOWN */
 .dropdown {
   position: absolute;
   top: 42px;
   right: 0;
-
   background: var(--color-white);
   border: 1px solid var(--color-neutral-dark);
   border-radius: 6px;
   padding: 8px;
-
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 150px;
-
   z-index: 999;
 }
 
@@ -234,15 +217,14 @@ function handleMapClick(event) {
   outline: 1px solid var(--color-secondary-teal);
   margin-left: auto;
   margin-right: 0;
-
-  position: relative;   /* WICHTIG für absolute Pins */
+  position: relative;
   overflow: hidden;
 }
 
 .map-image {
   width: 100%;
-  height: auto;         /* Proportionen bleiben */
-  display: block;       /* kein extra whitespace */
+  height: auto;
+  display: block;
 }
 
 .coord-debug {
@@ -256,6 +238,4 @@ function handleMapClick(event) {
   font-size: 12px;
   pointer-events: none;
 }
-
-
 </style>
