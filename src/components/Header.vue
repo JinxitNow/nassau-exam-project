@@ -121,6 +121,7 @@ const menuOpen = ref(false)
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .burger span {
