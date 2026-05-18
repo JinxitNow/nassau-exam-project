@@ -5,9 +5,9 @@ import LocalExpert from "@/components/LocalExpert.vue";
 
 // Props von HomeView
 const props = defineProps({
-  pin: String,
-  zipcode: String,
-  job: String   // <- kommt von MapSection (privat / erhverv / service)
+  pin: String,        // Pin von der Karte
+  zipcode: String,    // PLZ vom User
+  job: String         // privat / erhverv / service
 });
 
 // Alle Mitarbeiter aus Firebase
@@ -20,7 +20,7 @@ onMounted(() => {
   });
 });
 
-// PLZ → Pin
+// NEU: PLZ → Pin (wird später angepasst!)
 function getPinFromZip(zip) {
   const z = Number(zip);
 
@@ -45,21 +45,24 @@ const filteredEmployees = computed(() => {
   if (props.zipcode) {
     const pin = getPinFromZip(props.zipcode);
     if (pin) {
-      result = result.filter(e => e.pinId === pin || e.pinId === "all");
+      result = result.filter(e =>
+        e.pinIds?.includes(pin) || e.pinIds?.includes("all")
+      );
     }
   }
 
   // 2) Pin-Klick
   if (props.pin) {
-    result = result.filter(e => e.pinId === props.pin || e.pinId === "all");
+    result = result.filter(e =>
+      e.pinIds?.includes(props.pin) || e.pinIds?.includes("all")
+    );
   }
 
-  // 3) Job-Filter → customerType!
+  // 3) Job-Filter → customerType
   if (props.job) {
     result = result.filter(e => e.customerType === props.job);
   }
 
-  // 4) NEU: Keine Begrenzung mehr
   return result;
 });
 </script>
