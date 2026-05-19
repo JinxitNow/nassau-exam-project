@@ -51,27 +51,15 @@ function startQuiz() {
   width: 60%;
   }
 
-.quiz-content h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0;
-  color: var(--color-white);
-}
-
+/* H2 og P arver global typografi */
+.quiz-content h2,
 .quiz-content p {
-  font-size: 0.95rem;
-  line-height: 1.45;
-  margin: 0;
-  opacity: 0.95;
   color: var(--color-white);
 }
 
 .quiz-btn {
-  background: white;
+  background: var(--color-white);
   color: var(--color-primary);
-  font-weight: 600;
-  font-size: 1rem;
   padding: 0.7rem 1.1rem;
   border: none;
   border-radius: 6px;
@@ -94,13 +82,16 @@ function startQuiz() {
     background-image: url('/img/quiz1.webp');
     background-size: 200%;
     background-position: center;
-    padding: 3.5rem 3.5rem;
+    padding: 3.5rem;
     border-radius: 12px;
     position: relative;
-    color: var(--color-white);
   }
 
-  /* H2-container (den hvide boks) */
+  .quiz-image {
+    display: none;
+  }
+
+  /* H2 i hvid boks */
   .quiz-content h2 {
     background: var(--color-white);
     color: var(--color-primary);
@@ -108,55 +99,38 @@ function startQuiz() {
     border-radius: 6px;
     text-align: center;
     max-width: 290px;
-    width: 100%;       
-    margin: 8rem auto 1rem; /* centrerer boksen */
-    font-size: 16px;          /* global h2 desktop */
-    font-weight: 550;
-    text-transform: uppercase;
+    margin: 8rem auto 1rem;
   }
 
-  /* Tekstcontainer */
   .quiz-content {
     width: 100%;
     max-width: 270px;
     padding: 0;
-    background: none;
-    backdrop-filter: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;   
-    margin-top: -4rem;
+    margin: -4rem auto 0;
   }
 
   .quiz-content p {
-    font-size: 14px;
     color: var(--color-white);
     opacity: 0.95;
-    margin: 0 0 0.8rem 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .quiz-btn {
     background-color: var(--color-white);
     color: var(--color-primary);
-    border: none;
     border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;   /* global h2 desktop */
-    font-weight: 550;
-    text-transform: uppercase;
-    line-height: 1.3;
     padding: 14px 26px;
-    width: fit-content;
-    transition: 0.2s ease;
     margin-top: 1rem;
   }
 
   .quiz-btn:hover {
-    text-decoration: underline;
     background: var(--color-white);
+    text-decoration: underline;
   }
 }
-
 </style>
 
