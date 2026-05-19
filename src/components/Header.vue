@@ -9,9 +9,10 @@ const menuOpen = ref(false)
     <div class="header-container">
 
       <!-- Logo -->
-      <a href="/" class="logo">
+      <a href="https://nassau.dk/" class="logo">
   <img src="/logo/nassau-logo-w.svg" alt="Nassau logo" />
 </a>
+
 
       <!-- Navigation -->
       <nav :class="['nav', { open: menuOpen }]">
@@ -100,7 +101,7 @@ const menuOpen = ref(false)
 }
 
 .header-actions .icon img {
-  height: 18px;
+  height: 22px;
   width: auto;
   display: block;
   cursor: pointer;
@@ -223,7 +224,7 @@ const menuOpen = ref(false)
   }
 
   .header-actions .icon img {
-    height: 18px;
+    height: 22px;
     margin-left: 1px;
   }
 
