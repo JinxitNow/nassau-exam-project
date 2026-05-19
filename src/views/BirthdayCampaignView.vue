@@ -82,7 +82,7 @@ import ChatBubble from "@/components/ChatBubble.vue"
 
       </div>
 
-      <!-- VIDEO RECHTS -->
+      <!-- VIDEO RIGHT -->
       <div class="video-wrapper">
 
         <!-- BALLOONS -->

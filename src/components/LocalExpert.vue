@@ -39,7 +39,7 @@ function prevSlide() {
 <template>
   <section class="local-expert">
 
-    <h2>FIND DIN LOKALE PORT EKSPERT</h2>
+    <h1>FIND DIN LOKALE PORT EKSPERT</h1>
     <p>Få fat i din lokale port ekspert, få service og se hvem der er tættest på dig.</p>
 
     <div class="buttons">

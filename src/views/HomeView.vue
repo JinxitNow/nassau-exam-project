@@ -11,6 +11,7 @@ import VideoGallery from "@/components/VideoGallery.vue"
 import NewsSection from "@/components/NewsSection.vue"
 import ChatBubble from "@/components/ChatBubble.vue"
 import NewsBar from "../components/NewsBar.vue"
+import About from "../components/AboutNassau.vue"
 
 // NEU:
 import MapSection from "@/components/MapSection.vue"
@@ -39,6 +40,8 @@ const selectedJob = ref(null)
       <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
       <QuizStart v-else />
     </div>
+
+    <About/>
 
     <Slideshow />
     <VideoGallery />

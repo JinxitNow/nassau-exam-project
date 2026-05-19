@@ -20,24 +20,41 @@ onMounted(() => {
   });
 });
 
-// NEU: PLZ → Pin (wird später angepasst!)
+// ⭐ NEU: PLZ → Pin (finale Version)
 function getPinFromZip(zip) {
   const z = Number(zip);
 
-  if (z >= 1000 && z <= 2999) return "pin_koebenhavn";
-  if (z >= 3000 && z <= 3699) return "pin_koebenhavn";
+  // København
+  if (z >= 1000 && z <= 2999) return "pin_storkoebenhavn";
+
+  // Nordsjælland
+  if (z >= 3000 && z <= 3699) return "pin_nordsjaelland";
+
+  // Bornholm
   if (z >= 3700 && z <= 3799) return "pin_bornholm";
+
+  // Midtsjælland
   if (z >= 4000 && z <= 4999) return "pin_midtsjaelland";
-  if (z >= 5000 && z <= 5999) return "pin_midt_fyn";
-  if (z >= 6000 && z <= 6999) return "pin_aabenraa";
-  if (z >= 7000 && z <= 7999) return "pin_esbjerg";
-  if (z >= 8000 && z <= 8999) return "pin_aarhus";
-  if (z >= 9000 && z <= 9999) return "pin_aalborg";
+
+  // Fyn
+  if (z >= 5000 && z <= 5999) return "pin_fyn";
+
+  // Sønderjylland
+  if (z >= 6000 && z <= 6999) return "pin_soenderjylland";
+
+  // Sydjylland
+  if (z >= 7000 && z <= 7999) return "pin_sydjylland";
+
+  // Østjylland
+  if (z >= 8000 && z <= 8999) return "pin_ostjylland";
+
+  // Nordjylland
+  if (z >= 9000 && z <= 9999) return "pin_nordjylland";
 
   return null;
 }
 
-// Gefilterte Mitarbeiter
+// ⭐ Gefilterte Mitarbeiter
 const filteredEmployees = computed(() => {
   let result = allEmployees.value;
 
