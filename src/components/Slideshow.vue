@@ -59,6 +59,9 @@ const slides = [
 
 const currentSlide = ref(0)
 
+const isPaused = ref(false)
+
+
 function nextSlide() {
   currentSlide.value = (currentSlide.value + 1) % slides.length
 }
@@ -71,10 +74,28 @@ function goToSlide(index) {
   currentSlide.value = index
 }
 
-let slideInterval
+let slideInterval = null
+
+function startSlideshow() {
+  slideInterval = setInterval(nextSlide, 8000)
+}
+
+function pauseSlideshow() {
+  clearInterval(slideInterval)
+  slideInterval = null
+  isPaused.value = true
+}
+
+function resumeSlideshow() {
+  if (!slideInterval) {
+    startSlideshow()
+  }
+  isPaused.value = false
+}
+
 
 onMounted(() => {
-  slideInterval = setInterval(nextSlide, 8000)
+  startSlideshow()
 })
 
 onUnmounted(() => {
@@ -83,13 +104,22 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="slideshow-wrapper">
+  <div 
+    class="slideshow-wrapper"
+    @mouseenter="pauseSlideshow"
+    @mouseleave="resumeSlideshow"
+  > 
+
+    <!-- PAUSE OVERLAY -->
+    <div class="paused-text" v-if="isPaused">
+      Slideshow pauset - Klik udenfor slideshow for automatisk afspildning.
+      </div>
 
     <div class="slider-container">
 
       <!-- TEKST -->
       <div class="slide-content">
-        <h2>{{ slides[currentSlide].title }}</h2>
+        <h1>{{ slides[currentSlide].title }}</h1>
         <p>{{ slides[currentSlide].text }}</p>
 
         <a
@@ -132,18 +162,32 @@ onUnmounted(() => {
   </div>
 </template>
 
+
+
 <style scoped>
 
 /* WRAPPER */
 .slideshow-wrapper {
+  position: relative;
   width: 100%;
   margin: 60px auto;
 }
 
-/* ————————————————
-   MOBILE FIRST
-——————————————— */
+/* PAUSE OVERLAY */
+.paused-text {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-white);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 30;
+  pointer-events: none;
+}
 
+/* MOBILE FIRST */
 .slider-container {
   position: relative;
   overflow: hidden;
@@ -181,27 +225,17 @@ onUnmounted(() => {
   position: relative;
   z-index: 2;
   max-width: 90%;
-}
+  }
 
-.slide-content h2 {
-  font-size: 32px;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  font-weight: 700;
-  color: var(--color-white);
-}
-
+/* Gør H1 og P hvide */
+.slide-content h1,
 .slide-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 30px;
   color: var(--color-white);
 }
-
-.slide-link {
+  
+.slide-content a {
   color: var(--color-white);
-  font-style: italic;
-  text-decoration: underline;
+  font-size: 12px;
 }
 
 /* NAVIGATION */
@@ -230,15 +264,11 @@ onUnmounted(() => {
 }
 
 .dot.active {
-  background-color: #0094ff;
+  background-color: var(--color-neutral-light);
 }
 
-/* ————————————————
-   DESKTOP
-——————————————— */
-
+/* DESKTOP */
 @media (min-width: 900px) {
-
   .slider-container {
     flex-direction: row;
     gap: 40px;
@@ -265,10 +295,6 @@ onUnmounted(() => {
   }
 
   .slide-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
     opacity: 1;
   }
 }
