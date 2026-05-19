@@ -5,7 +5,7 @@ import Hero from "@/components/Hero.vue"
 import Foursteps from '@/components/FourSteps.vue'
 import Quiz from '@/components/Quiz.vue'
 import QuizStart from "@/components/QuizStart.vue"
-
+import CustomerReviews from "@/components/CustomerReviews.vue"
 import Slideshow from "@/components/Slideshow.vue"
 import VideoGallery from "@/components/VideoGallery.vue"
 import NewsSection from "@/components/NewsSection.vue"
@@ -40,9 +40,13 @@ const selectedJob = ref(null)
       <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
       <QuizStart v-else />
     </div>
+<<<<<<< Updated upstream
 
     <About/>
 
+=======
+    <CustomerReviews />
+>>>>>>> Stashed changes
     <Slideshow />
     <VideoGallery />
 
