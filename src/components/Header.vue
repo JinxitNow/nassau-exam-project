@@ -15,16 +15,78 @@ const menuOpen = ref(false)
 
 
       <!-- Navigation -->
-      <nav :class="['nav', { open: menuOpen }]">
-        <ul class="nav-list">
-          <li><a href="/produkter">PRODUKTER</a></li>
-          <li><a href="/service">SERVICE & REPARATION</a></li>
-          <li><a href="/ressourcer">RESSOURCER</a></li>
-          <li><a href="/referencer">REFERENCER</a></li>
-          <li><a href="/om-nassau">OM NASSAU</a></li>
-          <li><a href="/webshop">WEBSHOP</a></li>
+    <nav :class="['nav', { open: menuOpen }]">
+  <ul class="nav-list">
+
+    <!-- PRODUKTER -->
+    <li class="has-dropdown">
+      <a href="/produkter">PRODUKTER</a>
+      <ul class="dropdown">
+        <li>Industriporte</li>
+        <li>Garageporte</li>
+        <li>Automatik & tilbehør</li>
+        <li>Tekniske specifikationer</li>
         </ul>
-      </nav>
+    </li>
+
+    <!-- SERVICE -->
+    <li class="has-dropdown">
+      <a href="/service">SERVICE & REPARATION</a>
+      <ul class="dropdown">
+        <li>Bestil service</li>
+        <li>Bestil reparation</li>
+        <li>Ofte stillede spørgsmål</li>
+        <li>Find din lokale portkonsulent</li>
+      </ul>
+    </li>
+
+    <!-- RESSOURCER -->
+    <li class="has-dropdown">
+      <a href="/ressourcer">RESSOURCER</a>
+      <ul class="dropdown">
+        <li>Brochurer & videoer</li>
+        <li>Arkitektmateriale</li>
+        <li>Downloads</li>
+      </ul>
+    </li>
+
+    <!-- REFERENCER -->
+    <li class="has-dropdown">
+      <a href="/referencer">REFERENCER</a>
+      <ul class="dropdown">
+        <li>Garageport galleri</li>
+        <li>Industriport galleri</li>
+        <li>Cases</li>
+        <li>Kundeanmeldelser</li>
+      </ul>
+    </li>
+
+    <!-- OM NASSAU -->
+    <li class="has-dropdown">
+      <a href="/om-nassau">OM NASSAU</a>
+      <ul class="dropdown">
+        <li>Hvem er NASSAU?</li>
+        <li>Historien</li>
+        <li>Organisation</li>
+        <li>Miljøpolitik</li>
+        <li>Job</li>
+        <li>Nyheder</li>
+      </ul>
+    </li>
+
+    <!-- WEBSHOP -->
+    <li class="has-dropdown">
+      <a href="/webshop">WEBSHOP</a>
+      <ul class="dropdown">
+        <li>Garageport webshop</li>
+        <li>Industriport webshop</li>
+        <li>Tilbehør webshop</li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
 
       <!-- Right icons -->
       <div class="header-actions">
@@ -73,6 +135,30 @@ const menuOpen = ref(false)
   min-height: 80px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+/* Dropdown base */
+.dropdown {
+  display: none;
+  position: absolute;
+  background: var(--color-primary);
+  padding: 12px 0;
+  list-style: none;
+  margin: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  min-width: 220px;
+  z-index: 999;
+}
+
+.dropdown li {
+  padding: 8px 16px;
+  color: var(--color-white);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.dropdown li:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 @media (min-width: 768px) {
@@ -170,6 +256,21 @@ const menuOpen = ref(false)
   display: none;
 }
 
+/* Mobil: dropdowns vises som almindelige lister */
+@media (max-width: 1023px) {
+  .dropdown {
+    display: block;
+    padding-left: 20px;
+  }
+
+  .dropdown li {
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--color-white);
+  }
+}
+
+
 /*DESKTOP */
 
 @media (min-width: 1024px) {
@@ -230,6 +331,17 @@ const menuOpen = ref(false)
 
   .logo img {
     height: 42px;
+  }
+}
+
+/* Desktop hover */
+@media (min-width: 1024px) {
+  .has-dropdown {
+    position: relative;
+  }
+
+  .has-dropdown:hover .dropdown {
+    display: block;
   }
 }
 
