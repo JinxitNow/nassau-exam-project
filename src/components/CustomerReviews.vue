@@ -76,7 +76,7 @@ const trustpilotReviews = ref([
                 :key="n"
                 :class="{ active: n <= review.stars }"
               >
-                ⭐
+                ★
               </span>
             </div>
           </div>
@@ -114,7 +114,7 @@ const trustpilotReviews = ref([
              :key="n"
              :class="{ active: n <= Number(review.stars) }"
               >
-             ⭐
+             ★
              </span>
             </div>
 
