@@ -88,7 +88,7 @@ const menuOpen = ref(false)
 </nav>
 
 
-      <!-- Right icons -->
+      <!-- ICONER -->
       <div class="header-actions">
 
         <div class="icon">
@@ -101,7 +101,7 @@ const menuOpen = ref(false)
 
       </div>
 
-      <!-- Burger -->
+      <!-- BURGERMENU -->
       <button class="burger" @click="menuOpen = !menuOpen">
         <span></span>
         <span></span>
@@ -114,7 +114,7 @@ const menuOpen = ref(false)
 
 <style scoped>
 
-/* (MOBILVISNING)*/
+/* MOBILE FIRST*/
 
 .header {
   position: sticky;
@@ -135,30 +135,7 @@ const menuOpen = ref(false)
   min-height: 80px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-/* Dropdown base */
-.dropdown {
-  display: none;
-  position: absolute;
-  background: var(--color-primary);
-  padding: 12px 0;
-  list-style: none;
-  margin: 0;
-  border: 1px solid rgba(255,255,255,0.1);
-  min-width: 220px;
-  z-index: 999;
-}
-
-.dropdown li {
-  padding: 8px 16px;
-  color: var(--color-white);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.dropdown li:hover {
-  background: rgba(255,255,255,0.1);
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -198,7 +175,13 @@ const menuOpen = ref(false)
   opacity: 0.7;
 }
 
-/* BURGER*/
+/*FLAG*/
+
+.icon-flag {
+  display: none;
+}
+
+/* BURGERMENU*/
 
 .burger {
   display: flex;
@@ -207,7 +190,6 @@ const menuOpen = ref(false)
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 20px;
   margin-left: 20px;
 }
 
@@ -217,7 +199,7 @@ const menuOpen = ref(false)
   background-color: var(--color-white);
 }
 
-/*NAV MOBILE*/
+/*MOBILE NAVIGATION*/
 
 .nav {
   position: absolute;
@@ -225,100 +207,173 @@ const menuOpen = ref(false)
   left: 0;
   width: 100%;
   background-color: var(--color-primary);
+
   max-height: 0;
   overflow: hidden;
+
   transition: max-height 0.35s ease;
 }
 
 .nav.open {
-  max-height: 1500px;
+  max-height: 2000px;
 }
 
 .nav-list {
   margin: 0;
-  padding: 0 1.5rem 10px;
+  padding: 0 1.5rem 20px;
   list-style: none;
+
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+}
+
+.nav-list > li {
+  width: 100%;
 }
 
 .nav-list li a {
+  display: block;
+  padding: 10px 0;
+
   color: var(--color-white);
   font-size: 14px;
   font-weight: 550;
   letter-spacing: 0.5px;
+  text-decoration: none;
 }
 
-/* FLAG*/
+/* MOBILE DROPDOWNS*/
 
-.icon-flag {
-  display: none;
+.dropdown {
+  display: block;
+  position: static;
+
+  background: transparent;
+  border: none;
+
+  margin: 0;
+  padding: 0 0 0 20px;
+
+  list-style: none;
+  min-width: unset;
 }
 
-/* Mobil: dropdowns vises som almindelige lister */
-@media (max-width: 1023px) {
-  .dropdown {
-    display: block;
-    padding-left: 20px;
-  }
+.dropdown li {
+  padding: 6px 0;
 
-  .dropdown li {
-    padding: 6px 0;
-    font-size: 13px;
-    color: var(--color-white);
-  }
+  color: var(--color-white);
+  font-size: 13px;
+
+  white-space: normal;
 }
 
+.dropdown li:hover {
+  background: transparent;
+}
 
-/*DESKTOP */
+/* DESKTOP*/
 
 @media (min-width: 1024px) {
 
+  /* BURGER HIDDEN */
   .burger {
     display: none;
   }
 
+  /* VIS FLAG */
   .icon-flag {
     display: block;
   }
 
-  /* HEADER ROW STRUCTURE */
+  /* HEADER STRUCTURE */
   .header-container {
     display: flex;
     align-items: center;
   }
 
-  /* LOGO VENSTRE */
+  /* LOGO */
   .logo {
     flex: 0 0 auto;
   }
 
-  /* NAV MIDT */
+  /* NAV */
   .nav {
     position: static;
+
     flex: 1;
+
     display: flex;
-    justify-content: flex-end; /* flytter menupunkter mod højre */
+    justify-content: flex-end;
+
     background: transparent;
+
     max-height: none;
     overflow: visible;
   }
 
   .nav-list {
-    display: flex;
     flex-direction: row;
     align-items: center;
+
     gap: 32px;
+
     margin: 0;
     padding: 0 40px 0 0;
   }
 
-  /* ICONS FAST HØJRE */
+  .nav-list > li {
+    width: auto;
+  }
+
+  .nav-list li a {
+    padding: 30px 0;
+    font-size: 14px;
+  }
+
+  /* DROPDOWN */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background: var(--color-primary);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    padding: 12px 0;
+    min-width: 240px;
+
+    z-index: 999;
+  }
+
+  .dropdown li {
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .dropdown li:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
+
+  /* HEADER ACTIONS */
   .header-actions {
     flex: 0 0 auto;
+
     margin-left: auto;
     padding-right: 40px;
+
     display: flex;
     align-items: center;
     gap: 16px;
@@ -326,22 +381,11 @@ const menuOpen = ref(false)
 
   .header-actions .icon img {
     height: 22px;
-    margin-left: 1px;
   }
 
+  /* LOGO */
   .logo img {
     height: 42px;
-  }
-}
-
-/* Desktop hover */
-@media (min-width: 1024px) {
-  .has-dropdown {
-    position: relative;
-  }
-
-  .has-dropdown:hover .dropdown {
-    display: block;
   }
 }
 
