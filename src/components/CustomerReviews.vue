@@ -45,59 +45,18 @@ const trustpilotReviews = ref([
 </script>
 
 <template>
-  <section class="reviews-wrapper">
+  <section class="reviews-bg">
+    <div class="reviews-wrapper">
 
-    <!-- EGNE ANMELDELSER -->
-    <div class="reviews-block">
-      <h1>VORES EGNE KUNDEANMELDELSER</h1>
-      <h2 class="subtitle">DET HER SIGER VORES KUNDER</h2>
+      <!-- EGNE ANMELDELSER -->
+      <div class="reviews-block">
+        <h1>VORES EGNE KUNDEANMELDELSER</h1>
+        <h2 class="subtitle">DET HER SIGER VORES KUNDER</h2>
 
-      <div class="review-list">
-        <div
-          v-for="(review, i) in localReviews"
-          :key="`local-${i}`"
-          class="review-card"
-        >
-          <div class="avatar-block">
-            <div class="avatar">
-              <img :src="review.image" alt="Kunde" />
-            </div>
-            <p class="name">{{ review.name }}</p>
-          </div>
-
-          <div class="review-content">
-            <p class="text">{{ review.text }}</p>
-
-            <div class="stars">
-              <span
-                v-for="n in 5"
-                :key="n"
-                :class="{ active: n <= review.stars }"
-              >
-                ★
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="btn">SE FLERE ANMELDELSER</button>
-    </div>
-
-    <!-- TRUSTPILOT -->
-    <div class="reviews-block trustpilot">
-
-      <h1>TRUSTPILOT</h1>
-      <h2 class="subtitle">4.8 STJERNER PÅ TRUSTPILOT</h2>
-
-      <!-- ⭐ SIDE-OM-SIDE PÅ MOBIL OG DESKTOP ⭐ -->
-      <div class="tp-row">
-
-        <!-- VENSTRE: REVIEWS -->
-        <div class="tp-reviews">
+        <div class="review-list">
           <div
-            v-for="(review, i) in trustpilotReviews"
-            :key="`tp-${i}`"
+            v-for="(review, i) in localReviews"
+            :key="`local-${i}`"
             class="review-card"
           >
             <div class="avatar-block">
@@ -114,7 +73,7 @@ const trustpilotReviews = ref([
                 <span
                   v-for="n in 5"
                   :key="n"
-                  :class="{ active: n <= Number(review.stars) }"
+                  :class="{ active: n <= review.stars }"
                 >
                   ★
                 </span>
@@ -123,46 +82,91 @@ const trustpilotReviews = ref([
           </div>
         </div>
 
-        <!-- HØJRE: LOGO -->
-        <div class="tp-logo-wrapper">
-          <img src="/img/trustpilot.webp" alt="Trustpilot logo" class="tp-logo" />
-        </div>
-
+        <button class="cta">SE FLERE ANMELDELSER</button>
       </div>
 
-      <button class="btn">SE FLERE ANMELDELSER</button>
-    </div>
+      <!-- TRUSTPILOT -->
+      <div class="reviews-block trustpilot">
 
+        <h1>TRUSTPILOT</h1>
+        <h2 class="subtitle">4.8 STJERNER PÅ TRUSTPILOT</h2>
+
+        <div class="tp-row">
+
+          <!-- VENSTRE: REVIEWS -->
+          <div class="tp-reviews">
+            <div
+              v-for="(review, i) in trustpilotReviews"
+              :key="`tp-${i}`"
+              class="review-card"
+            >
+              <div class="avatar-block">
+                <div class="avatar">
+                  <img :src="review.image" alt="Kunde" />
+                </div>
+                <p class="name">{{ review.name }}</p>
+              </div>
+
+              <div class="review-content">
+                <p class="text">{{ review.text }}</p>
+
+                <div class="stars">
+                  <span
+                    v-for="n in 5"
+                    :key="n"
+                    :class="{ active: n <= Number(review.stars) }"
+                  >
+                    ★
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HØJRE: LOGO -->
+          <div class="tp-logo-wrapper">
+            <img src="/img/trustpilot.png" alt="Trustpilot logo" class="tp-logo" />
+          </div>
+
+        </div>
+
+        <button class="cta">SE FLERE ANMELDELSER</button>
+      </div>
+
+    </div>
   </section>
 </template>
 
 <style scoped>
-/* GRID LAYOUT */
+/* ⭐ BAGGRUNDSCONTAINER ⭐ */
+.reviews-bg {
+  background: var(--color-neutral-light);
+  padding: 2rem 0;
+}
+
+/* ⭐ GRID – to lige store kolonner ⭐ */
 @media (min-width: 900px) {
   .reviews-wrapper {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-    padding: 3rem 4rem;
-    align-items: start;
+    grid-template-columns: 1fr 1fr; /* lige store */
+    gap: 1rem;
   }
 }
 
-/* BLOKKE */
+/* ⭐ BLOKKE ⭐ */
 .reviews-block {
-  background: #fff;
+  background: #d1d1d1);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  color: white; 
 }
 
-.subtitle {
-  margin-top: -4px;
-  margin-bottom: 1rem;
-  color: #666;
+/* ⭐ TEKST ⭐ */
+p, .name {
+  color: white !important;
 }
 
-/* REVIEW LIST */
+/* ⭐ REVIEW LIST ⭐ */
 .review-list,
 .tp-reviews {
   display: flex;
@@ -170,17 +174,17 @@ const trustpilotReviews = ref([
   gap: 1.2rem;
 }
 
+/* ⭐ REVIEW CARD ⭐ */
 .review-card {
-  background: #f7f7f7;
+  background: #727272;
   padding: 1rem;
-  border-radius: 10px;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1.5rem; /* større afstand mellem avatar og tekst */
   align-items: flex-start;
 }
 
-/* AVATAR */
+/* ⭐ AVATAR ⭐ */
 .avatar-block {
   display: flex;
   flex-direction: column;
@@ -190,8 +194,8 @@ const trustpilotReviews = ref([
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 0.4rem;
@@ -203,53 +207,28 @@ const trustpilotReviews = ref([
   object-fit: cover;
 }
 
-.name {
-  font-weight: 600;
-  text-align: center;
-}
-
-/* REVIEW CONTENT */
+/* ⭐ REVIEW CONTENT ⭐ */
 .review-content {
   flex: 1;
+  max-width: 95%; /* Trustpilot reviews bliver bredere */
 }
 
 .text {
   margin-bottom: 0.5rem;
-  color: #444;
 }
 
-/* STJERNER */
+/* ⭐ STJERNER ⭐ */
 .stars {
   display: flex;
   gap: 2px;
-  color: #999;
-}
-
-.stars span {
-  font-size: 1.1rem;
-  color: inherit;
+  color: #ffffff66;
 }
 
 .stars span.active {
   color: #ffb400;
 }
 
-/* KNAP */
-.btn {
-  margin-top: 1.2rem;
-  background: #d62828;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ⭐ SIDE-OM-SIDE PÅ MOBIL ⭐ */
+/* ⭐ SIDE-OM-SIDE ⭐ */
 .tp-row {
   display: flex;
   flex-direction: row;
@@ -258,24 +237,22 @@ const trustpilotReviews = ref([
   gap: 1.5rem;
 }
 
-/* LOGO */
+/* ⭐ LOGO ⭐ */
 .tp-logo-wrapper {
+  flex: 0 0 150px;
   display: flex;
-  justify-content: center;   /* centrér logoet horisontalt */
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 12.5rem;
+  justify-content: center;
+  margin-top: 12rem; /* flyt logoet længere ned */
 }
 
 .tp-logo {
-  width: 140px;
+  width: 150px;
   max-width: 100%;
 }
 
-/* DESKTOP: lidt mere luft */
-@media (min-width: 900px) {
-  .tp-row {
-    gap: 2rem;
-  }
+.cta {
+  display: block;
+  margin: 0 auto; 
+  margin-top: 1.5rem;
 }
 </style>
