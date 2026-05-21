@@ -9,7 +9,7 @@ const menuOpen = ref(false)
     <div class="header-container">
 
       <!-- Logo -->
-      <a href="https://nassau.dk/" class="logo">
+      <a href="" class="logo">
   <img src="/logo/nassau-logo-w.svg" alt="Nassau logo" />
 </a>
 
@@ -24,33 +24,20 @@ const menuOpen = ref(false)
       <ul class="dropdown">
         <li>Industriporte</li>
         <li>Garageporte</li>
-        <li>Automatik & tilbehør</li>
-        <li>Tekniske specifikationer</li>
+        <li>tilbehør & ekstraudstyr</li>
         </ul>
     </li>
 
-    <!-- SERVICE -->
+      <!-- SERVICE -->
     <li class="has-dropdown">
       <a href="/service">SERVICE & REPARATION</a>
       <ul class="dropdown">
         <li>Bestil service</li>
         <li>Bestil reparation</li>
-        <li>Ofte stillede spørgsmål</li>
-        <li>Find din lokale portkonsulent</li>
-      </ul>
+        </ul>
     </li>
 
-    <!-- RESSOURCER -->
-    <li class="has-dropdown">
-      <a href="/ressourcer">RESSOURCER</a>
-      <ul class="dropdown">
-        <li>Brochurer & videoer</li>
-        <li>Arkitektmateriale</li>
-        <li>Downloads</li>
-      </ul>
-    </li>
-
-    <!-- REFERENCER -->
+       <!-- REFERENCER -->
     <li class="has-dropdown">
       <a href="/referencer">REFERENCER</a>
       <ul class="dropdown">
@@ -58,10 +45,22 @@ const menuOpen = ref(false)
         <li>Industriport galleri</li>
         <li>Cases</li>
         <li>Kundeanmeldelser</li>
+        <li>Brancheløsninger</li>
       </ul>
     </li>
 
-    <!-- OM NASSAU -->
+   <!-- RESSOURCER -->
+    <li class="has-dropdown">
+      <a href="/produktmateriale">PRODUKTMATERIALE</a>
+      <ul class="dropdown">
+        <li>Brochurer & videoer</li>
+        <li>Arkitektmateriale</li>
+        <li>Downloads</li>
+        <li>Tekniske specifikationer </li>
+        </ul>
+    </li>
+
+         <!-- OM NASSAU -->
     <li class="has-dropdown">
       <a href="/om-nassau">OM NASSAU</a>
       <ul class="dropdown">
@@ -71,16 +70,27 @@ const menuOpen = ref(false)
         <li>Miljøpolitik</li>
         <li>Job</li>
         <li>Nyheder</li>
+        <li>FAQ</li>
       </ul>
     </li>
 
-    <!-- WEBSHOP -->
+     <!-- WEBSHOP -->
     <li class="has-dropdown">
       <a href="/webshop">WEBSHOP</a>
       <ul class="dropdown">
         <li>Garageport webshop</li>
         <li>Industriport webshop</li>
         <li>Tilbehør webshop</li>
+      </ul>
+    </li>
+
+    <!--KONTAKT -->
+    <li class="has-dropdown">
+      <a href="/kontakt">KONTAKT</a>
+      <ul class="dropdown">
+        <li>Find din lokale port konsulent </li>
+        <li>Kontakt mig </li>
+        <li>Find os </li>
       </ul>
     </li>
 
