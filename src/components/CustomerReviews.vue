@@ -169,13 +169,28 @@ const trustpilotReviews = ref([
   .reviews-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr; /* lige store */
-    gap: 1rem;
+    gap: 3rem;
+    position: relative;
+    padding-left: 3.8rem;
+    padding-right: 3.8rem;
   }
 }
 
+ /* Hvid lodret streg i midten */
+  .reviews-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: white;
+    transform: translateX(-50%);
+  }
+
 /* ⭐ BLOKKE ⭐ */
 .reviews-block {
-  background: #d1d1d1);
+  background: #d1d1d1;
   padding: 1.5rem;
   color: white; 
 }
@@ -208,7 +223,7 @@ p, .name {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90px;
+  width: 120px;
   flex-shrink: 0;
 }
 
