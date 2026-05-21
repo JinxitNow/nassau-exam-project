@@ -189,8 +189,8 @@ onUnmounted(() => {
 </template>
 
 
-
 <style scoped>
+
 
 /* WRAPPER */
 .slideshow-wrapper {
@@ -271,40 +271,36 @@ onUnmounted(() => {
 .slide-content p {
   color: var(--color-white);
 }
-  
+
 .slide-content a {
   color: var(--color-white);
-  font-size: 12px;
-}
+  }
 
-/* NAVIGATION */
-.slider-navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  margin-top: 24px;
-}
+ /* NAVIGATION */
+.slider-navigation { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 14px; 
+  margin-top: 24px; 
+} 
 
-.slider-navigation button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--color-primary);
-}
-
-.dot {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: var(--color-neutral-light);
-}
+.slider-navigation button { 
+  background: none; 
+  border: none; 
+  font-size: 30px; 
+  cursor: pointer; 
+  color: var(--color-primary); 
+} 
+.dot { 
+  width: 20px; 
+  height: 20px; 
+  border-radius: 50%; 
+  background-color: var(--color-primary); 
+  cursor: pointer; } 
+  
+  .dot.active { 
+    background-color: var(--color-neutral-dark); }
 
 /* DESKTOP */
 @media (min-width: 900px) {
