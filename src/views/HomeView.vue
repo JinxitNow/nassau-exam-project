@@ -40,16 +40,10 @@ const selectedJob = ref(null)
       <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
       <QuizStart v-else />
     </div>
-<<<<<<< Updated upstream
-
-    <About/>
-
-=======
-    <CustomerReviews />
->>>>>>> Stashed changes
-    <Slideshow />
-    <VideoGallery />
-
+  
+    
+    
+    
     <!-- ⭐ NEUER BEREICH: MapSection + FilterLogic + LocalExpert -->
     <div class="expert-map-wrapper">
 
@@ -66,7 +60,10 @@ const selectedJob = ref(null)
       />
 
     </div>
-
+    <About/>
+    <CustomerReviews />
+    <Slideshow />
+    <VideoGallery />
     <NewsSection />
   </section>
 </template>
