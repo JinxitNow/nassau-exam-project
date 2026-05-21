@@ -29,18 +29,18 @@
       <div class="icons">
         <a href="https://www.facebook.com/NASSAUDoorDK/"><img src="/icons/icon-facebook.svg" alt="facebook logo"></a>
         <a href="https://www.linkedin.com/company/nassau-door-as/"><img src="/icons/icon-linkedin.svg" alt="linkedin logo"></a>
-        <a href="https://www.youtube.com/channel/UCJ-bKdYHaI66fJCkhXVUsUQ"><img src="/icons/icon-youtube.svg" alt="youtube logo"></a>
         <a href="https://www.instagram.com/nassaugarageport/"><img src="/icons/icon-instagram.svg" alt="instagram logo"></a>
+        <a href="https://www.youtube.com/channel/UCJ-bKdYHaI66fJCkhXVUsUQ"><img src="/icons/icon-youtube.svg" alt="youtube logo"></a>
         <a href="https://www.houzz.dk/eksperter/forhandlere-af-garageporte/nassau-door-a-s-pfvwdk-pf~1294416725"><img src="/icons/icon-houzz.svg" alt="houzz logo"></a>
       </div>
     </div>
     
-    <div class="row-2">
+    <div class="row-2"> 
       <div class="footer-section nyttige-links">
         <h2>NYTTIGE LINKS</h2>
         <ul>
           <li><a href="https://nassau.dk/kontakt-nassau-door/ofte-stillede-spoergsmaal-porte/">FAQ</a></li>
-          <li><a href="https://nassau.dk/om-nassau/job/">Jobs hos NASSAU</a></li>
+          <li><a href="https://nassau.dk/om-nassau/job/">Job hos NASSAU</a></li>
           <li><a href="https://nassau.dk/om-nassau/hvem-er-nassau/">Hvem er NASSAU</a></li>
         </ul>
       </div>
@@ -54,10 +54,15 @@
       </div>
     </div>
 
-    <div class="footer-bottom">
-    <p>©NASSAU Door A/S, Part of ASSA ABLOY © ASSA ABLOY ｜</p>
-    <p>CVR: 34391513 ｜ <a href="https://portal.nassau.dk/Account/Login?ReturnUrl=%2F">NASSAU-Portal</a></p>
-    </div>
+   <div class="footer-bottom">
+  <p>
+    ©NASSAU Door A/S, Part of ASSA ABLOY © ASSA ABLOY ｜ 
+    CVR: 34391513 ｜ 
+    <a href="https://portal.nassau.dk/Account/Login?ReturnUrl=%2F">
+      NASSAU-Portal
+    </a>
+  </p>
+</div>
   </footer>
 </template>
 
@@ -106,19 +111,18 @@
 
 .footer-section h2 {
   margin-bottom: 8px;
-  font-size: 1.05rem;
-  font-weight: 600;
 }
 
 .footer-section h1 {
   margin: 4px 0 8px;
-  font-size: 1.2rem;
-  font-weight: 700;
 }
 
 .footer-section p {
   margin: 2px 0;
-  font-size: 0.95rem;
+}
+
+.footer-section li {
+  margin: 4px 0;
 }
 
 .footer-section ul {
@@ -127,30 +131,30 @@
   margin: 0;
 }
 
-.footer-section li {
-  margin: 4px 0;
-  font-size: 0.95rem;
-}
-
 .footer-section a {
   text-decoration: none;
+}
+
+/* mobil */
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .icons img {
   width: 38px;
   height: 38px;
-  margin-right: 8px;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
   padding-top: 14px;
   margin-top: 10px;
   font-size: 0.85rem;
   text-align: center;
 }
 
-/*desktop*/
+/*desktop*//* desktop */
 @media (min-width: 900px) {
 
   .row-1,
@@ -163,22 +167,22 @@
     grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
     gap: 20px;
     padding: 60px 80px 40px;
-    align-items: start;
+    align-items: stretch; /* vigtig */
   }
 
-  /* STANDARD: alle kolonner får streg */
   .footer-section {
-    border-right: 2px solid var(--color-white);
+    border-right: 1px solid var(--color-white);
     padding-right: 20px;
+    height: 100%; /* vigtig */
+    display: flex;
+    flex-direction: column;
   }
 
-  /* KONTAKT: ingen streg til højre */
   .kontakt {
     border-right: none;
     padding-right: 0;
   }
 
-  /* INTERNAL LINKS: ingen streg (sidste kolonne) */
   .internal-links {
     border-right: none;
   }
@@ -187,7 +191,46 @@
     grid-column: 1 / -1;
     margin-top: 40px;
     text-align: center;
+    padding-top: 0;
+
+    /* fjern linjen */
+    border-top: none;
   }
+
+  @media (min-width: 900px) {
+
+  .icons {
+    display: grid;
+    grid-template-columns: repeat(3, 38px);
+    gap: 8px;
+  }
+
+  .icons a:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .icons a:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .icons a:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .icons a:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .icons a:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+}
 }
 
 </style>
