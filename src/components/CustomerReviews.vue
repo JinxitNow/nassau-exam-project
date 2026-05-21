@@ -42,6 +42,7 @@ const trustpilotReviews = ref([
     image: "/img/profilepic6.webp"
   },
 ])
+
 </script>
 
 <template>
@@ -82,7 +83,15 @@ const trustpilotReviews = ref([
           </div>
         </div>
 
-        <button class="cta">SE FLERE ANMELDELSER</button>
+      <div class="flex-center" style="margin-top: 1.5rem;">
+  <a 
+    href="https://nassau.dk/referencer/case-garageporte/" 
+    class="cta"
+  >
+    SE FLERE ANMELDELSER
+  </a>
+</div>
+
       </div>
 
       <!-- TRUSTPILOT -->
@@ -130,7 +139,15 @@ const trustpilotReviews = ref([
 
         </div>
 
-        <button class="cta">SE FLERE ANMELDELSER</button>
+       <div class="flex-center" style="margin-top: 1.5rem;">
+  <a 
+    href="https://nassau.dk/referencer/case-garageporte/" 
+    class="cta"
+  >
+    SE FLERE ANMELDELSER
+  </a>
+</div>
+
       </div>
 
     </div>
@@ -141,6 +158,9 @@ const trustpilotReviews = ref([
 /* ⭐ BAGGRUNDSCONTAINER ⭐ */
 .reviews-bg {
   background: var(--color-neutral-light);
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
   padding: 2rem 0;
 }
 
@@ -157,7 +177,6 @@ const trustpilotReviews = ref([
 .reviews-block {
   background: #d1d1d1);
   padding: 1.5rem;
-  border-radius: 12px;
   color: white; 
 }
 
@@ -251,8 +270,21 @@ p, .name {
 }
 
 .cta {
-  display: block;
-  margin: 0 auto; 
-  margin-top: 1.5rem;
+background: var(--color-cta-red);
+color: var(--color-white);
+padding: 0.9rem 1.8rem;
+border-radius: 8px;
+margin-top: 1.5rem;
+  
+}
+
+.cta:hover {
+  background: #e0a000;       /* mørkere gul ved hover */
+  transform: translateY(-2px);
+}
+
+.cta:active {
+  transform: translateY(0);
+  background: #c98c00;
 }
 </style>
