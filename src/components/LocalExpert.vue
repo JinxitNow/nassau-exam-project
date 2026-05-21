@@ -1,8 +1,8 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import EmployeeCard from "@/components/EmployeeCard.vue";
 
-// HomeView liefert uns eine LISTE, nicht nur 1 Person
+// Props
 const props = defineProps({
   employees: {
     type: Array,
@@ -10,16 +10,40 @@ const props = defineProps({
   }
 });
 
+// Track window width (für mobile/desktop chunk size)
+const width = ref(window.innerWidth);
+
+function updateWidth() {
+  width.value = window.innerWidth;
+}
+
+onMounted(() => {
+  window.addEventListener("resize", updateWidth);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateWidth);
+});
+
 // Slider Index
 const slideIndex = ref(0);
 
-// Immer 2 Karten pro Slide
+// Dynamische Slides: Mobile = 1 Karte, Desktop = 2 Karten
 const slides = computed(() => {
+  const chunkSize = width.value <= 768 ? 1 : 2;
+
   const chunks = [];
-  for (let i = 0; i < props.employees.length; i += 2) {
-    chunks.push(props.employees.slice(i, i + 2));
+  for (let i = 0; i < props.employees.length; i += chunkSize) {
+    chunks.push(props.employees.slice(i, i + chunkSize));
   }
   return chunks;
+});
+
+// Wenn sich die Anzahl der Slides ändert → Index korrigieren
+watch(slides, () => {
+  if (slideIndex.value >= slides.value.length) {
+    slideIndex.value = slides.value.length - 1;
+  }
 });
 
 // Navigation
@@ -43,7 +67,7 @@ function prevSlide() {
     <p>Få fat i din lokale port ekspert, få service og se hvem der er tættest på dig.</p>
 
     <div class="buttons">
-      <button class="cta">Hurtig portservice / reparation</button>
+      <a href="https://nassau.dk/dansk-portservice/" class="cta">Hurtig portservice / reparation</a>
       <button class="cta">Vagtcentral</button>
     </div>
 
@@ -98,7 +122,9 @@ function prevSlide() {
 
 <style scoped>
 .local-expert {
-  width: 50%;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* CTA Buttons */
@@ -145,7 +171,7 @@ function prevSlide() {
   transition: transform 0.3s ease;
 }
 
-/* Each slide contains 2 cards */
+/* Each slide contains 2 cards (Desktop) */
 .slide {
   min-width: 100%;
   display: grid;
@@ -153,12 +179,8 @@ function prevSlide() {
   gap: 16px;
 }
 
-/* Mobile: 1 Karte pro Reihe */
+/* Mobile: 1 Karte pro Slide */
 @media (max-width: 768px) {
-  .local-expert {
-    width: 100%;
-  }
-
   .slide {
     grid-template-columns: 1fr;
   }
