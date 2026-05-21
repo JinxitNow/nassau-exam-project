@@ -79,19 +79,19 @@ h2 {
 
 @media (min-width: 768px) {
   h2 {
-    font-size: 16px; /* desktop */
+    font-size: 18px; /* desktop */
   }
 }
 
 /* Body text */
 p, li {
-  font-size: 9px; /* mobile */
+  font-size: 12px; /* mobile */
   color: var(--color-black);
 }
 
 @media (min-width: 768px) {
   p, li {
-    font-size: 12px; /* desktop */
+    font-size: 16px; /* desktop */
   }
 }
 
@@ -99,10 +99,6 @@ p, li {
 a {
   color: inherit;   /* übernimmt die Textfarbe der Umgebung */
   text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.8;
 }
 
 
@@ -144,7 +140,7 @@ a:hover {
 }
 
 .cta:hover {
-  opacity: 0.9;
+  background-color: var(--color-primary);
 }
 
 @media (min-width: 768px) {
