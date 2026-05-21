@@ -13,16 +13,19 @@
       <div class="hero-mobile">
 
         <!-- LEFT IMAGE -->
-        <div class="hero-mobile-box">
-          <img src="/img/hero-l.webp" alt="Privat" class="hero-mobile-img" />
-          <h1 class="hero-title-mobile">PRIVAT</h1>
-        </div>
+        <div class="hero-mobile">
 
-        <!-- RIGHT IMAGE -->
-        <div class="hero-mobile-box">
-          <img src="/img/hero-r.webp" alt="Erhverv" class="hero-mobile-img" />
-          <h1 class="hero-title-mobile">ERHVERV</h1>
-        </div>
+  <a href="https://nassau.dk/webshop/" class="hero-mobile-box">
+    <img src="/img/hero-l.webp" alt="Privat" class="hero-mobile-img" />
+    <h1 class="hero-title-mobile">PRIVAT</h1>
+  </a>
+
+  <a href="https://nassau.dk/webshop/ledhejseport/1/" class="hero-mobile-box">
+    <img src="/img/hero-r.webp" alt="Erhverv" class="hero-mobile-img" />
+    <h1 class="hero-title-mobile">ERHVERV</h1>
+  </a>
+
+</div>
 
       </div>
 
@@ -37,7 +40,7 @@
 
           <div class="hero-desktop-content center-content">
             <h1 class="hero-title-desktop">Privat</h1>
-            <a class="cta" href="#">GÅ TIL GARAGEPORT WEBSHOP</a>
+            <a class="cta" href="https://nassau.dk/webshop/">GÅ TIL GARAGEPORT WEBSHOP</a>
           </div>
         </div>
 
@@ -47,7 +50,7 @@
 
           <div class="hero-desktop-content center-content">
             <h1 class="hero-title-desktop">Erhverv</h1>
-            <a class="cta" href="#">GÅ TIL INDUSTRIPORTE WEBSHOP</a>
+            <a class="cta" href="https://nassau.dk/webshop/ledhejseport/1/">GÅ TIL INDUSTRIPORTE WEBSHOP</a>
           </div>
         </div>
 
@@ -94,11 +97,11 @@
 }
 
 .hero-mobile-box {
-  width: 50%;
+  display: block;
   position: relative;
-
-  /* erzwingt 715×471 Verhältnis */
+  width: 50%;
   aspect-ratio: 715 / 471;
+  text-decoration: none;
 }
 
 .hero-mobile-img {
@@ -110,23 +113,26 @@
 
 .hero-title-mobile {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 28px;
-  font-weight: 700;
   color: var(--color-white);
   text-transform: uppercase;
   line-height: 1.1;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
-
+  text-align: center;
 }
+
+
 
 /* DESKTOP HIDDEN ON MOBILE */
 .hero-desktop {
   display: none;
+}
+
+.hero-title-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ============================
