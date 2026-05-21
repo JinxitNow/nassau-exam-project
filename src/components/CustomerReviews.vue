@@ -279,12 +279,10 @@ margin-top: 1.5rem;
 }
 
 .cta:hover {
-  background: #e0a000;       /* mørkere gul ved hover */
-  transform: translateY(-2px);
+ transform: translateY(-2px);
 }
 
 .cta:active {
   transform: translateY(0);
-  background: #c98c00;
 }
 </style>
