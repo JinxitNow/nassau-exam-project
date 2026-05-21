@@ -6,32 +6,34 @@
   <!-- Her skriver du HTML-strukturen -->
   <section class="about">
     <h1>DANSK PRODUCERET <br> PORT FRA NASSAU</h1>
+    <div class="about-wrapper">
+      <div class="video-link">
+        <a href="https://youtu.be/yOa5zWFCdxM">
+          <img src="/public/img/produktions thumbnail.webp" alt="video thumbnail" class="video-thumb">
+        </a>
+      </div>
 
-    <div class="video-link">
-      <a href="https://youtu.be/yOa5zWFCdxM">
-        <img src="/public/img/produktions thumbnail.webp" alt="video thumbnail" class="video-thumb">
-      </a>
-    </div>
+      <div class="about-p">
 
-    <div class="about-p">
-      <p>NASSAU har siden 1970 produceret ledhejseporte af højeste kvalitet. 
-        Efter stor forespørgsel producerer NASSAU nu også Garageporte til private. 
-        De mange års erfaring gør, at NASSAU har høj kvalitet i alle led i tilblivelsen af din port. 
-        Teknisk assistance i planlægningsfasen, kvalitetskontrol i produktionen, 
-        montage udført af dygtige montører og løbende support, service og vedligeholdelse af din port, 
-        sikrer den optimale oplevelse igennem hele portens levetid.
-      </p>
-      <p> Design, Kvalitet og Rådgivning er nøgleordene bag de bedste garageporte og Industriporte på markedet. 
-        Så ligegyldigt om du skal bruge en port til lade, porte til en hal, 
-        garageport eller andre produkter i forbindelse med din port, 
-        handler du direkte hos NASSAU som producent uden forstyrrende mellemled. 
-        Dette kommer dig til gode som kunde, da du altid kan tage fat i NASSAU for at få hjælp til din port, ligegyldigt, 
-        hvilket problem at du måtte have.
-      </p><br>
+      
+        <p>NASSAU har siden 1970 produceret ledhejseporte af højeste kvalitet. 
+          Efter stor forespørgsel producerer NASSAU nu også Garageporte til private. 
+          De mange års erfaring gør, at NASSAU har høj kvalitet i alle led i tilblivelsen af din port. 
+          Teknisk assistance i planlægningsfasen, kvalitetskontrol i produktionen, 
+          montage udført af dygtige montører og løbende support, service og vedligeholdelse af din port, 
+          sikrer den optimale oplevelse igennem hele portens levetid.
+        </p>
+        <p> Design, Kvalitet og Rådgivning er nøgleordene bag de bedste garageporte og Industriporte på markedet. 
+          Så ligegyldigt om du skal bruge en port til lade, porte til en hal, 
+          garageport eller andre produkter i forbindelse med din port, 
+          handler du direkte hos NASSAU som producent uden forstyrrende mellemled. 
+          Dette kommer dig til gode som kunde, da du altid kan tage fat i NASSAU for at få hjælp til din port, ligegyldigt, 
+          hvilket problem at du måtte have.
+        </p><br>
     
-      <a class="cta" href="#">LÆS MERE OM NASSAU</a> <br><br>
+        <a class="cta" href="#">LÆS MERE OM NASSAU</a> <br><br>
+      </div>
     </div>
-
     <section class="info-bokse">
       <div class="boks">
         <img src="/icons/truck-circle.svg" alt="lanstbil chirkel"> 
@@ -49,7 +51,7 @@
       </div>
 
     </section>
-  </section>
+  </section> <br>
 </template>
 
 <style scoped>
@@ -103,48 +105,63 @@
 @media (min-width: 1024px) {
 
   /* Hele sektionen */
+ 
   .about {
-    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     text-align: center;
     padding: 40px 20px;
+    max-width: none;
+    width: 100%;
   }
 
   /* Overskrift */
   .about h1 {
-    text-align: center;
+    order: 1;
+    white-space: nowrap;
+    text-align: left;
     margin-bottom: 30px;
   }
 
+ .about-wrapper {
+    order: 2;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1600px;
+
+  }
+
+  
   /* Video */
   .video-link {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
+    margin: 0;
   }
 
   .video-thumb {
-    width: 100%;
-    max-width: 609px;
+    width: 609px;
+    height: auto;
   }
 
   /* Tekst */
   .about-p {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 600px;
+    text-align: left;
     line-height: 1.6;
-    font-size: 18px;
   }
 
   /* Knap */
   .cta {
     display: inline-block;
-    margin: 30px auto;
+    margin-top: 20px;
   }
 
   /* Ikoner */
   .info-bokse {
+    order: 3;
     display: flex;
     justify-content: center;
     gap: 200px;

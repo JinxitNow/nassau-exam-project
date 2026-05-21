@@ -152,6 +152,8 @@ defineProps(["employee"]);
   font-weight: 700;
 
   white-space: nowrap;
+
+  font-size: 12px;
 }
 
 /* ============================
@@ -165,6 +167,8 @@ defineProps(["employee"]);
   min-width: 0;
 
   word-break: break-word;
+
+  font-size: 12px;
 }
 
 /* ============================
