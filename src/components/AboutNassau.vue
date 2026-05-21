@@ -14,6 +14,8 @@
       </div>
 
       <div class="about-p">
+
+      
         <p>NASSAU har siden 1970 produceret ledhejseporte af højeste kvalitet. 
           Efter stor forespørgsel producerer NASSAU nu også Garageporte til private. 
           De mange års erfaring gør, at NASSAU har høj kvalitet i alle led i tilblivelsen af din port. 
@@ -103,26 +105,34 @@
 @media (min-width: 1024px) {
 
   /* Hele sektionen */
-  .about-wrapper {
+ 
+  .about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: none;
+    width: 100%;
+  }
+
+  /* Overskrift */
+  .about h1 {
+    order: 1;
+    white-space: nowrap;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+ .about-wrapper {
+    order: 2;
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: space-between;
     gap: 60px;
-    max-width: 1400px;
-    margin: 0 20px;
-  }
+    max-width: 1600px;
 
-  .about {
-    margin: 0 auto;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  /* Overskrift */
-  .about h1 {
-    text-align: center;
-    margin-bottom: 30px;
   }
 
   
@@ -139,7 +149,6 @@
   /* Tekst */
   .about-p {
     max-width: 600px;
-    margin: 0 auto;
     text-align: left;
     line-height: 1.6;
   }
@@ -152,6 +161,7 @@
 
   /* Ikoner */
   .info-bokse {
+    order: 3;
     display: flex;
     justify-content: center;
     gap: 200px;
