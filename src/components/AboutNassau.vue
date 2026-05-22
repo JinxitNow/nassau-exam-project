@@ -5,7 +5,7 @@
 <template>
   <!-- Her skriver du HTML-strukturen -->
   <section class="about">
-    <h1>DANSK PRODUCERET <br> PORT FRA NASSAU</h1>
+    <h1>DANSK PRODUCERET PORT FRA NASSAU</h1>
     <div class="about-wrapper">
       <div class="video-link">
         <a href="https://youtu.be/yOa5zWFCdxM">
@@ -56,10 +56,6 @@
 
 <style scoped>
 /* Her skriver du styling kun for denne komponent */
-
-.about-p {
-  margin-left: 20px;
-}
 
 .video-link {
   display: inline-block;
