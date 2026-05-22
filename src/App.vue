@@ -37,9 +37,9 @@ onMounted(() => {
 
     <!-- Hier erscheinen HomeView, BirthdayCampaignView usw. -->
     <router-view />
-
+    <CookieBanner />
     <Footer />
     <BackToTop />
-    <CookieBanner />
+    
   </div>
 </template>
