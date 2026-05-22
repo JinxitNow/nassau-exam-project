@@ -5,10 +5,12 @@
 <template>
   <!-- Her skriver du HTML-strukturen -->
    <section class="kategori-grid">
-    <h2 class="title erhverv">ERHVERV</h2>
 
-    <h2 class="title privat">PRIVAT</h2>
-
+    <div class="titles">
+      <h1 class="title-erhverv">ERHVERV</h1>
+      <h1 class="title-privat">PRIVAT</h1>
+    </div>
+    
     <div class="card">
       <img src="/public/img/category1.jpg.webp" alt="farveprøver">
       <h3>FARVEPRØVER</h3>
@@ -44,33 +46,48 @@
   margin-right: -50vw;
   padding: 30px 20px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 154px);
   gap: 20px;
+  justify-content: center;
 }
 
-.kategori-title {
-  color: white;
-  margin-top: 20px;
+/* Titlerne øverst */
+.titles {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
+.title-erhverv,
+.title-privat {
+  color: var(--color-white);
+}
+
+/* Cards */
 .card {
-  
-  overflow: hidden;
+  width: 154px;
+  background: white;
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   
 }
 
+/* Billederne bliver firkantede og fylder hele cardet */
 .card img {
   width: 154px;
   height: 125px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
+/* Teksten */
 .card h3 {
-  margin-top: -7px;
-  background: white;
+  margin-top: 10px;
+  background: none;
+  color: black;
 }
+
 
 
 </style>
