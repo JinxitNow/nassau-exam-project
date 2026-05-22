@@ -9,7 +9,7 @@ const menuOpen = ref(false)
     <div class="header-container">
 
       <!-- Logo -->
-      <a href="" class="logo">
+     <a href="https://nassau-exam.web.app/" class="logo">
   <img src="/logo/nassau-logo-w.svg" alt="Nassau logo" />
 </a>
 
@@ -20,7 +20,7 @@ const menuOpen = ref(false)
 
     <!-- PRODUKTER -->
     <li class="has-dropdown">
-      <a href="/produkter">PRODUKTER</a>
+      <a href="https://nassau-exam.web.app/">PRODUKTER</a>
       <ul class="dropdown">
         <li>Industriporte</li>
         <li>Garageporte</li>
@@ -30,7 +30,7 @@ const menuOpen = ref(false)
 
       <!-- SERVICE -->
     <li class="has-dropdown">
-      <a href="/service">SERVICE & REPARATION</a>
+      <a href="https://nassau-exam.web.app/">SERVICE & REPARATION</a>
       <ul class="dropdown">
         <li>Bestil service</li>
         <li>Bestil reparation</li>
@@ -39,7 +39,7 @@ const menuOpen = ref(false)
 
        <!-- REFERENCER -->
     <li class="has-dropdown">
-      <a href="/referencer">REFERENCER</a>
+        <a href="https://nassau-exam.web.app/">REFERENCER</a>
       <ul class="dropdown">
         <li>Garageport galleri</li>
         <li>Industriport galleri</li>
@@ -51,7 +51,7 @@ const menuOpen = ref(false)
 
    <!-- RESSOURCER -->
     <li class="has-dropdown">
-      <a href="/produktmateriale">PRODUKTMATERIALE</a>
+        <a href="https://nassau-exam.web.app/">PRODUKTMATERIALE</a>
       <ul class="dropdown">
         <li>Brochurer & videoer</li>
         <li>Arkitektmateriale</li>
@@ -62,7 +62,7 @@ const menuOpen = ref(false)
 
          <!-- OM NASSAU -->
     <li class="has-dropdown">
-      <a href="/om-nassau">OM NASSAU</a>
+        <a href="https://nassau-exam.web.app/">OM NASSAU</a>
       <ul class="dropdown">
         <li>Hvem er NASSAU?</li>
         <li>Historien</li>
@@ -76,7 +76,7 @@ const menuOpen = ref(false)
 
      <!-- WEBSHOP -->
     <li class="has-dropdown">
-      <a href="/webshop">WEBSHOP</a>
+        <a href="https://nassau-exam.web.app/">WEBSHOP</a>
       <ul class="dropdown">
         <li>Garageport webshop</li>
         <li>Industriport webshop</li>
@@ -86,7 +86,7 @@ const menuOpen = ref(false)
 
     <!--KONTAKT -->
     <li class="has-dropdown">
-      <a href="/kontakt">KONTAKT</a>
+        <a href="https://nassau-exam.web.app/">KONTAKT</a>
       <ul class="dropdown">
         <li>Find din lokale port konsulent </li>
         <li>Kontakt mig </li>
