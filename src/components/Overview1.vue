@@ -4,6 +4,7 @@
 
 <template>
   <!-- Her skriver du HTML-strukturen -->
+   
 </template>
 
 <style scoped>

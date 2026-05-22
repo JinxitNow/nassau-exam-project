@@ -12,10 +12,12 @@ import NewsSection from "@/components/NewsSection.vue"
 import ChatBubble from "@/components/ChatBubble.vue"
 import NewsBar from "../components/NewsBar.vue"
 import About from "../components/AboutNassau.vue"
+import Overview from "../components/Overview1.vue"
 
 // NEU:
 import MapSection from "@/components/MapSection.vue"
 import EmployeeFilterLogic from "@/components/EmployeeFilterLogic.vue"
+import Overview1 from "../components/Overview1.vue"
 
 // Quiz state
 const showQuiz = ref(false)
@@ -60,6 +62,7 @@ const selectedJob = ref(null)
       />
 
     </div>
+    <Overview1/>
     <About/>
     <CustomerReviews />
     <Slideshow />
