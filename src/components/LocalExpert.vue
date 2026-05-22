@@ -179,6 +179,7 @@ function prevSlide() {
   gap: 16px;
 }
 
+
 /* Mobile: 1 Karte pro Slide */
 @media (max-width: 768px) {
   .slide {

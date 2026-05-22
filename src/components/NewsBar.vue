@@ -16,51 +16,64 @@ function goToBirthday() {
 
 <template>
   <div v-if="isVisible" class="newsbar-wrapper">
-    <!-- Ganze Bar klickbar -->
     <div class="newsbar" @click="goToBirthday">
       <h2 class="news-text">
         🎉 NASSAU HAR FØDSELSDAG – FEJR DAGEN SAMMEN MED OS I DAG
       </h2>
 
-      <!-- X darf NICHT navigieren -->
       <button class="close-btn" @click.stop="closeBar">×</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* WRAPPER entfernt globales body-padding */
+
+/* ============================
+   MOBILE FIRST
+============================ */
+
+/* Wrapper entfernt globales body-padding */
 .newsbar-wrapper {
   width: 100vw;
   margin-left: calc(-1 * var(--body-padding, 1.5rem));
   margin-right: calc(-1 * var(--body-padding, 1.5rem));
 }
 
-/* MOBILE FIRST */
+/* Bar */
 .newsbar {
   width: 100%;
   background: var(--color-cta-red);
   color: var(--color-white);
 
   padding: 10px 14px;
-  padding-right: 40px;
+  padding-right: 40px; /* Platz für X */
 
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 
-  cursor: pointer; /* <<< wichtig */
+  cursor: pointer;
 }
 
+/* Text – MOBILE FIX */
 .news-text {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   text-align: center;
   line-height: 1.3;
   color: var(--color-white);
+
+  max-width: 80%;
+  padding-right: 50px;   /* Platz für X */
+  padding-left: 50px;    /* gleicht aus → Text bleibt mittig */
+  word-break: break-word;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 /* Close button */
 .close-btn {
@@ -68,20 +81,25 @@ function goToBirthday() {
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
-  border-radius: 50%;
 
   background: #77251d;
   border: none;
   color: var(--color-cta-red);
+
+  border-radius: 50%;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   line-height: 1;
-  margin-right: 1.5rem;
+
+  margin-right: 1.5rem; /* NICHT ändern */
 }
 
-/* DESKTOP */
+/* ============================
+   DESKTOP
+============================ */
 @media (min-width: 768px) {
+
   .newsbar-wrapper {
     margin-left: calc(-1 * 3.8rem);
     margin-right: calc(-1 * 3.8rem);
@@ -90,6 +108,12 @@ function goToBirthday() {
   .newsbar {
     padding: 14px 20px;
     padding-right: 50px;
+  }
+
+  .news-text {
+    font-size: 16px;
+    max-width: 100%;     /* Desktop braucht keine Begrenzung */
+    padding-right: 0;
   }
 
   .close-btn {

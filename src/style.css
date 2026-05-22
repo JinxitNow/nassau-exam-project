@@ -140,7 +140,7 @@ a {
 }
 
 .cta:hover {
-  background-color: var(--color-primary);
+ transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {

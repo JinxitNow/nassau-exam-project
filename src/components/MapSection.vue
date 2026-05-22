@@ -44,21 +44,6 @@ function chooseJob(job) {
   emit("job-selected", job);
   showJobDropdown.value = false;
 }
-
-const debugCoords = ref(null);
-
-function handleMapClick(event) {
-  const box = event.currentTarget.getBoundingClientRect();
-  const x = ((event.clientX - box.left) / box.width) * 100;
-  const y = ((event.clientY - box.top) / box.height) * 100;
-
-  debugCoords.value = {
-    x: x.toFixed(2),
-    y: y.toFixed(2)
-  };
-
-  console.log("Koordinaten:", debugCoords.value);
-}
 </script>
 
 <template>
@@ -95,7 +80,7 @@ function handleMapClick(event) {
     </div>
 
     <!-- MAP BOX -->
-    <div class="map-box" @click="handleMapClick">
+    <div class="map-box">
       <img src="/img/map.svg" class="map-image" />
 
       <EmployeePin
@@ -104,10 +89,6 @@ function handleMapClick(event) {
         :pin="pin"
         @click.stop="selectPin(pin.id)"
       />
-
-      <div v-if="debugCoords" class="coord-debug">
-        x: {{ debugCoords.x }}% – y: {{ debugCoords.y }}%
-      </div>
     </div>
 
   </div>
@@ -130,6 +111,7 @@ function handleMapClick(event) {
   position: relative;
   z-index: 20;
 }
+
 
 .zip-wrapper {
   display: flex;
@@ -214,28 +196,17 @@ function handleMapClick(event) {
 .map-box {
   width: 100%;
   max-width: 650px;
-  outline: 1px solid var(--color-secondary-teal);
+  border: 1px solid var(--color-secondary-teal); /* statt outline */
   margin-left: auto;
   margin-right: 0;
   position: relative;
   overflow: hidden;
 }
 
+
 .map-image {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.coord-debug {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  pointer-events: none;
 }
 </style>

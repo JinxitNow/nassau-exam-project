@@ -58,9 +58,9 @@
   <p>
     ©NASSAU Door A/S, Part of ASSA ABLOY © ASSA ABLOY ｜ 
     CVR: 34391513 ｜ 
-    <a href="https://portal.nassau.dk/Account/Login?ReturnUrl=%2F">
-      NASSAU-Portal
-    </a>
+    <RouterLink to="/dashboard">
+  NASSAU-Portal
+</RouterLink>
   </p>
 </div>
   </footer>
@@ -173,14 +173,39 @@
   .footer-section {
     border-right: 1px solid var(--color-white);
     padding-right: 20px;
-    height: 100%; /* vigtig */
+    height: 70%; /* vigtig - Har liger lavet dem lidt kortere*/
     display: flex;
     flex-direction: column;
   }
 
+  /* en tilpassning sådan at service og kontakt er tættere på hinanden på desktop */
+@media (min-width: 1200px) {
+  .service {
+    margin-left: -9rem;
+  }
+}
+
+  .footer p {
+  font-size: 13px; /* så det passer med at det er en linje */
+   margin-bottom: 0.5rem; /* tilpasset sådan at har samme udtryk som kontakt delen */
+}
+
+ .footer ul li {
+  font-size: 13px; /* same here */
+   margin-bottom: 0.5rem; /* tilpasset sådan at har samme udtryk som kontakt delen */
+}
+
+.footer h1 {
+  font-size: 30px; /* har også tilpasset den sådan at der igen er size difference som før vi skiftede h2s størrelse */
+}
+
   .kontakt {
     border-right: none;
     padding-right: 0;
+  }
+
+  .kontakt p {
+    margin-bottom: 0.5rem; /* har tilføget lidt space sådan at teksten har ca samme højde som sercice delen */
   }
 
   .internal-links {
