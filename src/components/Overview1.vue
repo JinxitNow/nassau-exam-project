@@ -1,5 +1,8 @@
 <script setup>
 // Her skriver du logik, imports, variabler osv.
+import { ref } from 'vue'
+
+const activeCategory = ref('privat')
 </script>
 
 <template>
@@ -7,8 +10,8 @@
    <section class="kategori-grid">
 
     <div class="titles">
-      <h1 class="title-erhverv">ERHVERV</h1>
-      <h1 class="title-privat">PRIVAT</h1>
+      <h1 class="title-erhverv" :class="{ active: activeCategory === 'erhverv' }" @click="activeCategory = 'erhverv'">ERHVERV</h1>
+      <h1 class="title-privat" :class="{ active: activeCategory === 'privat' }" @click="activeCategory = 'privat'">PRIVAT</h1>
     </div>
     
     <div class="card">
@@ -56,6 +59,21 @@
   width: 100%;
 }
 
+.titles h1 {
+  position: relative;
+  cursor: pointer;
+}
+
+.titles h1.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* afstand til teksten */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: white;
+}
+
 .title-erhverv,
 .title-privat {
   color: var(--color-white);
@@ -93,6 +111,9 @@
 
   .titles {
     grid-column: span 4;
+    display: flex;
+    justify-content: left;
+    gap: 40px;
   }
 
   .card img {
