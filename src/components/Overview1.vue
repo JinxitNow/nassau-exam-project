@@ -38,9 +38,6 @@
 
 .kategori-grid {
   background-color: var(--color-primary);
-  width: 100vw;
-  position: relative;
-  left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
@@ -88,6 +85,26 @@
   color: black;
 }
 
+/* TABLET + DESKTOP */
+@media (min-width: 768px) {
+  .kategori-grid {
+    grid-template-columns: repeat(4, 312px);
+  }
 
+  .titles {
+    grid-column: span 4;
+  }
 
+  .card img {
+    width: 312px;
+    height: 252px;
+  }
+
+  .card {
+    width: 312px;
+    background: white;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}
 </style>
