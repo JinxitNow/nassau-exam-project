@@ -18,6 +18,7 @@ import Overview from "../components/Overview1.vue"
 import MapSection from "@/components/MapSection.vue"
 import EmployeeFilterLogic from "@/components/EmployeeFilterLogic.vue"
 import Overview1 from "../components/Overview1.vue"
+import DoorOverview from "../components/DoorOverview.vue"
 
 // Quiz state
 const showQuiz = ref(false)
@@ -62,8 +63,38 @@ const selectedJob = ref(null)
       />
 
     </div>
+
     <Overview1/>
     <About/>
+    <DoorOverview :doors="[
+  { 
+    title: 'GARAGEPORT', 
+    text: 'En garageport er ...', 
+    image: '/images/garageport.webp' 
+  },
+  { 
+    title: 'LAVENERGIPORT', 
+    text: 'En lavenergipo...'
+  },
+  { 
+    title: 'HURTIGPORT', 
+    text: 'En hurtigport ...'
+  },
+  { 
+    title: 'LEDHEJSEPORT', 
+    text: 'En ledhejseport ...', 
+    image: '/images/ledhejseport.webp'
+  },
+  { 
+    title: 'MIX/MIX INSU PORT', 
+    text: 'Mix/Mix Insu ...'
+  },
+  { 
+    title: 'PANORAMAPORT', 
+    text: 'En panoramaport ...'
+  }
+]" />
+
     <CustomerReviews />
     <Slideshow />
     <VideoGallery />
