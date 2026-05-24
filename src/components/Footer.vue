@@ -137,14 +137,29 @@
 
 /* mobil */
 .icons {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 38px);
   gap: 8px;
+  align-items: center;
+}
+
+.icons a {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 0;
 }
 
 .icons img {
-  width: 38px;
-  height: 38px;
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: contain;
 }
 
 .footer-bottom {
@@ -223,12 +238,6 @@
   }
 
   @media (min-width: 900px) {
-
-  .icons {
-    display: grid;
-    grid-template-columns: repeat(3, 38px);
-    gap: 8px;
-  }
 
   .icons a:nth-child(1) {
     grid-column: 1;
