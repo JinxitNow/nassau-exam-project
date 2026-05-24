@@ -42,262 +42,434 @@ const trustpilotReviews = ref([
     image: "/img/profilepic6.webp"
   },
 ])
-
 </script>
 
 <template>
   <section class="reviews-bg">
+
     <div class="reviews-wrapper">
 
       <!-- EGNE ANMELDELSER -->
       <div class="reviews-block">
-        <h1>VORES EGNE KUNDEANMELDELSER</h1>
-        <h2 class="subtitle">DET HER SIGER VORES KUNDER</h2>
 
-        <div class="review-list">
-          <div
-            v-for="(review, i) in localReviews"
-            :key="`local-${i}`"
-            class="review-card"
-          >
-            <div class="avatar-block">
-              <div class="avatar">
-                <img :src="review.image" alt="Kunde" />
-              </div>
-              <p class="name">{{ review.name }}</p>
-            </div>
+        <div>
+          <h1>VORES EGNE KUNDEANMELDELSER</h1>
+          <h2 class="subtitle">DET HER SIGER VORES KUNDER</h2>
 
-            <div class="review-content">
-              <p class="text">{{ review.text }}</p>
-
-              <div class="stars">
-                <span
-                  v-for="n in 5"
-                  :key="n"
-                  :class="{ active: n <= review.stars }"
-                >
-                  ★
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <div class="flex-center" style="margin-top: 1.5rem;">
-  <a 
-    href="https://nassau.dk/referencer/case-garageporte/" 
-    class="cta"
-  >
-    SE FLERE ANMELDELSER
-  </a>
-</div>
-
-      </div>
-
-      <!-- TRUSTPILOT -->
-      <div class="reviews-block trustpilot">
-
-        <h1>TRUSTPILOT</h1>
-        <h2 class="subtitle">4.8 STJERNER PÅ TRUSTPILOT</h2>
-
-        <div class="tp-row">
-
-          <!-- VENSTRE: REVIEWS -->
-          <div class="tp-reviews">
+          <div class="review-list">
             <div
-              v-for="(review, i) in trustpilotReviews"
-              :key="`tp-${i}`"
+              v-for="(review, i) in localReviews"
+              :key="`local-${i}`"
               class="review-card"
             >
               <div class="avatar-block">
+
                 <div class="avatar">
                   <img :src="review.image" alt="Kunde" />
                 </div>
+
                 <p class="name">{{ review.name }}</p>
+
               </div>
 
               <div class="review-content">
+
                 <p class="text">{{ review.text }}</p>
 
                 <div class="stars">
                   <span
                     v-for="n in 5"
                     :key="n"
-                    :class="{ active: n <= Number(review.stars) }"
+                    :class="{ active: n <= review.stars }"
                   >
                     ★
                   </span>
                 </div>
+
               </div>
             </div>
           </div>
-
-          <!-- HØJRE: LOGO -->
-          <div class="tp-logo-wrapper">
-            <img src="/img/trustpilot.png" alt="Trustpilot logo" class="tp-logo" />
-          </div>
-
         </div>
 
-       <div class="flex-center" style="margin-top: 1.5rem;">
-  <a 
-    href="https://nassau.dk/referencer/case-garageporte/" 
-    class="cta"
-  >
-    SE FLERE ANMELDELSER
-  </a>
-</div>
+        <div class="flex-center">
+          <a
+            href="https://nassau.dk/referencer/case-garageporte/"
+            class="cta"
+          >
+            SE FLERE ANMELDELSER
+          </a>
+        </div>
+
+      </div>
+
+      <!-- TRUSTPILOT -->
+      <div class="reviews-block">
+
+        <div>
+          <h1>TRUSTPILOT</h1>
+          <h2 class="subtitle">4.8 STJERNER PÅ TRUSTPILOT</h2>
+
+          <div class="tp-row">
+
+            <!-- REVIEWS -->
+            <div class="tp-reviews">
+
+              <div
+                v-for="(review, i) in trustpilotReviews"
+                :key="`tp-${i}`"
+                class="review-card"
+              >
+                <div class="avatar-block">
+
+                  <div class="avatar">
+                    <img :src="review.image" alt="Kunde" />
+                  </div>
+
+                  <p class="name">{{ review.name }}</p>
+
+                </div>
+
+                <div class="review-content">
+
+                  <p class="text">{{ review.text }}</p>
+
+                  <div class="stars">
+                    <span
+                      v-for="n in 5"
+                      :key="n"
+                      :class="{ active: n <= Number(review.stars) }"
+                    >
+                      ★
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- LOGO -->
+            <div class="tp-logo-wrapper">
+              <img
+                src="/img/trustpilot-logo-icon.svg"
+                alt="Trustpilot logo"
+                class="tp-logo"
+              />
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex-center">
+          <a
+            href="https://nassau.dk/referencer/case-garageporte/"
+            class="cta"
+          >
+            SE FLERE ANMELDELSER
+          </a>
+        </div>
 
       </div>
 
     </div>
+
   </section>
 </template>
 
 <style scoped>
-/* ⭐ BAGGRUNDSCONTAINER ⭐ */
+
+.text::before {
+  content: "“";
+}
+
+.text::after {
+  content: "”";
+}
+
+/* ============================
+   SECTION BACKGROUND
+============================ */
 .reviews-bg {
   background: var(--color-neutral-light);
+
   width: 100vw;
+
   margin-left: 50%;
   transform: translateX(-50%);
-  padding: 2rem 0;
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-/* ⭐ GRID – to lige store kolonner ⭐ */
-@media (min-width: 900px) {
-  .reviews-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* lige store */
-    gap: 3rem;
-    position: relative;
-    padding-left: 3.8rem;
-    padding-right: 3.8rem;
-  }
+/* ============================
+   WRAPPER
+============================ */
+.reviews-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4rem;
+
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
- /* Hvid lodret streg i midten */
-  .reviews-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: white;
-    transform: translateX(-50%);
-  }
-
-/* ⭐ BLOKKE ⭐ */
+/* ============================
+   REVIEW COLUMN
+============================ */
 .reviews-block {
-  background: #d1d1d1;
-  padding: 1.5rem;
-  color: white; 
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* ⭐ TEKST ⭐ */
-p, .name {
-  color: white !important;
+/* ============================
+   TITLES
+============================ */
+.subtitle {
+  margin-bottom: 2rem;
 }
 
-/* ⭐ REVIEW LIST ⭐ */
+/* ============================
+   REVIEW LIST
+============================ */
 .review-list,
 .tp-reviews {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+
+  gap: 1rem;
 }
 
-/* ⭐ REVIEW CARD ⭐ */
+/* ============================
+   REVIEW CARD
+============================ */
 .review-card {
-  background: #727272;
-  padding: 1rem;
+  background: var(--color-neutral-dark);
+
+  padding: 1.2rem;
+
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem; /* større afstand mellem avatar og tekst */
+  gap: 1rem;
+
   align-items: flex-start;
+
+  min-height: 130px;
 }
 
-/* ⭐ AVATAR ⭐ */
+/* ============================
+   AVATAR BLOCK
+============================ */
 .avatar-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 120px;
+
+  width: 90px;
+
   flex-shrink: 0;
 }
 
+/* ============================
+   AVATAR
+============================ */
 .avatar {
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
+
   border-radius: 50%;
+
   overflow: hidden;
-  margin-bottom: 0.4rem;
+
+  margin-bottom: 0.5rem;
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
-/* ⭐ REVIEW CONTENT ⭐ */
+/* ============================
+   NAME
+============================ */
+.name {
+  color: var(--color-white);
+
+  margin: 0;
+
+  text-align: center;
+}
+
+/* ============================
+   REVIEW CONTENT
+============================ */
 .review-content {
   flex: 1;
-  max-width: 95%; /* Trustpilot reviews bliver bredere */
+  min-width: 0;
+    padding-right: 1.5rem; 
+
 }
 
+/* ============================
+   REVIEW TEXT
+============================ */
 .text {
-  margin-bottom: 0.5rem;
+  color: var(--color-white);
+font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+
+  line-height: 1.5;
 }
 
-/* ⭐ STJERNER ⭐ */
+/* ============================
+   STARS
+============================ */
 .stars {
   display: flex;
   gap: 2px;
-  color: #ffffff66;
+ font-size: 1.8rem;
+  color: #ffffff50;
 }
 
 .stars span.active {
   color: #ffb400;
 }
 
-/* ⭐ SIDE-OM-SIDE ⭐ */
+/* ============================
+   TRUSTPILOT ROW
+============================ */
 .tp-row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
   gap: 1.5rem;
 }
 
-/* ⭐ LOGO ⭐ */
+/* ============================
+   TRUSTPILOT LOGO
+============================ */
 .tp-logo-wrapper {
-  flex: 0 0 150px;
+  width: 135px;
+
+  flex-shrink: 0;
+
   display: flex;
   justify-content: center;
-  margin-top: 12rem; /* flyt logoet længere ned */
+  align-items: center;
 }
 
 .tp-logo {
-  width: 150px;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
-.cta {
-background: var(--color-cta-red);
-color: var(--color-white);
-padding: 0.9rem 1.8rem;
-border-radius: 8px;
-margin-top: 1.5rem;
-  
+/* ============================
+   CTA BUTTON AREA
+============================ */
+.flex-center {
+  margin-top: 2rem;
 }
 
-.cta:hover {
- transform: translateY(-2px);
+/* ============================
+   DESKTOP
+============================ */
+@media (min-width: 768px) {
+
+  .reviews-wrapper {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 4rem;
+
+    align-items: start;
+
+    padding-left: 3.8rem;
+    padding-right: 3.8rem;
+  }
+
+  /* HVID LINJE I MIDTEN */
+  .reviews-wrapper::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 2px;
+
+    background: var(--color-white);
+
+    transform: translateX(-50%);
+  }
+
 }
 
-.cta:active {
-  transform: translateY(0);
+/* ============================
+   MOBILE
+============================ */
+@media (max-width: 767px) {
+
+  .reviews-wrapper {
+    gap: 4rem;
+  }
+
+  /* HVID LINJE MELLEM SEKTIONER */
+  .reviews-block {
+    position: relative;
+
+    padding-bottom: 2rem;
+  }
+
+  .reviews-block:first-child::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -2rem;
+
+    height: 2px;
+
+    background: var(--color-white);
+  }
+
+  .tp-row {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .tp-logo-wrapper {
+    width: 100%;
+
+    margin-top: 1rem;
+  }
+
+  .tp-logo {
+    max-width: 150px;
+  }
+
+  .review-card {
+    min-height: auto;
+  }
+
 }
+
 </style>

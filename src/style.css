@@ -69,7 +69,7 @@ h1 {
 
 /* H2 */
 h2 {
-  font-size: 13px;   /* mobile */
+  font-size: 12px;   /* mobile */
   font-weight: 550;
   line-height: 1.3;
   color: #000000;
@@ -114,8 +114,9 @@ a {
 
 @media (min-width: 768px) {
   .section {
-    margin-top: 48px; /* desktop */
-    margin-bottom: 48px;
+     /* desktop */
+    margin-bottom: 100px;
+    margin-top: 50px;
   }
 }
 

@@ -17,10 +17,10 @@ function toggle(i) {
 
 <template>
   <section class="door-overview">
-    <h2 class="overview-title">PORTOVERSIGT</h2>
-    <p class="overview-subtitle">
+    <h1 class="overview-title">PORTOVERSIGT</h1>
+    <h2 class="overview-subtitle">
       HER FINDER DU BESKRIVELSER AF DE FORSKELLIGE TYPER AF PORTE SOM NASSAU KAN LEVERE.
-    </p>
+    </h2>
 
     <div class="accordion">
       <div 
@@ -61,16 +61,11 @@ function toggle(i) {
 }
 
 .overview-title {
-  font-size: 1.4rem;
-  font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--color-primary);
 }
 
 .overview-subtitle {
-  font-size: 0.9rem;
   margin-bottom: 1.5rem;
-  color: var(--color-black);
 }
 
 /* Accordion container */
@@ -111,18 +106,18 @@ function toggle(i) {
 }
 
 /* Content */
+/* Content */
 .accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  background: var(--color-white);
+  display: none;
+  background: white;
   padding: 0 1rem;
-  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
 .accordion-content.open {
-  max-height: 500px;
+  display: block;
   padding: 1rem;
 }
+
 
 /* Image inside card */
 .door-image {
@@ -135,10 +130,17 @@ function toggle(i) {
    DESKTOP VERSION
 ============================ */
 @media (min-width: 768px) {
+  @media (min-width: 768px) {
   .accordion {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* <<< IMMER 3 SPALTEN */
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+
+    /* WICHTIG: verhindert, dass alle Karten gleich hoch werden */
+    align-items: start;
+    grid-auto-rows: auto;
   }
+}
+
 }
 </style>

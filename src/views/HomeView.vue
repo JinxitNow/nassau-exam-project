@@ -31,76 +31,56 @@ const selectedJob = ref(null)
 
 <template>
   <section class="home">
+
     <NewsBar />
     <Hero />
-    <ChatBubble />
+    <section class="section"><ChatBubble /></section>
 
-    <!-- WRAPPER TIL FOURSTEPS + QUIZ -->
-    <div class="steps-quiz-wrapper">
-      <Foursteps />
+    <section class="section">
+      <div class="steps-quiz-wrapper">
+        <Foursteps />
+        <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
+        <QuizStart v-else />
+      </div>
+    </section>
 
-      <!-- ⭐ DETTE ER DET VIGTIGE ⭐ -->
-      <Quiz v-if="!showQuiz" @startQuiz="showQuiz = true" />
-      <QuizStart v-else />
-    </div>
-  
-    
-    
-    
-    <!-- ⭐ NEUER BEREICH: MapSection + FilterLogic + LocalExpert -->
-    <div class="expert-map-wrapper">
+    <section class="section">
+      <div class="expert-map-wrapper">
+        <EmployeeFilterLogic
+          :pin="selectedPin"
+          :zipcode="selectedZip"
+          :job="selectedJob"
+        />
+        <MapSection
+          @pin-selected="selectedPin = $event"
+          @zipcode-selected="selectedZip = $event"
+          @job-selected="selectedJob = $event"
+        />
+      </div>
+    </section>
 
-      <EmployeeFilterLogic
-        :pin="selectedPin"
-        :zipcode="selectedZip"
-        :job="selectedJob"
-      />
+    <section class="section"><Overview1 /></section>
+    <section class="section"><About /></section>
 
-      <MapSection
-        @pin-selected="selectedPin = $event"
-        @zipcode-selected="selectedZip = $event"
-        @job-selected="selectedJob = $event"
-      />
+    <section class="section">
+      <DoorOverview :doors="[
+        { title: 'GARAGEPORT', text: 'En garageport er ...', image: '/images/garageport.webp' },
+        { title: 'LAVENERGIPORT', text: 'En lavenergipo...' },
+        { title: 'HURTIGPORT', text: 'En hurtigport ...' },
+        { title: 'LEDHEJSEPORT', text: 'En ledhejseport ...', image: '/images/ledhejseport.webp' },
+        { title: 'MIX/MIX INSU PORT', text: 'Mix/Mix Insu ...' },
+        { title: 'PANORAMAPORT', text: 'En panoramaport ...' }
+      ]" />
+    </section>
 
-    </div>
+    <section class="section"><CustomerReviews /></section>
+    <section class="section"><Slideshow /></section>
+    <section class="section"><VideoGallery /></section>
+    <section class="section"><NewsSection /></section>
 
-    <Overview1/>
-    <About/>
-    <DoorOverview :doors="[
-  { 
-    title: 'GARAGEPORT', 
-    text: 'En garageport er ...', 
-    image: '/images/garageport.webp' 
-  },
-  { 
-    title: 'LAVENERGIPORT', 
-    text: 'En lavenergipo...'
-  },
-  { 
-    title: 'HURTIGPORT', 
-    text: 'En hurtigport ...'
-  },
-  { 
-    title: 'LEDHEJSEPORT', 
-    text: 'En ledhejseport ...', 
-    image: '/images/ledhejseport.webp'
-  },
-  { 
-    title: 'MIX/MIX INSU PORT', 
-    text: 'Mix/Mix Insu ...'
-  },
-  { 
-    title: 'PANORAMAPORT', 
-    text: 'En panoramaport ...'
-  }
-]" />
-
-    <CustomerReviews />
-    <Slideshow />
-    <VideoGallery />
-    <NewsSection />
   </section>
 </template>
+
 
 <style scoped>
 .steps-quiz-wrapper {
