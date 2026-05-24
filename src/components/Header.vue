@@ -9,7 +9,7 @@ const menuOpen = ref(false)
     <div class="header-container">
 
       <!-- Logo -->
-     <a href="https://nassau-exam.web.app/" class="logo">
+     <a href="/" class="logo">
   <img src="/logo/nassau-logo-w.svg" alt="Nassau logo" />
 </a>
 
