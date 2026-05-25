@@ -16,12 +16,12 @@
         <div class="hero-mobile">
 
   <a href="https://nassau.dk/webshop/" class="hero-mobile-box">
-    <img src="/img/hero-l.webp" alt="Privat" class="hero-mobile-img" />
+    <img src="/img/herol.webp" alt="Privat" class="hero-mobile-img" />
     <h1 class="hero-title-mobile">PRIVAT</h1>
   </a>
 
   <a href="https://nassau.dk/webshop/ledhejseport/1/" class="hero-mobile-box">
-    <img src="/img/hero-r.webp" alt="Erhverv" class="hero-mobile-img" />
+    <img src="/img/heror.webp" alt="Erhverv" class="hero-mobile-img" />
     <h1 class="hero-title-mobile">ERHVERV</h1>
   </a>
 
@@ -36,7 +36,7 @@
 
         <!-- LEFT SIDE -->
         <div class="hero-desktop-box">
-          <img src="/img/hero-l.webp" alt="Privat" class="hero-desktop-img" />
+          <img src="/img/herol.webp" alt="Privat" class="hero-desktop-img" />
 
           <div class="hero-desktop-content center-content">
             <h1 class="hero-title-desktop">Privat</h1>
@@ -46,7 +46,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="hero-desktop-box">
-          <img src="/img/hero-r.webp" alt="Erhverv" class="hero-desktop-img" />
+          <img src="/img/heror.webp" alt="Erhverv" class="hero-desktop-img" />
 
           <div class="hero-desktop-content center-content">
             <h1 class="hero-title-desktop">Erhverv</h1>
