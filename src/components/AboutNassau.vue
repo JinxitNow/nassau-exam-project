@@ -9,7 +9,7 @@
     <div class="about-wrapper">
       <div class="video-link">
         <a href="https://youtu.be/yOa5zWFCdxM">
-          <img src="/public/img/produktions thumbnail.webp" alt="video thumbnail" class="video-thumb">
+          <img src="/public/img/produktions-thumbnail.webp" alt="video thumbnail" class="video-thumb">
         </a>
       </div>
 
