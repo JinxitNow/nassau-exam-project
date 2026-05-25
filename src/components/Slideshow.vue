@@ -197,7 +197,7 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   margin: 60px auto;
-}
+  }
 
 .pause-hint {
   position: absolute;
@@ -232,7 +232,6 @@ onUnmounted(() => {
   overflow: hidden;
   background-color: var(--color-primary);
   min-height: 320px;
-  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
