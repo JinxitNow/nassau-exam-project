@@ -191,12 +191,9 @@ const trustpilotReviews = ref([
 ============================ */
 .reviews-bg {
   background: var(--color-neutral-light);
-
   width: 100vw;
-
   margin-left: 50%;
   transform: translateX(-50%);
-
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -206,12 +203,9 @@ const trustpilotReviews = ref([
 ============================ */
 .reviews-wrapper {
   position: relative;
-
   display: flex;
   flex-direction: column;
-
   gap: 4rem;
-
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -222,7 +216,6 @@ const trustpilotReviews = ref([
 .reviews-block {
   width: 100%;
   min-width: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -242,7 +235,6 @@ const trustpilotReviews = ref([
 .tp-reviews {
   display: flex;
   flex-direction: column;
-
   gap: 1rem;
 }
 
@@ -251,14 +243,10 @@ const trustpilotReviews = ref([
 ============================ */
 .review-card {
   background: var(--color-neutral-dark);
-
   padding: 1.2rem;
-
   display: flex;
   gap: 1rem;
-
   align-items: flex-start;
-
   min-height: 130px;
 }
 
@@ -269,9 +257,7 @@ const trustpilotReviews = ref([
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 90px;
-
   flex-shrink: 0;
 }
 
@@ -281,18 +267,14 @@ const trustpilotReviews = ref([
 .avatar {
   width: 58px;
   height: 58px;
-
   border-radius: 50%;
-
   overflow: hidden;
-
   margin-bottom: 0.5rem;
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -301,9 +283,7 @@ const trustpilotReviews = ref([
 ============================ */
 .name {
   color: var(--color-white);
-
   margin: 0;
-
   text-align: center;
 }
 
@@ -322,10 +302,9 @@ const trustpilotReviews = ref([
 ============================ */
 .text {
   color: var(--color-white);
-font-weight: 700;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.8rem;
-
   line-height: 1.5;
 }
 
@@ -348,11 +327,8 @@ font-weight: 700;
 ============================ */
 .tp-row {
   display: flex;
-
   align-items: center;
-
   justify-content: flex-start;
-
   gap: 1.5rem;
 }
 
@@ -361,9 +337,7 @@ font-weight: 700;
 ============================ */
 .tp-logo-wrapper {
   width: 135px;
-
   flex-shrink: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,32 +362,22 @@ font-weight: 700;
 
   .reviews-wrapper {
     display: grid;
-
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
     gap: 4rem;
-
     align-items: start;
-
-    padding-left: 3.8rem;
+    padding-left: 4.2rem;
     padding-right: 3.8rem;
   }
 
   /* HVID LINJE I MIDTEN */
   .reviews-wrapper::before {
     content: "";
-
     position: absolute;
-
     top: 0;
     bottom: 0;
-
     left: 50%;
-
     width: 2px;
-
     background: var(--color-white);
-
     transform: translateX(-50%);
   }
 
@@ -431,34 +395,26 @@ font-weight: 700;
   /* HVID LINJE MELLEM SEKTIONER */
   .reviews-block {
     position: relative;
-
     padding-bottom: 2rem;
   }
 
   .reviews-block:first-child::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     right: 0;
-
     bottom: -2rem;
-
     height: 2px;
-
     background: var(--color-white);
   }
 
   .tp-row {
     flex-direction: column;
-
     align-items: stretch;
   }
 
   .tp-logo-wrapper {
     width: 100%;
-
     margin-top: 1rem;
   }
 
