@@ -273,6 +273,7 @@ onUnmounted(() => {
 
 .slide-content a {
   color: var(--color-white);
+  font-style: italic;
   }
 
  /* NAVIGATION */
