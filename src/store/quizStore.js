@@ -2,44 +2,47 @@ import { defineStore } from "pinia"
 
 export const useQuizStore = defineStore("quiz", {
   state: () => ({
-    currentStep: 1,
-    answers: {
-      portstoerrelse: null,
-      overhoejde: null,
-      doer: null,
-      vinduer: null,
-      isolering: null,
-      hastighed: null,
-      design: null,
-      sikkerhed: null,
-      smart: null
-    }
+    currentStep: 0,
+    portType: null,
+    answers: {},
+    resultKey: null
   }),
 
   actions: {
-  setAnswer(key, value) {
-    this.answers[key] = value
-  },
-  nextStep() {
-    this.currentStep++
-  },
-  prevStep() {
-    this.currentStep--
-  },
-  reset() {
-    this.currentStep = 1
-    this.answers = {
-      portstoerrelse: null,
-      overhoejde: null,
-      doer: null,
-      vinduer: null,
-      isolering: null,
-      hastighed: null,
-      design: null,
-      sikkerhed: null,
-      smart: null
+    setPortType(type) {
+      this.portType = type
+      this.currentStep = 0
+      this.answers = {}
+      this.resultKey = null
+    },
+
+    setAnswer(questionId, value) {
+      this.answers[questionId] = value
+    },
+
+    nextStep() {
+      this.currentStep++
+    },
+
+    prevStep() {
+      if (this.currentStep > 0) {
+        this.currentStep--
+      }
+    },
+
+    clearAnswer(questionId) {
+      delete this.answers[questionId]
+    },
+
+    setResult(key) {
+      this.resultKey = key
+    },
+
+    reset() {
+      this.currentStep = 0
+      this.portType = null
+      this.answers = {}
+      this.resultKey = null
     }
   }
-}
-
 })
