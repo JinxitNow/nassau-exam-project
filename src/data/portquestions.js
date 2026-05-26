@@ -106,7 +106,7 @@ export const PORT_FLOWS = {
         resultKey: "garage_standard_nrx"
       },
       {
-        label: "H>2,33m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> Overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 100 mm sideplads. <br>Rumdybde skal være min. 3,305m ved garagehøjde mellem 1,83-2,125mm, eller min. 3,555 ved garagehøjde mellem 2,126-2,33 m",
+        label: "H>2,33m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> Overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 100 mm sideplads. <br>Rumdybde skal være min. 4,35m ved garagehøjde mellem 2,331-3 m.
         value: "nrt",
         end: true,
         resultKey: "garage_standard_nrt"
