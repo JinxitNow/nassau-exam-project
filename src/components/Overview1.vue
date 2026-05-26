@@ -16,22 +16,22 @@ const activeCategory = ref('privat')
    <section class="kategori-grid-privat" v-show="activeCategory === 'privat'">
     
     <div class="card">
-      <img src="/public/img/category1.jpg.webp" alt="farveprøver">
+      <img src="/img/category1.jpg.webp" alt="farveprøver">
       <h3>FARVEPRØVER</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/category2.webp" alt="Kataloger">
+      <img src="/img/category2.webp" alt="Kataloger">
       <h3>KATALOGER</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/category3.webp" alt="Galleri">
+      <img src="/img/category3.webp" alt="Galleri">
       <h3>GALLERI</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/category4.webp" alt="FAQ">
+      <img src="/img/category4.webp" alt="FAQ">
       <h3>FAQ</h3>
     </div>
    </section>
@@ -40,22 +40,22 @@ const activeCategory = ref('privat')
    <section class="kategori-grid-erhverv" v-show="activeCategory === 'erhverv'">
 
     <div class="card">
-      <img src="/public/img/Branche.webp" alt="Branche">
+      <img src="/img/Branche.webp" alt="Branche">
       <h3>BRANCHE</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/Kataloger.webp" alt="Kataloger">
+      <img src="/img/Kataloger.webp" alt="Kataloger">
       <h3>KATALOGER</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/Galleri.webp" alt="Galleri">
+      <img src="/img/Galleri.webp" alt="Galleri">
       <h3>GALLERI</h3>
     </div>
 
     <div class="card">
-      <img src="/public/img/category4.webp" alt="FAQ">
+      <img src="/img/category4.webp" alt="FAQ">
       <h3>FAQ</h3>
     </div>
    </section>
@@ -72,7 +72,7 @@ const activeCategory = ref('privat')
   padding: 30px 20px;
   display: grid;
   grid-template-columns: repeat(2, 154px);
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -84,7 +84,7 @@ const activeCategory = ref('privat')
   padding: 30px 20px;
   display: grid;
   grid-template-columns: repeat(2, 154px);
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -157,10 +157,12 @@ const activeCategory = ref('privat')
 @media (min-width: 768px) {
   .kategori-grid-privat {
     grid-template-columns: repeat(4, 312px);
+    gap: 60px
   }
 
   .kategori-grid-erhverv {
     grid-template-columns: repeat(4, 312px);
+    gap: 60px
   }
 
   .titles {
