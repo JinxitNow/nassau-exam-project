@@ -12,7 +12,7 @@ function startQuiz() {
     <div class="quiz-image"></div>
     <div class="quiz-content">
       <h2>Ved du ikke hvilken port der passer til dig?</h2>
-      <p>Svar på 10 korte spørgsmål <br> og find den rigtige port.</p>
+      <p>Svar på nogle korte spørgsmål <br> og find den rigtige port.</p>
 
       <button class="quiz-btn" @click="startQuiz">
         Tag testen nu
@@ -125,6 +125,8 @@ function startQuiz() {
     border-radius: 6px;
     padding: 14px 26px;
     margin-top: 1rem;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .quiz-btn:hover {
