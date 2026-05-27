@@ -97,7 +97,7 @@ import ChatBubble from "@/components/ChatBubble.vue"
         <!-- YOUTUBE IFRAME -->
         <iframe
           class="video-frame"
-          src="https://www.youtube.com/embed/s_dWRm39qII?autoplay=0&muted=1&controls=0&modestbranding=1&rel=0"
+          src="https://www.youtube.com/watch?v=u_-OiGi0avY"
           title="NASSAU Video"
           allowfullscreen
         ></iframe>
