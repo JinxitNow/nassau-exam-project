@@ -121,7 +121,7 @@ const activeCategory = ref('privat')
   left: 0;
   width: 100%;
   height: 3px;
-  background: white;
+  background: var(--color-white);
 }
 
 .title-erhverv,
@@ -132,7 +132,7 @@ const activeCategory = ref('privat')
 /* Cards */
 .card {
   width: 154px;
-  background: white;
+  background: var(--color-white);
   text-align: center;
   padding-bottom: 10px;
   
@@ -150,7 +150,7 @@ const activeCategory = ref('privat')
 .card h3 {
   margin-top: 10px;
   background: none;
-  color: black;
+  color: var(--color-black);
 }
 
 /* TABLET + DESKTOP */
@@ -179,7 +179,7 @@ const activeCategory = ref('privat')
 
   .card {
     width: 312px;
-    background: white;
+    background: var(--color-white);
     text-align: center;
     padding-bottom: 10px;
   }

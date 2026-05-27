@@ -24,7 +24,7 @@ const menuOpen = ref(false)
       <ul class="dropdown">
         <li>Industriporte</li>
         <li>Garageporte</li>
-        <li>tilbehør & ekstraudstyr</li>
+        <li>Tilbehør & ekstraudstyr</li>
         </ul>
     </li>
 

@@ -54,10 +54,10 @@ function playYoutube(event) {
           ligegyldigt hvilket problem du måtte have.
         </p>
 
-        <a class="cta" href="#">LÆS MERE OM NASSAU</a>
+        <a class="cta" href="https://nassau.dk/om-nassau/">LÆS MERE OM NASSAU</a>
       </div>
     </div>
-
+</section>
     <!-- INFO-BOKSE -->
     <section class="info-bokse">
       <div class="boks">
@@ -75,11 +75,19 @@ function playYoutube(event) {
         <p>DANMARKS FØRENDE PRODUCENT AF LEDHEJSEPORTE, LAVENERGIPORTE OG HURTIGPORTE – DANSK KVALITET</p>
       </div>
     </section>
-  </section>
+
 </template>
 
 
 <style scoped>
+
+.about {
+  margin-bottom: 3rem;
+}
+
+.cta {
+  margin-top: 1rem;
+}
 
 /* VIDEO – samme størrelse som original thumbnail */
 .video-wrapper {
@@ -88,6 +96,7 @@ function playYoutube(event) {
   max-width: 609px; /* ⭐ samme bredde som original */
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 /* VIDEO FRAME */
@@ -172,15 +181,15 @@ function playYoutube(event) {
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
-    padding: 40px 20px;
     width: 100%;
+    margin-bottom: 8rem;
   }
 
   .about h1 {
     order: 1;
     white-space: nowrap;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   .about-wrapper {
@@ -194,7 +203,7 @@ function playYoutube(event) {
   }
 
   .about-p {
-    max-width: 600px;
+    max-width: 700px;
     text-align: left;
     line-height: 1.6;
   }
@@ -208,7 +217,7 @@ function playYoutube(event) {
     order: 3;
     display: flex;
     justify-content: center;
-    gap: 200px;
+    gap: 250px;
     margin-top: 40px;
     flex-direction: row;
   }
@@ -228,6 +237,7 @@ function playYoutube(event) {
   .boks p {
     max-width: 250px;
     margin: 0 auto;
+    font-size: 14px;
   }
 }
 
