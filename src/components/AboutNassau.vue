@@ -1,39 +1,64 @@
 <script setup>
-// Her skriver du logik, imports, variabler osv.
+function playYoutube(event) {
+  const wrapper = event.currentTarget.parentElement
+  const overlay = wrapper.querySelector(".video-overlay")
+  const iframe = wrapper.querySelector("iframe")
+
+  overlay.style.display = "none"
+
+  // Base URL ohne Parameter
+  const baseUrl = iframe.src.split("?")[0]
+
+  // Autoplay aktivieren
+  iframe.src = `${baseUrl}?autoplay=1&mute=0`
+}
 </script>
 
-<template>
-  <!-- Her skriver du HTML-strukturen -->
+ <template>
   <section class="about">
     <h1>DANSK PRODUCERET PORT FRA NASSAU</h1>
+
     <div class="about-wrapper">
-      <div class="video-link">
-        <a href="https://youtu.be/yOa5zWFCdxM">
-          <img src="/public/img/produktions-thumbnail.webp" alt="video thumbnail" class="video-thumb">
-        </a>
+
+      <!-- ⭐ NEUES YOUTUBE-VIDEO MIT OVERLAY -->
+      <div class="video-wrapper">
+        <div class="video-overlay" @click="playYoutube($event)">
+          <div class="play-button"></div>
+        </div>
+
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/yOa5zWFCdxM?controls=0&mute=1"
+          title="YouTube video"
+          allowfullscreen
+        ></iframe>
       </div>
 
+      <!-- TEXT -->
       <div class="about-p">
-
-      
-        <p>NASSAU har siden 1970 produceret ledhejseporte af højeste kvalitet. 
+        <p>
+          NASSAU har siden 1970 produceret ledhejseporte af højeste kvalitet. 
           Efter stor forespørgsel producerer NASSAU nu også Garageporte til private. 
           De mange års erfaring gør, at NASSAU har høj kvalitet i alle led i tilblivelsen af din port. 
           Teknisk assistance i planlægningsfasen, kvalitetskontrol i produktionen, 
           montage udført af dygtige montører og løbende support, service og vedligeholdelse af din port, 
           sikrer den optimale oplevelse igennem hele portens levetid.
         </p>
-        <p> Design, Kvalitet og Rådgivning er nøgleordene bag de bedste garageporte og Industriporte på markedet. 
+
+        <p>
+          Design, Kvalitet og Rådgivning er nøgleordene bag de bedste garageporte og Industriporte på markedet. 
           Så ligegyldigt om du skal bruge en port til lade, porte til en hal, 
           garageport eller andre produkter i forbindelse med din port, 
           handler du direkte hos NASSAU som producent uden forstyrrende mellemled. 
-          Dette kommer dig til gode som kunde, da du altid kan tage fat i NASSAU for at få hjælp til din port, ligegyldigt, 
-          hvilket problem at du måtte have.
-        </p><br>
-    
-        <a class="cta" href="#">LÆS MERE OM NASSAU</a> <br><br>
+          Dette kommer dig til gode som kunde, da du altid kan tage fat i NASSAU for at få hjælp til din port, 
+          ligegyldigt hvilket problem du måtte have.
+        </p>
+
+        <a class="cta" href="#">LÆS MERE OM NASSAU</a>
       </div>
     </div>
+
+    <!-- INFO-BOKSE -->
     <section class="info-bokse">
       <div class="boks">
         <img src="/icons/truck-circle.svg" alt="lanstbil chirkel"> 
@@ -49,27 +74,70 @@
         <img src="/icons/ribbon-circle.svg" alt="ribbon chirkel">
         <p>DANMARKS FØRENDE PRODUCENT AF LEDHEJSEPORTE, LAVENERGIPORTE OG HURTIGPORTE – DANSK KVALITET</p>
       </div>
-
     </section>
-  </section> <br>
+  </section>
 </template>
 
-<style scoped>
-/* Her skriver du styling kun for denne komponent */
 
+<style scoped>
+
+/* VIDEO – samme størrelse som original thumbnail */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 609px; /* ⭐ samme bredde som original */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* VIDEO FRAME */
+.video-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+  z-index: 2;
+}
+
+/* PLAY BUTTON */
+.play-button {
+  width: 64px;
+  height: 64px;
+  background: var(--color-white);
+  border-radius: 50%;
+  position: relative;
+}
+
+.play-button::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 18px;
+  width: 0;
+  height: 0;
+  border-left: 22px solid var(--color-primary);
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+}
+
+/* REST VON DEINEM ABOUT-CSS UNVERÄNDERT */
 .video-link {
   display: inline-block;
   text-decoration: none;
   margin-left: 20px;
 }
-
-.video-thumb {
-  width: 300px;
-  height: auto;
-  transition: 0.25s ease;
-  cursor: pointer;
-}
-
 
 .info-bokse {
   display: flex;
@@ -77,7 +145,6 @@
   gap: 24px;
 }
 
-/* ikon + tekst på samme linje */
 .boks {
   display: flex;
   align-items: center;
@@ -97,22 +164,18 @@
   max-width: 280px;
 }
 
-/* Desktop: 3 kolonner */
+/* Desktop */
 @media (min-width: 1024px) {
 
-  /* Hele sektionen */
- 
   .about {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
     padding: 40px 20px;
-    max-width: none;
     width: 100%;
   }
 
-  /* Overskrift */
   .about h1 {
     order: 1;
     white-space: nowrap;
@@ -120,7 +183,7 @@
     margin-bottom: 30px;
   }
 
- .about-wrapper {
+  .about-wrapper {
     order: 2;
     display: flex;
     flex-direction: row-reverse;
@@ -128,41 +191,26 @@
     justify-content: space-between;
     gap: 60px;
     max-width: 1600px;
-
   }
 
-  
-  /* Video */
-  .video-link {
-    margin: 0;
-  }
-
-  .video-thumb {
-    width: 609px;
-    height: auto;
-  }
-
-  /* Tekst */
   .about-p {
     max-width: 600px;
     text-align: left;
     line-height: 1.6;
   }
 
-  /* Knap */
   .cta {
     display: inline-block;
     margin-top: 20px;
   }
 
-  /* Ikoner */
   .info-bokse {
     order: 3;
     display: flex;
     justify-content: center;
     gap: 200px;
     margin-top: 40px;
-    flex-direction: row; /* 3 i række */
+    flex-direction: row;
   }
 
   .boks {
@@ -182,5 +230,21 @@
     margin: 0 auto;
   }
 }
+
+@media (min-width: 1024px) {
+  .play-button {
+    width: 90px;
+    height: 90px;
+  }
+
+  .play-button::after {
+    left: 34px;
+    top: 26px;
+    border-left: 32px solid var(--color-primary);
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+}
+
 
 </style>

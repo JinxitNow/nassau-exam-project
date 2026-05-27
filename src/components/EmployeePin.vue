@@ -3,12 +3,12 @@ defineProps(["pin"]);
 </script>
 
 <template>
-  <div
+  <img
     class="pin"
+    :src="'/icons/pin-red.svg'"
     :style="{ left: pin.x + '%', top: pin.y + '%' }"
-  >
-    📍
-  </div>
+    alt="pin"
+  />
 </template>
 
 <style scoped>
@@ -16,6 +16,7 @@ defineProps(["pin"]);
   position: absolute;
   transform: translate(-50%, -100%);
   cursor: pointer;
-  font-size: 24px;
+  width: 18px;   /* juster størrelse */
+  height: auto;
 }
 </style>
