@@ -95,12 +95,13 @@ import ChatBubble from "@/components/ChatBubble.vue"
         </div>
 
         <!-- YOUTUBE IFRAME -->
-        <iframe
-          class="video-frame"
-          src="https://www.youtube.com/watch?v=u_-OiGi0avY"
-          title="NASSAU Video"
-          allowfullscreen
-        ></iframe>
+    <iframe
+    class="video-frame"
+    src="https://www.youtube.com/embed/u_-OiGi0avY"
+    title="YouTube video"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+
 
       </div>
 
@@ -525,5 +526,21 @@ import ChatBubble from "@/components/ChatBubble.vue"
     height: 260px;
   }
 }
+
+@media (min-width: 768px) {
+  .play-button {
+    width: 95px;
+    height: 95px;
+  }
+
+  .play-button::after {
+    border-left: 36px solid var(--color-primary);
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    left: 32px;
+    top: 26px;
+  }
+}
+
 
 </style>
