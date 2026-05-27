@@ -433,10 +433,10 @@ export const PORT_FLOWS = {
 // Resultattekster
 export const RESULT_TEXTS = {
   garage_standard_doer_ja:
-    "Vi kan desværre ikke montere en dør i en standard garageport. Prøv testen igen eller kontakt en port konsulent",
+    "Vi kan desværre ikke montere en dør i en standard garageport. Prøv testen igen eller kontakt en port konsulent på tlf.nr. 6362 2346",
   garage_standard_nrx: "Vi vil anbefale en en standard NRX garageport.",
   garage_standard_nrt:
-    "Kontakt en portkonsulent – En NRT garageport må ikke monteres af privatpersoner.",
+    "Kontakt en portkonsulent på tlf.nr. 6362 2346– En NRT garageport må ikke monteres af privatpersoner.",
 
 
 
@@ -453,7 +453,7 @@ export const RESULT_TEXTS = {
     "Kun erfarne portmontører må opsætte porte.",
 
   lavenergi_doer_ja:
-    "Dør er ikke muligt ved lavenergiporte – kontakt en portkonsulent.",
+    "Dør er ikke muligt ved lavenergiporte – kontakt en portkonsulent på tlf.nr. 6362 2346.",
   lavenergi_plads_over3m:
     "Kontakt en portkonsulent – overhøjde over 3 m kræver specialløsning.",
   lavenergi_plads_under50:
@@ -464,7 +464,7 @@ export const RESULT_TEXTS = {
     "Kun erfarne portmontører må opsætte porte.",
 
   hurtig_doer_ja:
-    "Dør er ikke muligt ved hurtigporte – Prø testen igen elle kontakt en portkonsulent.",
+    "Dør er ikke muligt ved hurtigporte – Prøv testen igen elle kontakt en portkonsulent på tlf.nr. 6362 2346.",
   hurtig_montage_nassau:
     "Du kan vælge 4000 Sprint Interior, 4000 Sprint Exterior, 8000 Speed eller Dynaco rulleport.",
   hurtig_montage_selv:
