@@ -6,6 +6,8 @@ import {
   PORT_FLOWS,
   RESULT_TEXTS
 } from "@/data/portQuestions.js"
+import { ref } from "vue"
+
 
 const quiz = useQuizStore()
 
@@ -48,6 +50,23 @@ function selectAnswer(option) {
   }
 
   quiz.nextStep()
+}
+const customerName = ref("")
+const customerPhone = ref("")
+
+function sendOpmaaling() {
+  if (!customerName.value || !customerPhone.value) {
+    alert("Udfyld venligst både navn og telefonnummer.")
+    return
+  }
+
+  // Her kan du senere sende til Firebase
+  console.log("Opmåling sendt:", {
+    navn: customerName.value,
+    telefon: customerPhone.value
+  })
+
+  alert("Tak! Vi kontakter dig snarest.")
 }
 
 function goBack() {
@@ -101,6 +120,29 @@ function goBack() {
           Tak for dine svar. Kontakt en portkonsulent for en konkret anbefaling.
         </p>
 
+       <!--OPMÅLINGSFORMULAR--> 
+         <div v-if="quiz.resultKey === 'garage_standard_opmaaling'" class="opmaaling-form">
+            <p>Jeg vil gerne bestille en opmåling. Kontakt mig venligst.</p>
+
+            <input
+              type="text"
+              v-model="customerName"
+              placeholder="Dit navn"
+              class="input-field"
+            />
+
+            <input
+              type="tel"
+              v-model="customerPhone"
+              placeholder="Dit telefonnummer"
+              class="input-field"
+            />
+
+            <button class="send-btn" @click="sendOpmaaling">
+              Send forespørgsel
+            </button>
+          </div>
+
         <button class="retry-btn" @click="quiz.reset()">
           Prøv igen
         </button>
@@ -111,6 +153,7 @@ function goBack() {
 </template>
 
 <style scoped>
+
 .quiz-start {
   padding: 2rem;
 }
@@ -166,4 +209,30 @@ function goBack() {
 .back-link:hover {
   text-decoration: underline;
 }
+
+/* og så videre… */
+.opmaaling-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-field {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.send-btn {
+  padding: 0.8rem 1.2rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
 </style>

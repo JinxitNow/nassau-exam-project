@@ -1,6 +1,6 @@
 // src/data/portQuestions.js
 
-// Første spørgsmål (fælles for alle)
+/// Første spørgsmål (fælles for alle)
 export const FIRST_QUESTION = {
   id: "porttype",
   question: "Hvilken type og størrelse port har du brug for?",
@@ -34,86 +34,92 @@ export const FIRST_QUESTION = {
 // FLOW pr. porttype
 export const PORT_FLOWS = {
   garage_standard: [
-  {
-    id: "design",
-    question: "Hvilket design foretrækker du?",
-    options: [
-      { label: "Classic: Stucco-struktur og mulighed for at vælge mellem 11 farver", value: "classic" },
-      { label: "Softline: Granit/Sablé-struktur og mulighed for at vælge mellem 3 farver", value: "softline" },
-      { label: "Woodgrain: Imiteret træ-struktur og mulighed for at vælge mellem 2 farver.", value: "woodgrain" }
-    ]
-  },
+    {
+      id: "design",
+      question: "Hvilket design foretrækker du?",
+      options: [
+        { label: "Classic: Stucco-struktur og mulighed for at vælge mellem 11 farver", value: "classic" },
+        { label: "Softline: Granit/Sablé-struktur og mulighed for at vælge mellem 3 farver", value: "softline" },
+        { label: "Woodgrain: Imiteret træ-struktur og mulighed for at vælge mellem 2 farver.", value: "woodgrain" }
+      ]
+    },
 
-  {
-    id: "vinduer",
-    question: "Skal der være vindue(r) i porten?",
-    image: "/img/quiz-vinduer.svg",
-    options: [
-      { label: "Ja tak", value: true },
-      { label: "Nej tak", value: false }
-    ]
-  },
+    {
+      id: "vinduer",
+      question: "Skal der være vindue(r) i porten?",
+      image: "/img/quiz-vinduer.svg",
+      options: [
+        { label: "Ja tak", value: true },
+        { label: "Nej tak", value: false }
+      ]
+    },
 
-  {
-    id: "doer",
-    question: "Skal der dør i porten eller ved siden af porten?",
-     image: "/img/quiz-doer.svg",
-    options: [
-      {
-        label: "Ja tak",
-        value: "ja",
-        end: true,
-        resultKey: "garage_standard_doer_ja" // Quiz afsluttes her
-      },
-      { label: "Nej tak", value: "nej" }
-    ]
-  },
+    {
+      id: "doer",
+      question: "Skal der dør i porten eller ved siden af porten?",
+      image: "/img/quiz-doer.svg",
+      options: [
+        {
+          label: "Ja tak",
+          value: "ja",
+          end: true,
+          resultKey: "garage_standard_doer_ja"
+        },
+        { label: "Nej tak", value: "nej" }
+      ]
+    },
 
-  {
-    id: "smart",
-    question: "Ønsker du smartudstyr (Ismartgate, SmartPhone connect Stick) til porten?",
-     image: "/img/quiz-smart.svg",
-    options: [
-      { label: "Ja tak", value: true },
-      { label: "Nej tak", value: false }
-    ]
-  },
+    {
+      id: "smart",
+      question: "Ønsker du smartudstyr (Ismartgate, SmartPhone connect Stick) til porten?",
+      image: "/img/quiz-smart.svg",
+      options: [
+        { label: "Ja tak", value: true },
+        { label: "Nej tak", value: false }
+      ]
+    },
 
-  {
-    id: "montage",
-    question: "Hvem skal montere porten?",
-    options: [
-      {
-        label: "Nassau skal montere for mig",
-        value: "nassau"
-      },
-      {
-        label: "Det vil jeg gerne selv",
-        value: "selv"
-      }
-    ]
-  },
+    {
+      id: "montage",
+      question: "Hvem skal montere porten?",
+      options: [
+        {
+          label: "Nassau skal montere for mig",
+          value: "nassau"
+        },
+        {
+          label: "Det vil jeg gerne selv",
+          value: "selv"
+        }
+      ]
+    },
 
-  {
-    id: "plads",
-    question: "Hvor meget plads har du til montering af porten?",
-     image: "/img/quiz-opmaaling.svg",
-    options: [
-      {
-        label: "H<2,33 m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> eller overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 90 mm sideplads. <br>Rumdybde skal være min. 3,305m ved garagehøjde mellem 1,83-2,125mm, eller min. 3,555 ved garagehøjde mellem 2,126-2,33 m",
-        value: "nrx",
-        end: true,
-        resultKey: "garage_standard_nrx"
-      },
-      {
-        label: "H>2,33m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> Overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 100 mm sideplads. <br>Rumdybde skal være min. 4,35m ved garagehøjde mellem 2,331-3 m.
-        value: "nrt",
-        end: true,
-        resultKey: "garage_standard_nrt"
-      }
-    ]
-  }
-],
+    {
+      id: "plads",
+      question: "Hvor meget plads har du til montering af porten?",
+      image: "/img/quiz-opmaaling.svg",
+      options: [
+        {
+          label: "H<2,33 m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> eller overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 90 mm sideplads. <br>Rumdybde skal være min. 3,305m ved garagehøjde mellem 1,83-2,125mm, eller min. 3,555 ved garagehøjde mellem 2,126-2,33 m.",
+          value: "nrx",
+          end: true,
+          resultKey: "garage_standard_nrx"
+        },
+        {
+          label: "H>2,33m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> Overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 100 mm sideplads. <br>Rumdybde skal være min. 4,35m ved garagehøjde mellem 2,331-3 m.",
+          value: "nrt",
+          end: true,
+          resultKey: "garage_standard_nrt"
+        },
+        {
+          label: "Det ved jeg ikke. Jeg vil gerne have at NASSAU kommer og måler op",
+          value: "Opmaaling",
+          end: true,
+          resultKey: "garage_standard_opmaaling"
+        }
+      ]
+    }
+  ],
   garage_special: [
     {
       id: "design",
@@ -437,7 +443,8 @@ export const RESULT_TEXTS = {
   garage_standard_nrx: "Vi vil anbefale en en standard NRX garageport.",
   garage_standard_nrt:
     "Kontakt en portkonsulent på tlf.nr. 6362 2346– En NRT garageport må ikke monteres af privatpersoner.",
-
+  garage_standard_opmaaling:
+    "Bestil opmåling",
 
 
   garage_special_montage_nassau:
