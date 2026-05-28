@@ -113,9 +113,8 @@ function startQuiz() {
 
   .quiz-content p {
     color: var(--color-white);
-    opacity: 0.95;
-    margin-top: 0.5rem;
-    margin-bottom: 0.3rem;
+    opacity: 0.95;  
+    margin-top: 2rem;
   }
 
   .quiz-btn {
@@ -123,7 +122,6 @@ function startQuiz() {
     color: var(--color-primary);
     border-radius: 6px;
     padding: 14px 26px;
-    margin-top: 1rem;
     font-size: 16px;
     font-weight: 700;
   }
