@@ -196,7 +196,6 @@ onUnmounted(() => {
 .slideshow-wrapper {
   position: relative;
   width: 100%;
-  margin: 60px auto;
   }
 
 .pause-hint {
@@ -263,6 +262,8 @@ onUnmounted(() => {
   position: relative;
   z-index: 2;
   max-width: 90%;
+  padding-left: 1.5rem;  
+  padding-right: 1.5rem
   }
 
 /* Gør H1 og P hvide */
@@ -300,7 +301,7 @@ onUnmounted(() => {
   cursor: pointer; } 
   
   .dot.active { 
-    background-color: #091922; }
+    background-color: #07202f; }
 
 /* DESKTOP */
 @media (min-width: 900px) {

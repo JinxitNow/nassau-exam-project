@@ -34,8 +34,7 @@ const selectedJob = ref(null)
 
     <NewsBar />
     <Hero />
-    <section class="section"><ChatBubble /></section>
-
+    <ChatBubble />
     <section class="section">
       <div class="steps-quiz-wrapper">
         <Foursteps />
@@ -112,24 +111,22 @@ const selectedJob = ref(null)
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  margin: 6rem auto;
-  padding: 2rem 2;
+  margin: 0;
+  padding: 0;
   max-width: 1400px;
 }
 
 @media (max-width: 768px) {
   .steps-quiz-wrapper {
     grid-template-columns: 1fr;
-    margin: 3rem 0;
-    padding: 1rem 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
 .expert-map-wrapper {
   display: flex;
   gap: 3rem;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
 }
 
 @media (max-width: 768px) {

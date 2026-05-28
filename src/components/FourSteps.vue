@@ -41,9 +41,6 @@
 
 
 <style scoped>
-.foursteps {
-  padding: 1rem 0;
-}
 
 /* GRID LAYOUT */
 .steps-grid {
@@ -95,10 +92,6 @@
 
   .steps-grid::before {
     display: none;
-  }
-
-  .foursteps {
-    padding: 4rem 0;
   }
 }
 

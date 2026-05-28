@@ -67,7 +67,6 @@
 
 .news-section {
   width: 100%;
-  margin-bottom: 60px;
 }
 
 .news-header {

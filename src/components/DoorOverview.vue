@@ -56,10 +56,6 @@ function toggle(i) {
    MOBILE FIRST
 ============================ */
 
-.door-overview {
-  padding: 2rem 0;
-}
-
 .overview-title {
   margin-bottom: 0.5rem;
 }
@@ -105,7 +101,6 @@ function toggle(i) {
   transform: rotate(180deg);
 }
 
-/* Content */
 /* Content */
 .accordion-content {
   display: none;

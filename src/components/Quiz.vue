@@ -82,7 +82,6 @@ function startQuiz() {
     background-image: url('/img/quiz1.webp');
     background-size: 200%;
     background-position: center;
-    padding: 3.5rem;
     border-radius: 12px;
     position: relative;
   }
