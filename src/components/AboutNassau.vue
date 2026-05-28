@@ -62,12 +62,12 @@ function playYoutube(event) {
     <section class="info-bokse">
       <div class="boks">
         <img src="/icons/truck-circle.svg" alt="lanstbil chirkel"> 
-        <p>VI LEVERER INDUSTRIPORTE PÅ 4 – 5 OG GARAGEPORTE PÅ KUN 2 – 3 </p>
+        <p>VI LEVERER INDUSTRIPORTE PÅ 4 – 5 UGER OG GARAGEPORTE PÅ KUN 2 – 3 UGER</p>
       </div>
 
       <div class="boks">
         <img src="/icons/port-circle.svg" alt="port chirkel">
-        <p>HURTIG PORTESERVICE, REPERATION, LEVERING OG PROFESSIONEL MONTERING AF DIN NYE PORT</p>
+        <p>HURTIG PORTSERVICE, REPARATION, LEVERING OG PROFESSIONEL MONTERING AF DIN NYE PORT</p>
       </div>
 
       <div class="boks">
