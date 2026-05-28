@@ -2,7 +2,7 @@
 // Her skriver du logik, imports, variabler osv.
 import { ref } from 'vue'
 
-const activeCategory = ref('privat')
+const activeCategory = ref('erhverv')
 </script>
 
 <template>
