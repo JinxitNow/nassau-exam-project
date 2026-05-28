@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
   {
-    image: '/img/slideshow1.webp',
+    image: '/img/Slideshow1.webp',
     title: 'EN PORSCHEBOX',
     text: 'Arkitekt Bruno Jakobsen valgte en NASSAU 9000G i fuld sort til sin ikoniske Barnhouse BOX — en garage skabt til hans Porsche og integreret i The Nordic Barnhouse Project. Portens sorte profiler og skinner matcher husets rene linjer og naturlige materialer, og skaber en eksklusiv helhed, der er blevet fremhævet i både TV2 og Porsches 9:11 Magazine.',
     link: 'https://nassau.dk/arkitektens-hus/',
@@ -17,56 +17,56 @@ const slides = [
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow3.webp',
+    image: '/img/Slideshow3.webp',
     title: 'HØJ KVALITET',
     text: 'Haderslev Kaserne valgte NASSAU porte, fordi de er udviklet til at holde i mange år og kræver minimal vedligeholdelse. Portene leverer stabil drift, høj sikkerhed og en robust konstruktion, der passer til de daglige krav i et militært miljø. En løsning der sikrer pålidelighed – år efter år.',
     link: 'https://nassau.dk/referencer/industriport-nassau-cases/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow4.webp',
+    image: '/img/Slideshow4.webp',
     title: 'EKSKLUSIVT DESIGN',
     text: 'Familien valgte en NASSAU Softline Granit garageport for at få et moderne udtryk, høj funktionalitet og bedre komfort i hverdagen. Den eksklusive granit/sablé overflade og den vandrette profilering giver et stilrent look, der løfter hele facaden. Med 44 mm isolerede paneler, robuste tætningslister og sortlakerede profiler får familien en af markedets bedst isolerede porte – en løsning der både ser godt ud og holder på varmen.',
     link: 'https://nassau.dk/referencer/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow5.webp',
+    image: '/img/Slideshow5.webp',
     title: 'KVALITET, STABILITET OG HASTIGHED',
     text: 'Da Falck skulle have nye porte, faldt valget på NASSAU 9000 Energy – en port udviklet til intensiv, daglig drift. Den høje isoleringsevne, stabile konstruktion og hurtige åbne‑/lukketider giver en driftssikker løsning, der understøtter Falcks behov for effektivitet og pålidelighed i alle situationer.',
     link: 'https://nassau.dk/referencer/industriport-nassau-cases/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow6.webp',
+    image: '/img/Slideshow6.webp',
     title: 'KLASSISK PORT',
     text: 'Familien valgte en NASSAU Classic garageport for at få en løsning, der både er tidløs, robust og nem at tilpasse til husets stil. Den elegante stucco‑struktur og de vandrette profiler giver et harmonisk udtryk, mens de 44 mm isolerede paneler sikrer høj varmeisolering året rundt. Med 11 flotte standardfarver og en konstruktion i stærk aluminium får familien en port, der kombinerer fleksibilitet, kvalitet og lang levetid.',
     link: 'https://nassau.dk/referencer/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow7.webp',
+    image: '/img/Slideshow7.webp',
     title: 'EN DRØM BLEV TIL VIRKELIGHED',
     text: 'Tidligere racerkører Nicolas Kiesa valgte en NASSAU Woodgrain garageport med panoramaruder og sprosser til sin nye garage. Portens design giver et eksklusivt udtryk, masser af naturligt lys og en finish, der matcher garagens arkitektur. En løsning der kombinerer funktionalitet, kvalitet og et visuelt udtryk, der passer perfekt til hans passion for biler.',
     link: 'https://nassau.dk/port/nicolas-kiesa-garage/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow8.webp',
+    image: '/img/Slideshow8.webp',
     title: 'UDSIGT & PERFEKT LYSINDFALD',
     text: 'Miccom DeSign & Creations valgte en NASSAU 9000G ledhejseport til deres kontor og værksted. Porten giver et moderne udtryk, masser af lys og en driftssikker løsning, der passer perfekt til en kreativ virksomhed med høje krav til både funktionalitet og æstetik.',
     link: 'https://nassau.dk/referencer/industriport-nassau-cases/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow9.webp',
+    image: '/img/Slideshow9.webp',
     title: 'FLEKSIBEL TILPASNING',
     text: 'Familie Jensen er nybyggere og havde brug for en garageport, der kunne passe præcist ind i arkitektens planer. Valget faldt på en NASSAU Classic port, som med sit tidløse design, stærke materialer og fleksible farvemuligheder blev den perfekte løsning til deres nye hjem.',
     link: 'https://nassau.dk/referencer/',
     linkText: 'Se casen her →'
   },
   {
-    image: '/img/slideshow10.webp',
+    image: '/img/Slideshow10.webp',
     title: 'STABIL KVALITET',
     text: 'NASSAU Panorama ledhejseporte er valgt til vaskehaller, hvor maksimalt lysindfald og høj driftssikkerhed er afgørende. De store glasfelter giver et lyst og åbent arbejdsmiljø, mens den robuste konstruktion sikrer stabil funktion – selv i fugtige og krævende omgivelser. En port skabt til både holdbarhed og synlighed.',
     link: 'https://nassau.dk/referencer/industriport-nassau-cases/',
@@ -300,7 +300,7 @@ onUnmounted(() => {
   cursor: pointer; } 
   
   .dot.active { 
-    background-color: var(--color-neutral-dark); }
+    background-color: #091922; }
 
 /* DESKTOP */
 @media (min-width: 900px) {

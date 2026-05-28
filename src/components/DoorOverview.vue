@@ -129,18 +129,44 @@ function toggle(i) {
 /* ============================
    DESKTOP VERSION
 ============================ */
+
 @media (min-width: 768px) {
-  @media (min-width: 768px) {
+
   .accordion {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
-    /* WICHTIG: verhindert, dass alle Karten gleich hoch werden */
     align-items: start;
     grid-auto-rows: auto;
   }
-}
+
+  /* ⭐ TEXT + BILD NEBENEINANDER */
+  .accordion-content.open {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  /* ⭐ TEXT */
+  .accordion-content.open p {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ⭐ BILD RECHTS */
+  .door-image {
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    margin-top: 0;
+
+    flex-shrink: 0;
+
+    border-radius: 6px;
+  }
 
 }
 </style>

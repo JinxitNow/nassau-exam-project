@@ -67,32 +67,32 @@ const selectedJob = ref(null)
     { 
       title: 'LEDHEJSEPORT', 
       text: 'En ledhejseport består af vandrette sektioner, der kører lodret op under loftet. Det er den mest almindelige porttype – stabil, pladsbesparende og velegnet til både private og erhverv.', 
-      image: '/images/ledhejseport.webp' 
+      image: '/img/ledhejseporte.png' 
     },
     { 
       title: 'GARAGEPORT', 
       text: 'En garageport er i praksis også en ledhejseport, bare til private hjem. Den giver nem adgang til garagen, god isolering og kan tilpasses i farver, vinduer og design.', 
-      image: '/images/garageport.webp' 
+      image: '/img/garageport.png' 
     },
     { 
       title: 'LAVENERGIPORT', 
       text: 'En lavenergipo​rt er en ekstra godt isoleret ledhejseport, der holder bedre på varmen. Den er ideel til opvarmede garager, værksteder eller bygninger hvor energiforbruget betyder noget.', 
-      image: '/images/lavenergipo.webp'
+      image: '/img/lavenergiport.jpg'
     },
     { 
       title: 'HURTIGPORT', 
       text: 'En hurtigport er en ledhejseport, der åbner og lukker meget hurtigt. Den bruges især i industri, hvor man vil undgå træk, holde på varmen og sikre hurtig trafik ind og ud.', 
-      image: '/images/hurtigport.webp'
+      image: '/img/hurtigport.jpg'
     },
     { 
       title: 'MIX/MIX INSU PORT', 
       text: 'En Mix/Mix Insu port er en robust ledhejseport, hvor man kombinerer materialer for at få både styrke og god isolering. Den bruges ofte i erhverv, hvor porten skal holde til meget.', 
-      image: '/images/mix-insu-port.webp'
+      image: '/img/mix.jpg'
     },
     { 
       title: 'PANORAMAPORT', 
       text: 'En panoramaport er en ledhejseport med store glasfelter, der giver masser af lys og et moderne udtryk. Perfekt til showrooms, værksteder eller steder hvor man vil kunne se ind og ud.', 
-      image: '/images/panoramaport.webp'
+      image: '/img/panorama.jpg'
     }
   ]" />
 </section>
