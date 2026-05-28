@@ -47,7 +47,6 @@ export const PORT_FLOWS = {
     {
       id: "vinduer",
       question: "Skal der være vindue(r) i porten?",
-      image: "/img/quiz-vinduer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -57,7 +56,6 @@ export const PORT_FLOWS = {
     {
       id: "doer",
       question: "Skal der dør i porten eller ved siden af porten?",
-      image: "/img/quiz-doer.svg",
       options: [
         {
           label: "Ja tak",
@@ -72,7 +70,6 @@ export const PORT_FLOWS = {
     {
       id: "smart",
       question: "Ønsker du smartudstyr (Ismartgate, SmartPhone connect Stick) til porten?",
-      image: "/img/quiz-smart.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -97,7 +94,6 @@ export const PORT_FLOWS = {
     {
       id: "plads",
       question: "Hvor meget plads har du til montering af porten?",
-      image: "/img/quiz-opmaaling.svg",
       options: [
         {
           label: "H<2,33 m: <br> Overhøjde min. 120 mm ved portbredde på 2-3 m. <br> eller overhøjde min. 140 mm ved en portbredde på 3-5 m. <br> Der skal være min. 90 mm sideplads. <br>Rumdybde skal være min. 3,305m ved garagehøjde mellem 1,83-2,125mm, eller min. 3,555 ved garagehøjde mellem 2,126-2,33 m.",
@@ -139,7 +135,6 @@ export const PORT_FLOWS = {
     {
       id: "vinduer",
       question: "Skal der være vindue(r) i porten?",
-      image: "/img/quiz-vinduer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -148,7 +143,6 @@ export const PORT_FLOWS = {
     {
       id: "doer",
       question: "Skal der dør i porten eller ved siden af porten?",
-      image: "/img/quiz-doer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -156,9 +150,7 @@ export const PORT_FLOWS = {
     },
     {
       id: "smart",
-      question:
-        "Ønsker du smartudstyr (Ismartgate, SmartPhone connect Stick) til porten?",
-        image: "/img/quiz-smart.svg",
+      question: "Ønsker du smartudstyr (Ismartgate, SmartPhone connect Stick) til porten?",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -205,7 +197,6 @@ export const PORT_FLOWS = {
     {
       id: "vinduer",
       question: "Skal der være vindue(r) i porten?",
-      image: "/img/quiz-vinduer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -214,7 +205,6 @@ export const PORT_FLOWS = {
     {
       id: "doer",
       question: "Skal der dør i porten eller ved siden af porten?",
-      image: "/img/quiz-doer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -239,7 +229,6 @@ export const PORT_FLOWS = {
     {
       id: "u_vaerdi",
       question: "Har u-værdien stor betydning?",
-      image: "/img/quiz-isolering.svg",
       options: [
         {
           label: "Ja",
@@ -276,7 +265,6 @@ export const PORT_FLOWS = {
     {
       id: "design",
       question: "Hvilket design foretrækker du?",
-      image: "/img/quiz-isolering.svg",
       options: [
         { label: "Standard port med lav u-værdi", value: "standard" },
         {
@@ -289,7 +277,6 @@ export const PORT_FLOWS = {
     {
       id: "vinduer",
       question: "Skal der være vinduer i porten?",
-      image: "/img/quiz-vinduer.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -298,7 +285,6 @@ export const PORT_FLOWS = {
     {
       id: "doer",
       question: "Skal der dør i porten eller ved siden af porten?",
-      image: "/img/quiz-doer.svg",
       options: [
         {
           label:
@@ -329,7 +315,6 @@ export const PORT_FLOWS = {
     {
       id: "plads",
       question: "Er der nok plads til montering af porten?",
-      image: "/img/quiz-Opmaaling.svg",
       options: [
         {
           label: "Ja, der er min. 50 cm i overhøjde",
@@ -407,7 +392,6 @@ export const PORT_FLOWS = {
     {
       id: "automation",
       question: "Ønsker du en automatiseringsløsning til porten?",
-      image: "/img/quiz-automatik.svg",
       options: [
         { label: "Ja tak", value: true },
         { label: "Nej tak", value: false }
@@ -442,38 +426,37 @@ export const RESULT_TEXTS = {
     "Vi kan desværre ikke montere en dør i en standard garageport. Prøv testen igen eller kontakt en port konsulent på tlf.nr. 6362 2346",
   garage_standard_nrx: "Vi vil anbefale en en standard NRX garageport.",
   garage_standard_nrt:
-    "Kontakt en portkonsulent på tlf.nr. 6362 2346– En NRT garageport må ikke monteres af privatpersoner.",
+    "Vi vil anbefale en NRT garageport, men den må ikke monteres af privatpersoner.Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:",
   garage_standard_opmaaling:
     "Bestil opmåling",
 
-
   garage_special_montage_nassau:
-    "Du kan vælge 9000F, 9000G eller lavenergiport 8000.",
+    "Vi vil anbefale en af følgende portmodeller: 9000F, 9000G eller lavenergiport 8000.",
   garage_special_montage_selv:
-    "Privatpersoner må ikke selv montere specialporte.",
+    "Privatpersoner må desværre ikke selv montere specialporte. Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:",
 
   ledhejseport_u_ja:
-    "U-værdien har stor betydning – vi anbefaler en lavenergiport.",
+    "Da U-værdien har stor betydning – vi anbefaler en lavenergiport.",
   ledhejseport_montage_nassau:
-    "Du kan vælge 9000F, 9000G, 9000M eller Panorama.",
+    "Vi vil anbefale en af følgende portmodeller:  9000F, 9000G, 9000M eller Panorama.",
   ledhejseport_montage_selv:
-    "Kun erfarne portmontører må opsætte porte.",
+    "Kun erfarne portmontører må opsætte porte. Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:",
 
   lavenergi_doer_ja:
-    "Dør er ikke muligt ved lavenergiporte – kontakt en portkonsulent på tlf.nr. 6362 2346.",
+    "Det er desværre ikke muligt at montere en dør i en lavenergiporte. Tag testen igen eller kontakt en portkonsulent på tlf.nr. 6362 2346.",
   lavenergi_plads_over3m:
     "Kontakt en portkonsulent – overhøjde over 3 m kræver specialløsning.",
   lavenergi_plads_under50:
-    "Min. overhøjde 50 cm kræves ved lavenergiporte.",
+    "Min. overhøjde 50 cm kræves ved lavenergiporte. Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:",
   lavenergi_montage_nassau:
-    "Du kan vælge 8000, 8000 Speed eller 9000MI.",
+    "Vi vil anbefale en af følgende portmodeller: 8000, 8000 Speed eller 9000MI.",
   lavenergi_montage_selv:
-    "Kun erfarne portmontører må opsætte porte.",
+    "Kun erfarne portmontører må opsætte porte. Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:",
 
   hurtig_doer_ja:
-    "Dør er ikke muligt ved hurtigporte – Prøv testen igen elle kontakt en portkonsulent på tlf.nr. 6362 2346.",
+    "Det er desværre ikke muligt at montere en dør i en hurtigport. Prøv testen igen elle kontakt en portkonsulent på tlf.nr. 6362 2346.",
   hurtig_montage_nassau:
-    "Du kan vælge 4000 Sprint Interior, 4000 Sprint Exterior, 8000 Speed eller Dynaco rulleport.",
+    "Vi vil anbefale en af følgende portmodeller: 4000 Sprint Interior, 4000 Sprint Exterior, 8000 Speed eller Dynaco rulleport.",
   hurtig_montage_selv:
-    "Kun erfarne portmontører må opsætte porte."
+    "Kun erfarne portmontører må opsætte porte. Kontakt derfor en portkonsulent på tlf.nr. 6362 2346 eller bestil en opringning her:"
 }

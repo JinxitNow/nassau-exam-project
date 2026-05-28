@@ -1,15 +1,29 @@
 <script setup>
-import { computed } from "vue"
+import { computed, ref } from "vue"
 import { useQuizStore } from "@/store/quizStore"
+
 import {
   FIRST_QUESTION,
   PORT_FLOWS,
   RESULT_TEXTS
 } from "@/data/portQuestions.js"
-import { ref } from "vue"
 
+import { db } from "@/firebase"
+import { ref as dbRef, push, set } from "firebase/database"
 
 const quiz = useQuizStore()
+
+const customerName = ref("")
+const customerPhone = ref("")
+
+const callbackResults = [
+  "garage_standard_opmaaling",
+  "garage_special_montage_selv",
+  "ledhejseport_montage_selv",
+  "lavenergi_plads_under50",
+  "lavenergi_montage_selv",
+  "hurtig_montage_selv"
+]
 
 const currentFlow = computed(() => {
   if (!quiz.portType) return []
@@ -30,7 +44,15 @@ const showResult = computed(() => {
 
 const resultText = computed(() => {
   if (!quiz.resultKey) return ""
-  return RESULT_TEXTS[quiz.resultKey] || "Tak for dine svar. Kontakt en portkonsulent for en konkret anbefaling."
+
+  return (
+    RESULT_TEXTS[quiz.resultKey] ||
+    "Tak for dine svar. Kontakt en portkonsulent for en konkret anbefaling."
+  )
+})
+
+const showCallbackForm = computed(() => {
+  return callbackResults.includes(quiz.resultKey)
 })
 
 function selectAnswer(option) {
@@ -51,22 +73,39 @@ function selectAnswer(option) {
 
   quiz.nextStep()
 }
-const customerName = ref("")
-const customerPhone = ref("")
 
-function sendOpmaaling() {
+async function sendContactRequest() {
   if (!customerName.value || !customerPhone.value) {
-    alert("Udfyld venligst både navn og telefonnummer.")
+    alert("Udfyld venligst navn og telefonnummer.")
     return
   }
 
-  // Her kan du senere sende til Firebase
-  console.log("Opmåling sendt:", {
-    navn: customerName.value,
-    telefon: customerPhone.value
-  })
+  try {
+    const leadsRef = dbRef(db, "leads")
+    const newLeadRef = push(leadsRef)
 
-  alert("Tak! Vi kontakter dig snarest.")
+    await set(newLeadRef, {
+      navn: customerName.value,
+      telefon: customerPhone.value,
+
+      porttype: quiz.portType,
+      resultat: quiz.resultKey,
+      anbefaling: resultText.value,
+
+      svar: quiz.answers,
+
+      createdAt: Date.now()
+    })
+
+    alert("Tak! Vi kontakter dig snarest.")
+
+    customerName.value = ""
+    customerPhone.value = ""
+
+  } catch (error) {
+    console.error("RTDB FEJL:", error)
+    alert(error.message)
+  }
 }
 
 function goBack() {
@@ -77,6 +116,12 @@ function goBack() {
 
   quiz.clearAnswer(previousQuestion.id)
   quiz.prevStep()
+}
+
+function resetQuiz() {
+  quiz.reset()
+  customerName.value = ""
+  customerPhone.value = ""
 }
 </script>
 
@@ -94,11 +139,10 @@ function goBack() {
             :key="opt.label"
             class="option-btn"
             @click="selectAnswer(opt)"
-             v-html="opt.label"
+            v-html="opt.label"
           ></button>
         </div>
 
-        <!-- TILBAGE-LINK -->
         <div
           v-if="quiz.portType && quiz.currentStep > 0"
           class="back-link"
@@ -110,7 +154,7 @@ function goBack() {
 
       <!-- RESULTAT -->
       <div v-else class="result-box">
-        <h2>Din anbefaling</h2>
+        <h2>RESULTAT</h2>
 
         <p v-if="resultText">
           {{ resultText }}
@@ -120,30 +164,32 @@ function goBack() {
           Tak for dine svar. Kontakt en portkonsulent for en konkret anbefaling.
         </p>
 
-       <!--OPMÅLINGSFORMULAR--> 
-         <div v-if="quiz.resultKey === 'garage_standard_opmaaling'" class="opmaaling-form">
-            <p>Jeg vil gerne bestille en opmåling. Kontakt mig venligst.</p>
+        <!-- KONTAKTFORMULAR -->
+        <div v-if="showCallbackForm" class="opmaaling-form">
+          <p>
+            Udfyld formularen og bliv kontaktet af en portkonsulent inden for 3 hverdage.
+          </p>
 
-            <input
-              type="text"
-              v-model="customerName"
-              placeholder="Dit navn"
-              class="input-field"
-            />
+          <input
+            type="text"
+            v-model="customerName"
+            placeholder="Dit navn"
+            class="input-field"
+          />
 
-            <input
-              type="tel"
-              v-model="customerPhone"
-              placeholder="Dit telefonnummer"
-              class="input-field"
-            />
+          <input
+            type="tel"
+            v-model="customerPhone"
+            placeholder="Dit telefonnummer"
+            class="input-field"
+          />
 
-            <button class="send-btn" @click="sendOpmaaling">
-              Send forespørgsel
-            </button>
-          </div>
+          <button class="send-btn" @click="sendContactRequest">
+            Send forespørgsel
+          </button>
+        </div>
 
-        <button class="retry-btn" @click="quiz.reset()">
+        <button class="retry-btn" @click="resetQuiz">
           Prøv igen
         </button>
       </div>
@@ -153,7 +199,6 @@ function goBack() {
 </template>
 
 <style scoped>
-
 .quiz-start {
   padding: 2rem;
 }
@@ -201,16 +246,10 @@ function goBack() {
 .back-link {
   margin-top: 0.5rem;
   color: var(--color-primary);
-  text-decoration: none;
   cursor: pointer;
   width: fit-content;
 }
 
-.back-link:hover {
-  text-decoration: underline;
-}
-
-/* og så videre… */
 .opmaaling-form {
   margin-top: 1rem;
   display: flex;
@@ -222,17 +261,14 @@ function goBack() {
   padding: 0.8rem 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
 }
 
 .send-btn {
   padding: 0.8rem 1.2rem;
   background: var(--color-primary);
-  color: var(--color-white);
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 0.5rem;
 }
-
 </style>
