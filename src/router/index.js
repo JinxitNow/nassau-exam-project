@@ -8,8 +8,6 @@ import AdminDashboardView from "@/views/AdminDashboardView.vue";
 import AdminEmployeesView from "@/views/AdminEmployeesView.vue";
 import AdminLeadsView from "@/views/AdminLeadsView.vue";
 import StatisticsView from "@/views/StatisticsView.vue";
-import TutorialsView from "@/views/TutorialsView.vue";
-
 const routes = [
   {
     path: "/",
@@ -41,11 +39,6 @@ const routes = [
     path: "/statistik",
     name: "Statistics",
     component: StatisticsView,
-  },
-  {
-    path: "/tutorials",
-    name: "Tutorials",
-    component: TutorialsView,
   },
 ];
 

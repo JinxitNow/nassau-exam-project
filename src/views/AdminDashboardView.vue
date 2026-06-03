@@ -8,7 +8,6 @@ function goTo(path) {
   router.push(path);
 }
 
-// Tilføj en klasse til <body> når dashboardet er aktivt
 onMounted(() => {
   document.body.classList.add("dashboard-active");
 });
@@ -18,7 +17,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  
   <section class="dashboard-page">
     <div class="dashboard-header">
       <LoginShortcuts />
@@ -28,52 +26,46 @@ onUnmounted(() => {
       </div>
     </div>
 
- <div class="dashboard-grid">
-  <div class="column">
-    <h3>Medarbejder</h3>
-    <p>Tilføj og rediger medarbejdere</p>
-    <button class="primary-btn" @click="goTo('/admin-employees')">Administrer medarbejder</button>
-  </div>
+    <div class="dashboard-grid">
+      <div class="column">
+        <h3>Medarbejder</h3>
+        <p>Tilføj og rediger medarbejdere</p>
+        <button class="primary-btn" @click="goTo('/admin-employees')">
+          Administrer medarbejder
+        </button>
+      </div>
 
-  <div class="column">
-    <h3>Henvendelser</h3>
-    <p>Hendvendelser af kunder</p>
-    <button class="primary-btn" @click="goTo('/admin-leads')">Gå til Henvendelser</button>
-  </div>
+      <div class="column">
+        <h3>Henvendelser</h3>
+        <p>Henvendelser af kunder</p>
+        <button class="primary-btn" @click="goTo('/admin-leads')">
+          Gå til Henvendelser
+        </button>
+      </div>
 
-  <div class="column">
-    <h3>Statistikker</h3>
-    <p>Se på statistikker</p>
-    <!-- Denne route findes ikke endnu -->
-    <button class="primary-btn" @click="goTo('/statistik')">Gå til Statistikker</button>
-  </div>
-
-  <div class="column">
-    <h3>Produktmanual</h3>
-    <p>Se hvordan Forside og admin fungerer</p>
-    <button class="primary-btn" @click="goTo('/tutorials')">Gå til Manual</button>
-  </div>
-</div>
-
+      <div class="column">
+        <h3>Statistikker</h3>
+        <p>Se på statistikker</p>
+        <button class="primary-btn" @click="goTo('/statistik')">
+          Gå til Statistikker
+        </button>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
-/* Body-Padding im Dashboard deaktivieren */
 body.dashboard-active {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-/* Hauptbereich Dashboard */
 .dashboard-page {
-  margin-left: 240px;          /* plads til sidebar */
+  margin-left: 240px;
   padding: 5rem;
-  background-color: var(--color-white);   /* grå baggrund fylder hele bredden */
+  background-color: var(--color-white);
 }
 
-
-/* Header */
 .dashboard-header {
   display: flex;
   align-items: flex-start;
@@ -83,7 +75,7 @@ body.dashboard-active {
 
 .dashboard-heading h2 {
   font-size: 1.8rem;
-  color: var(--color-primary); 
+  color: var(--color-primary);
   margin: 0;
 }
 
@@ -93,15 +85,14 @@ body.dashboard-active {
   margin-top: 0.5rem;
 }
 
-/* Grid */
+/* 3 kolonner i stedet for 4 */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 4rem;
 }
 
-/* Karten / Boxen */
 .column {
   background-color: var(--color-primary);
   border-radius: 8px;
@@ -126,7 +117,6 @@ body.dashboard-active {
   color: var(--color-white);
 }
 
-/* Buttons */
 .primary-btn {
   padding: 0.7rem 1.5rem;
   background-color: var(--color-cta-red);
@@ -138,14 +128,13 @@ body.dashboard-active {
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.1s ease;
   align-self: flex-start;
-  min-width: 180px;
+  min-width: 250px;
 }
 
 .primary-btn:hover {
-   transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-/* Responsiv */
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -165,8 +154,7 @@ body.dashboard-active {
 @media (max-width: 768px) {
   .dashboard-page {
     margin-left: 0;
-    padding: 1rem 1.5rem; /* Mobile: wie globales Body-Padding */
+    padding: 1rem 1.5rem;
   }
 }
-
 </style>

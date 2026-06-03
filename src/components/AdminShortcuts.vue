@@ -36,12 +36,6 @@ export default {
             Statistikker
           </RouterLink>
         </li>
-        <li>
-          <RouterLink to="/tutorials">
-            <img src="/icons/manual.svg" alt="Produktmanual" class="icon" />
-            Produktmanual
-          </RouterLink>
-        </li>
       </ul>
     </nav>
   </aside>
@@ -60,7 +54,7 @@ export default {
   padding-top: 3rem;
   padding-right: 1rem;
   z-index: 1000;
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 16px 0px 0;
 }
 
 /* Mobil: skjul sidebar helt */
