@@ -123,6 +123,7 @@
 
 .footer-section li {
   margin: 4px 0;
+  height: 20px;
 }
 
 .footer-section ul {
@@ -208,7 +209,7 @@
  .footer ul li {
   font-size: 13px; /* same here */
    margin-bottom: 0.5rem; /* tilpasset sådan at har samme udtryk som kontakt delen */
-}
+   }
 
 .footer h1 {
   font-size: 30px; /* har også tilpasset den sådan at der igen er size difference som før vi skiftede h2s størrelse */
@@ -252,19 +253,21 @@
   .icons a:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
+
   }
 
   .icons a:nth-child(4) {
     grid-column: 2;
     grid-row: 2;
-  }
+      }
 
   .icons a:nth-child(5) {
     grid-column: 3;
     grid-row: 2;
   }
 
+  }
 }
-}
+
 
 </style>
