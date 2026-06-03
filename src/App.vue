@@ -30,16 +30,18 @@ onMounted(() => {
 
 <template>
   <div id="app">
-    <!-- Das neue Modal -->
     <ExternalLinkWarning ref="warning" />
 
     <Header />
 
-    <!-- Hier erscheinen HomeView, BirthdayCampaignView usw. -->
-    <router-view />
+    <main>
+      <!-- Her kommer HomeView, About, osv. -->
+      <router-view />
+    </main>
+
     <CookieBanner />
     <Footer />
     <BackToTop />
-    
   </div>
 </template>
+
