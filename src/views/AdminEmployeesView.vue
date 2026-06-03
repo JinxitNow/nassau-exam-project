@@ -245,33 +245,33 @@ onMounted(loadEmployees)
             </div>
           </div>
 
-          <!-- Department -->
-          <div class="row">
-            <div class="input-group">
-              <label>Afdeling</label>
-              <input v-model="department" />
-            </div>
-          </div>
+          <!-- Afdeling + Kundetype -->
+<div class="row">
 
-          <!-- Kundetype -->
-          <div class="row">
-            <div class="input-group">
-              <label>Kundetype</label>
+  <div class="input-group">
+    <label>Afdeling</label>
+    <input v-model="department" />
+  </div>
 
-              <div class="radio-group">
-                <label>
-                  <input type="radio" value="erhverv" v-model="customerType" />
-                  Erhverv
-                </label>
+  <div class="input-group">
+    <label>Kundetype</label>
 
-                <label>
-                  <input type="radio" value="privat" v-model="customerType" />
-                  Privat
-                </label>
-              </div>
+    <div class="radio-group">
+      <label>
+        <input type="radio" value="erhverv" v-model="customerType" />
+        Erhverv
+      </label>
 
-              <p v-if="errors.customerType" class="error-msg">{{ errors.customerType }}</p>
-            </div>
+      <label>
+        <input type="radio" value="privat" v-model="customerType" />
+        Privat
+      </label>
+    </div>
+
+    <p v-if="errors.customerType" class="error-msg">
+      {{ errors.customerType }}
+    </p>
+  </div>
           </div>
 
           <!-- ⭐ PIN-VALG -->
@@ -405,7 +405,7 @@ onMounted(loadEmployees)
 
 /* Labels */
 .input-group label {
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 4px;
   color: var(--color-white);
 }
@@ -435,22 +435,29 @@ input {
   font-size: 0.85rem; /* ⭐ mindre */
 }
 
-/* ⭐ Checkbox-liste – grid layout */
+/* ⭐ Checkbox-liste – 2 kolonner */
 .checkbox-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 0.6rem 1rem;
+grid-template-columns: repeat(3, 1fr);  gap: 0.6rem 1rem;
   margin-top: 0.4rem;
 }
 
-/* ⭐ Checkbox-item – mindre tekst */
+/* ⭐ Checkbox-item */
 .checkbox-item {
   display: flex;
   align-items: center;
   gap: 6px;
   cursor: pointer;
   color: var(--color-white);
-  font-size: 0.85rem; /* ⭐ mindre */
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  .checkbox-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Knapper */
@@ -470,8 +477,14 @@ input {
 }
 
 .primary-btn {
-  background-color: var(--color-primary);
+  background-color: var(--color-cta-red);
   color: var(--color-white);
+  min-width: 180px;
+  padding: 0.9rem 1.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .secondary-btn {
@@ -539,43 +552,56 @@ input {
   box-sizing: border-box;
 }
 
-/* ⭐ Medarbejder-bokse */
+/* ⭐ Medarbejder-cards – WHITE STYLE */
 .member-box {
-  background: var(--color-primary);
-  padding: 1.8rem;
+  background: #ffffff;
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e6e6e6;
+
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  text-align: left;
-  color: var(--color-white);
-}
+  gap: 0.6rem;
 
-/* Empty state */
-.member-box.empty {
-  background: var(--color-primary);
-  box-shadow: none;
-  text-align: center;
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 /* Tekst */
-.member-box p,
 .member-box ul,
 .member-box li {
   margin: 0;
-  line-height: 1.5;
-  color: var(--color-white);
+  line-height: 1.3;
+  color: var(--color-black);
+  font-size: 0.9rem;
 }
 
-/* Handling-knapper */
+/* Navn fylder hele bredden */
+.member-box p strong {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+}
+
+.member-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-black);
+  line-height: 1.3;
+}
+
+/* Liste (pins) fylder også hele bredden */
+.member-box ul {
+  grid-column: 1 / -1;
+  padding-left: 1rem;
+}
+
+/* Actions også fuld bredde */
 .actions {
+  grid-column: 1 / -1;
   display: flex;
   justify-content: flex-end;
-  gap: 0.8rem;
-  margin-top: 0.6rem;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
 }
 
 .actions button {
@@ -636,21 +662,27 @@ input {
 
 /* ⭐ Header – TITEL & SUBTITLE BLIVER SORT */
 .members-header {
+  
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
+.members-heading {
+  margin-top: 3rem;
+}
+
 .members-heading h2 {
   margin: 0;
-  color: var(--color-black); /* ⭐ sort */
+  color: var(--color-primary); /* ⭐ sort */
 }
 
 .members-subtitle {
   margin-top: 0.5rem;
   color: var(--color-black); /* ⭐ sort */
 }
+
 
 /* Responsiv */
 @media (max-width: 1024px) {
