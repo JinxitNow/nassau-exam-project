@@ -1,5 +1,15 @@
 <script setup>
-defineProps(["pin"]);
+const props = defineProps({
+  pin: {
+    type: Object,
+    required: true
+  }
+})
+
+// Genererer et pænt alt-tag ud fra pin.id
+const altText = `Kortmarkør for område: ${props.pin.id
+  .replace("pin_", "")
+  .replaceAll("_", " ")}`;
 </script>
 
 <template>
@@ -7,7 +17,7 @@ defineProps(["pin"]);
     class="pin"
     :src="'/icons/pin-red.svg'"
     :style="{ left: pin.x + '%', top: pin.y + '%' }"
-    alt="pin"
+    :alt="altText"
   />
 </template>
 
@@ -16,7 +26,7 @@ defineProps(["pin"]);
   position: absolute;
   transform: translate(-50%, -100%);
   cursor: pointer;
-  width: 18px;   /* juster størrelse */
+  width: 18px;
   height: auto;
 }
 </style>

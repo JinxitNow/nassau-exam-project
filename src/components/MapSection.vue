@@ -8,7 +8,7 @@ const employees = ref([]);
 const pins = ref([]);
 
 const zipcode = ref("");
-const selectedJob = ref("all");   // Default: Alle
+const selectedJob = ref("all");
 const showJobDropdown = ref(false);
 
 const emit = defineEmits(["pin-selected", "zipcode-selected", "job-selected"]);
@@ -43,6 +43,11 @@ function chooseJob(job) {
   selectedJob.value = job;
   emit("job-selected", job);
   showJobDropdown.value = false;
+}
+
+/* ⭐ GENERERER ALT-TAG AUTOMATISK */
+function formatAlt(id) {
+  return "Kortmarkør for område: " + id.replace("pin_", "").replaceAll("_", " ");
 }
 </script>
 
@@ -81,12 +86,13 @@ function chooseJob(job) {
 
     <!-- MAP BOX -->
     <div class="map-box">
-      <img src="/img/map.svg" class="map-image" />
+      <img src="/img/map.svg" class="map-image" alt="interaktiv kort"/>
 
       <EmployeePin
         v-for="pin in pins"
         :key="pin.id"
         :pin="pin"
+        :alt="formatAlt(pin.id)"   
         @click.stop="selectPin(pin.id)"
       />
     </div>
@@ -111,7 +117,6 @@ function chooseJob(job) {
   position: relative;
   z-index: 20;
 }
-
 
 .zip-wrapper {
   display: flex;
@@ -196,13 +201,12 @@ function chooseJob(job) {
 .map-box {
   width: 100%;
   max-width: 650px;
-  border: 1px solid var(--color-secondary-teal); /* statt outline */
+  border: 1px solid var(--color-secondary-teal);
   margin-left: auto;
   margin-right: 0;
   position: relative;
   overflow: hidden;
 }
-
 
 .map-image {
   width: 100%;
