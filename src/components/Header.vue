@@ -112,11 +112,15 @@ const menuOpen = ref(false)
       </div>
 
       <!-- BURGERMENU -->
-      <button class="burger" @click="menuOpen = !menuOpen">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button
+          class="burger"
+          @click="menuOpen = !menuOpen"
+          aria-label="Åbn menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+    </button>
 
     </div>
   </header>

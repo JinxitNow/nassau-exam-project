@@ -106,7 +106,7 @@ function playVideo(event) {
 
     <!-- BUTTON -->
     <div class="video-btn-wrapper">
-      <a class="cta video-btn" href="https://vimeo.com/nassau">SE FLERE AF VORES VIDEOS</a>
+      <a class="cta video-btn" href="https://vimeo.com/nassau">SE FLERE AF VORES VIDEOER</a>
     </div>
 
   </section>
