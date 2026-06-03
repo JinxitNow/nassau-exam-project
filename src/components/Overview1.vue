@@ -17,22 +17,22 @@ const activeCategory = ref('erhverv')
     
     <div class="card">
       <img src="/img/category1.jpg.webp" alt="farveprøver">
-      <h3>FARVEPRØVER</h3>
+      <h2>FARVEPRØVER</h2>
     </div>
 
     <div class="card">
       <img src="/img/category2.webp" alt="Kataloger">
-      <h3>KATALOGER</h3>
+      <h2>KATALOGER</h2>
     </div>
 
     <div class="card">
       <img src="/img/category3.webp" alt="Galleri">
-      <h3>GALLERI</h3>
+      <h2>GALLERI</h2>
     </div>
 
     <div class="card">
       <img src="/img/category4.webp" alt="FAQ">
-      <h3>FAQ</h3>
+      <h2>FAQ</h2>
     </div>
    </section>
 
@@ -41,22 +41,22 @@ const activeCategory = ref('erhverv')
 
     <div class="card">
       <img src="/img/Branche.webp" alt="Branche">
-      <h3>BRANCHE</h3>
+      <h2>BRANCHE</h2>
     </div>
 
     <div class="card">
       <img src="/img/Kataloger.webp" alt="Kataloger">
-      <h3>KATALOGER</h3>
+      <h2>KATALOGER</h2>
     </div>
 
     <div class="card">
       <img src="/img/Galleri.webp" alt="Galleri">
-      <h3>GALLERI</h3>
+      <h2>GALLERI</h2>
     </div>
 
     <div class="card">
       <img src="/img/category4.webp" alt="FAQ">
-      <h3>FAQ</h3>
+      <h2>FAQ</h2>
     </div>
    </section>
 </template>
@@ -147,10 +147,11 @@ const activeCategory = ref('erhverv')
 }
 
 /* Teksten */
-.card h3 {
+.card h2 {
   margin-top: 10px;
   background: none;
   color: var(--color-black);
+  font-size: 12px;
 }
 
 /* TABLET + DESKTOP */
@@ -159,6 +160,10 @@ const activeCategory = ref('erhverv')
     grid-template-columns: repeat(4, 312px);
     gap: 60px
   }
+
+  .card h2 {
+  font-size: 16px;
+}
 
   .kategori-grid-erhverv {
     grid-template-columns: repeat(4, 312px);
@@ -181,7 +186,6 @@ const activeCategory = ref('erhverv')
     width: 312px;
     background: var(--color-white);
     text-align: center;
-    padding-bottom: 10px;
   }
 }
 </style>
